@@ -1,4 +1,4 @@
-# aladin
+# aladdin
 
 ## Project setup
 ```
