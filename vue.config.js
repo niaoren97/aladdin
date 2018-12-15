@@ -2,14 +2,16 @@ const path = require('path')
 
 module.exports = {
   devServer: {
-    '^api/': {
-      target: 'http://localhost:1337/api',
+    proxy: {
+      '^api/': {
+        target: 'http://localhost:1337/api',
+      },
     },
   },
-  configWebpack: {
+  configureWebpack: {
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src/components'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
   },
