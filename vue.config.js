@@ -1,8 +1,9 @@
 const path = require('path')
 const os = require('os')
 
-const ip = os.networkInterfaces().en1.find((face) => face.family === 'IPv4')
-  .address
+const faces = os.networkInterfaces()
+const t = faces.en1 || faces['以太网']
+const ip = t.find((face) => face.family === 'IPv4').address
 module.exports = {
   devServer: {
     proxy: {
