@@ -6,7 +6,7 @@
 // import TabBarItem from '@/components/TabBarItem.vue'
 
 export default {
-  props: ['class', 'style', ''] 
+  props: ['class', 'style'] 
 }
 </script>
 
