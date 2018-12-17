@@ -1,13 +1,20 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <router-link to="/cart">Cart</router-link>
-    </div>
-    <router-view />
-  </div>
+<template lang="pug">
+#app
+  navigator
+    router-view
+  
 </template>
+<script>
+import Navigator from '@/components/Navigator.vue'
+import NavigationStack from '@/components/NavigationStack.vue'
+
+export default {
+  components: {
+    Navigator,
+    NavigationStack,
+  },
+}
+</script>
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
@@ -18,9 +25,11 @@
 
 #nav
   padding 30px
+
   a
     font-weight bold
     color #2c3e50
+
     &.router-link-exact-active
       color #42b983
 </style>
