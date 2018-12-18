@@ -1,12 +1,25 @@
 // reset
-*
+@import './vars.styl'
+
+*, *:before, *:after
   user-select: none
+  box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+body
+  font-size 14px
 a
   text-decoration: none
   color inherit
 .page
   background-color #f2f2f2
 
+.single-page
+  min-height 100vh
+  background-color #F2F2F2
+  padding-top 1rem
+  position relative
+  z-index $stack-level
 .d-flex
   display flex
   justify-content center
@@ -15,6 +28,9 @@ a
   justify-content: space-around
 .justify-content-between
   justify-content: space-between
+
+.text-center
+  text-align center
 
 .p0
   padding 0

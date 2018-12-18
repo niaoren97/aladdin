@@ -1,8 +1,12 @@
 <template lang="pug">
 div  
   slot(name="bar")
-  slot
+  .content
+    slot
 </template>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.content
+  padding-bottom 100px
+</style>
 

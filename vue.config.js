@@ -19,7 +19,7 @@ module.exports = {
     //   rules: [
     //     {
     //       test: /\.(png|jpe?g)$/,
-    //       use: 'file-loader',
+    //       use: 'url-loader',
     //     },
     //   ],
     // },

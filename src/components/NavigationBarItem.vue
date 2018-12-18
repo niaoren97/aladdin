@@ -1,4 +1,4 @@
 <template lang="pug">
-.navigation-bar-item  
+.navigation-bar-item(@click="$emit('click')")  
   slot
 </template>

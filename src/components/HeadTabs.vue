@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+div.head-tabs
   head-tab-bar
     slot(name="tabs")
   slot(name="content")
@@ -16,6 +16,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.head-tabs
+  // z-index: 10000
+  width 100vw
 </style>
-
-

@@ -12,6 +12,10 @@ export default {
 <style lang="stylus" scoped>
 .head-tab-bar
   display flex
+  top 1rem
+  position sticky
+  background #fff
+  z-index 9999
   border-bottom: solid 1px orange
   justify-content space-around
   align-items center

@@ -1,5 +1,8 @@
 <template lang="pug">
-title-bar
+head-bar
+  template(slot="center")
+    span(v-if="title") {{title}}
+    slot(v-else, name="center")
   template(slot="left")
     //- img(:src="require('@/assets/tabs')", alt="", @click="back")
     //- TODO: use a back image

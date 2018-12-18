@@ -1,3 +1,10 @@
 <template lang="pug">
-h1 home food section  
+div
+  h1 home food section  
 </template>
+<script>
+export default {
+  name: 'HomeFood'
+}
+</script>
+

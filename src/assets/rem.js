@@ -5,7 +5,7 @@
     resizeEvent = 'orientationchange' in window ? 'orientationchange' : 'resize'
   var recalCulate = function() {
     var width = docEle.clientWidth
-    docEle.style.fontSize = 10 * (width / 720) + 'px'
+    docEle.style.fontSize = 100 * (width / 720) + 'px'
   }
 
   recalCulate()

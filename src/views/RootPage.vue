@@ -7,8 +7,10 @@ navigator
           //- tab-bar-item(v-for="tab,index in tabs", :key="tab", :to="tab",
           //-   :color="color", :activeColor="activeColor", @click="switchTab(index)",
           //-   :active="tab === i")
+          //- tab-bar-item(to="/home", label="首页", :color="color", :activeColor="activeColor",@click="switchTab(0)",
+          //-   :active="tab === 0", :icon="require('../assets/tabs/home.png')", :activeIcon="require('../assets/tabs/active-home.png')")
           tab-bar-item(to="/home", label="首页", :color="color", :activeColor="activeColor",@click="switchTab(0)",
-            :active="tab === 0", :icon="require('../assets/tabs/home.png')", :activeIcon="require('../assets/tabs/active-home.png')")
+            :active="tab === 0", :icon="('/static/tabs/home.png')", :activeIcon="('/static/tabs/active-home.png')")
           tab-bar-item(to="/category",label="分类", :color="color", :activeColor="activeColor",@click="switchTab(1)",
             :active="tab === 1", :icon="require('../assets/tabs/collection.png')", :activeIcon="require('../assets/tabs/active-collection.png')")
           tab-bar-item(to="/stock", :color="color", :activeColor="activeColor",@click="switchTab(2)",

@@ -19,4 +19,7 @@ class Coupon {
   }
 }
 
-export { Address, Coupon }
+function fakeImage(w, h) {
+  return `http://dummyimage.com/${w}x${h}`
+}
+export { Address, Coupon, fakeImage }

@@ -4,9 +4,9 @@ div.home
     template(slot="left")
       span aladding
     template(slot="center")
-      input.search(v-model="keyword")
+      input.search(@click="goSearch",placeholder="输入商品关键词")
     template(slot="right")
-      img(src="", @click="message")
+      img(src="../assets/tabs/message.png", @click="message")
   head-tabs
     template(slot="tabs")
       head-tab-bar-item(@click="switchTab(0)", :active="tab===0")
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     message() {
-      this.$navigator.push()
+      this.$navigator.push('message-page', {})
     },
     switchTab(t) {
       this.tab = t
@@ -58,6 +58,22 @@ export default {
         this.tab
       ]
     },
+    goSearch() {
+      console.log('click search');
+      
+      this.$navigator.push('SearchPage', {}, false)
+    }
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.search
+  width 100%
+  height 0.5rem
+  border none
+  color red
+  border-radius 10px
+  outline none
+  text-align center
+</style>

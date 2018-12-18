@@ -16,7 +16,7 @@ export default Vue.extend({
 <style lang="stylus" scoped>
 .page
   height 100vh
-  padding-top 64px
+  // padding-top 64px
   position absolute
   top 0
   left 0
