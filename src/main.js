@@ -8,7 +8,7 @@ import './registerServiceWorker'
 import navigator from './plugins/navigator'
 import registrar from './plugins/base_registrator'
 // import '@/assets/flexible.min.js'
-import  '@/assets/rem.js'
+import '@/assets/rem.js'
 import '@/style/style.styl'
 
 Vue.config.productionTip = false
