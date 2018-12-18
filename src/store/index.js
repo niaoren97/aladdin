@@ -1,8 +1,9 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import CartModule from './cart'
-import SearchModule from './search'
-import UserModule from './user'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import CartModule from './cart';
+import SearchModule from './search';
+import UserModule from './user';
+
 
 Vue.use(Vuex)
 
