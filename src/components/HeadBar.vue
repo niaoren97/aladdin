@@ -23,14 +23,12 @@
   z-index 10000
   .left
     flex 1
-    padding 0.2rem
+    padding-left 0.2rem
     text-align left
-    align-self flex-start
     justify-content flex-start
   .right
     flex 1
     display flex
-    align-self flex-end
-    padding 0.2rem
+    padding-right 0.2rem
     justify-content flex-end
 </style>

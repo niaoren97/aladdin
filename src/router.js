@@ -5,7 +5,7 @@ import HomePage from './views/HomePage.vue'
 import CategoryPage from './views/CategoryPage.vue'
 import StockPage from './views/StockPage.vue'
 import CartPage from './views/CartPage.vue'
-import UserCenter from './views/UserCenter.vue'
+import UserCenter from './views/user/UserCenter'
 
 Vue.use(Router)
 

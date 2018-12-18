@@ -14,6 +14,9 @@ li
   margin 0
   padding 0.4rem 0.2rem
   border-bottom solid 1px lightgray
+  display flex
+  align-items center
+  justify-content space-around
   // box-shadow 0 1px lightgray
   &:last-child
     border-bottom none

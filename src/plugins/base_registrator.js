@@ -11,7 +11,7 @@ export default {
       false,
       // The regular expression used to match base component filenames
       // /Base[A-Z]\w+\.(vue|js)$/
-      /(NavigationBar|HeadBar|List|ListItem|NavigationBarItem)\.vue$/
+      /(NavigationBar|HeadBar|TitleBar|List|ListItem|NavigationBarItem|SectionBlock)\.vue$/
     )
 
     requireComponent.keys().forEach((fileName) => {

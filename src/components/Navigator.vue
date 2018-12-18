@@ -25,6 +25,16 @@ import SecretPage from '@/views/SecretPage.vue'
 import SecretDetail from '@/views/SecretDetail.vue'
 import SearchPage from '@/views/SearchPage.vue'
 import SearchResultPage from '@/views/SearchResultPage.vue'
+
+// user-center
+import UserCenter from '@/views/user/UserCenter'
+import ClientService from '@/views/user/UserCenter'
+import UserInfo from '@/views/user/info/UserInfo'
+import AvatarUpdate from '@/views/user/info/AvatarUpdate'
+import InvitationUpdate from '@/views/user/info/InvitationUpdate'
+import NicknameUpdate from '@/views/user/info/NicknameUpdate'
+import PhoneUpdate from '@/views/user/info/PhoneUpdate'
+import QRCodeUpdate from '@/views/user/info/QRCodeUpdate'
 // The whole app should only has one navigator instance
 
 const Navigator = Vue.extend({
@@ -46,6 +56,16 @@ const Navigator = Vue.extend({
     SecretDetail,
     SearchPage,
     SearchResultPage,
+
+    UserCenter,
+    ClientService,
+    UserInfo,
+    AvatarUpdate,
+    InvitationUpdate,
+    NicknameUpdate,
+    PhoneUpdate,
+    QRCodeUpdate,
+
   },
   created() {
     Navigator.instance = this
