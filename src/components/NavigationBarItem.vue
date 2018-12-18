@@ -1,3 +1,4 @@
 <template lang="pug">
-.h2 category page
+.navigation-bar-item  
+  slot
 </template>

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import Vue from 'Vue'
+import Vue from 'vue'
 export default Vue.extend({
   name: 'Cart', 
   data() {

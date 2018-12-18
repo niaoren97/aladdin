@@ -1,3 +1,3 @@
 <template lang="pug">
-.h2 category page
+h2 baby home  
 </template>

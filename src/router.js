@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import RootPage from './views/RootPage.vue'
 import HomePage from './views/HomePage.vue'
+import CategoryPage from './views/CategoryPage.vue'
+import StockPage from './views/StockPage.vue'
+import CartPage from './views/CartPage.vue'
+import UserCenter from './views/UserCenter.vue'
 
 Vue.use(Router)
 
@@ -10,8 +15,14 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomePage,
+      component: RootPage,
+      children: [
+        { path: 'home', component: HomePage },
+        { path: 'category', component: CategoryPage },
+        { path: 'stock', component: StockPage },
+        { path: 'cart', component: CartPage },
+        { path: 'user', component: UserCenter },
+      ],
     },
     // {
     //   path: '/about',

@@ -1,12 +1,12 @@
 <template lang="pug">
-.tabbar(:class="class", :style="style")
+.tabbar
   slot
 </template>
 <script>
 // import TabBarItem from '@/components/TabBarItem.vue'
 
 export default {
-  props: ['class', 'style'] 
+  props: [],
 }
 </script>
 
@@ -21,4 +21,5 @@ export default {
   align-items center
   justify-content space-around
   background-color #fff
+  box-shadow 0 0px 3px rgba(30,30,30,0.2)
 </style>
