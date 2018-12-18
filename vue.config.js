@@ -3,7 +3,8 @@ const os = require('os')
 
 const faces = os.networkInterfaces()
 const t = faces.en1 || faces['以太网']
-const ip = t.find((face) => face.family === 'IPv4').address
+let ip = 'localhost' 
+if (t) ip = t.find((face) => face.family === 'IPv4').address
 module.exports = {
   devServer: {
     proxy: {

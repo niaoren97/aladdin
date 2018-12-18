@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-import '@/assets/rem.js'
+import '@/assets/reset.css'
+import '@/assets/flexible.min.js'
+import './assets/cart.css'
 
 Vue.config.productionTip = false
 

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-<<<<<<< HEAD
-import Home from './views/Home.vue'
-import Cart from './components/Cart.vue'
-
-=======
 import HomePage from './views/HomePage.vue'
->>>>>>> upstream/dev
+import Cart from './components/Cart.vue'
+import ConfirmOrder from './components/ConfirmOrder.vue'
+import CorderDetail from './components/CorderDetail.vue'
+import CartHave from './components/CartHave.vue'
+import One from './components/Duan/One.vue'
+
 
 Vue.use(Router)
 
@@ -19,22 +19,30 @@ export default new Router({
       name: 'home',
       component: HomePage,
     },
-<<<<<<< HEAD
     {
-      path: '/cart',
-      name: 'cart',
-      component: Cart
+      path:'/cart',
+      name:'cart',
+      component:Cart
+    },
+    {
+      path:'/confirmorder',
+      name:'confirmorder',
+      component:ConfirmOrder
+    },
+    {
+      path:'/orderdetail',
+      name:'orderdetail',
+      component:CorderDetail
+    },
+    {
+      path:'/carthave',
+      name:'carthave',
+      component:CartHave
+    },
+    {
+      path:'/duan',
+      name:'duan',
+      component:One
     }
-=======
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ './views/About.vue'),
-    // },
->>>>>>> upstream/dev
   ],
 })
