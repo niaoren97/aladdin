@@ -35,7 +35,7 @@ export default {
         {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌包包'},
         {src:'/static/xiangqingyetop/feblei-3.png',names:'洁面个清理'},
         {src:'/static/xiangqingyetop/feblei-5.png',names:'人气法口红'},
-        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌法包包'}
+        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌法包包'},
        
       ]
     }
