@@ -1,40 +1,34 @@
-import { remove } from 'lodash'
+import Vue from 'vue'
 import axios from 'axios'
+// import _ from 'lodash'
 
-// The `add product` and `
-// TODO: when to communicate with server?
-// the product only has {id, count}
+// the products should be an object with:
+// {id: product}
+// products contains all the products details,
+// so it is an normlized record store.
+// X---And other groups only contain product id.--
+
 export default {
   namespaced: true,
   state: {
-    products: [],
+    products: {},
+
   },
   mutations: {
-    addProduct(state, { product }) {
-      if (!product.hasOwnProperty('count')) {
-        product.count = 0
-      }
-      state.products.push(product)
-    },
-    removeProduct(state, payload) {
-      remove(state.products, (p) => p.id === payload.id)
-    },
-    alterCount(state, payload) {
-      const { id, diff } = payload
-      const prod = state.products.find((p) => p.id === id)
-      prod.count += diff
+    addProduct(state, product) {
+      Vue.set(state.products, product.id, product)
     },
   },
   actions: {
-    addProduct({ commit, state, rootState }, payload) {
-      if (rootState.user.token) {
-        const { id } = payload
-        const uid = rootState.user.id
-        axios.post(`/api/v1/user/${uid}/cart/add`, { id }).then((res) => {
-          const { data } = res
-          commit('addProduct', )
-        })
-      }
+    getCategory({commit}, payload) {
+      axios.get(`/api/v1/product/category`)
+    },
+    getProduct({ commit }, payload) {
+      const { id } = payload
+      axios.get(`/api/v1/product/byid`, { id }).then((res) => {
+        const { data } = res
+        commit('addProduct', data)
+      })
     },
   },
 }
