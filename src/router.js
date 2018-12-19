@@ -6,6 +6,7 @@ import ConfirmOrder from './components/ConfirmOrder.vue'
 import CorderDetail from './components/CorderDetail.vue'
 import CartHave from './components/CartHave.vue'
 import One from './components/Duan/One.vue'
+import Detail from './components/Duan/Detail.vue'
 
 
 Vue.use(Router)
@@ -43,6 +44,11 @@ export default new Router({
       path:'/duan',
       name:'duan',
       component:One
+    },
+    {
+      path:'/detail',
+      name:'detail',
+      component:Detail
     }
   ],
 })
