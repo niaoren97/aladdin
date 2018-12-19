@@ -3,7 +3,7 @@
     <div class="xcheader">
       <div>
         <a href="/oneclassifytow">
-          <img src="../assets/jiantou/ssjg-1.png" alt="/">
+          <img src="/static/jiantou/ssjg-1.png" alt="/">
         </a>
       </div>
       <p>面部护理</p>
@@ -15,8 +15,8 @@
         <div  class="xprice">
           <div @click="aabb(dataimg)" class="xleft">价格</div>
           <div class="xright">
-            <img src="../assets/jiantou/ssjg-5.png" alt>
-            <img src="../assets/jiantou/ssjg-4.png" alt>
+            <img src="/static/jiantou/ssjg-5.png" alt>
+            <img src="/static/jiantou/ssjg-4.png" alt>
           </div>
         </div>
         <div>
@@ -38,8 +38,8 @@
               <div>{{item.xtxt}}</div>
               <div class="xconfooter">
                 <div class="xconfl">
-                  <img src="../assets/jiantou/ssjg-7.png" alt>
-                  <img src="../assets/jiantou/ssjg-8.png" alt>
+                  <img src="/static/jiantou/ssjg-7.png" alt>
+                  <img src="/static/jiantou/ssjg-8.png" alt>
                   <p>海外直邮</p>
                 </div>
                 <div :class="'xconfr'" :style="'color:#e53e42'">￥{{item.xprice}}</div>
@@ -51,7 +51,7 @@
     </div>
     <div class="xcfooter">
       <div class="xcfheader">
-        <img class="xcfheaderimg" src="../assets/jiantou/ssjg-9.png" alt>
+        <img class="xcfheaderimg" src="/static/jiantou/ssjg-9.png" alt>
       </div>
       <div class="xcffooter">
         <router-view></router-view>
@@ -68,16 +68,16 @@ export default {
          num:0,
         dataimg:[
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'1焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'166.06'
+            src:'/static/jiantou/ssjg-6.png',xtitle:'1焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'166.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'2焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'167.06'
+            src:'/static/jiantou/ssjg-6.png',xtitle:'2焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'167.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'3焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'168.06'
+            src:'/static/jiantou/ssjg-6.png',xtitle:'3焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'168.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'4焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',
+            src:'/static/jiantou/ssjg-6.png',xtitle:'4焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',
             xprice:'169.06'
           }
         ]

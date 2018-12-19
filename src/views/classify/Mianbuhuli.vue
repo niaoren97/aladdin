@@ -1,9 +1,9 @@
 <template id="mbhl">
   <div class="mb">
       <div class="header">
-       <router-link to=""><img src="../assets/xiangqingyetop/feblei-11w.png" alt=""></router-link>
+       <router-link to=""><img src="/static/xiangqingyetop/feblei-11w.png" alt=""></router-link>
        <div class="ckgd"><router-link :style="'color:#333333'" to="/tjckgd">查看更多
-         <img src="../assets/jiantou/xx-4.png" alt="">
+         <img src="/static/jiantou/xx-4.png" alt="">
        </router-link></div>
        
       </div>
@@ -24,18 +24,18 @@ export default {
   data(){
     return {
       xdatahot:[
-        {src:require('../assets/xiangqingyetop/feblei-3.png'),names:'洁面清理'},
-        {src:require('../assets/xiangqingyetop/feblei-5.png'),names:'人气口红'},
-        {src:require('../assets/xiangqingyetop/feblei-1.png'),names:'名牌包包'},
-        {src:require('../assets/xiangqingyetop/feblei-3.png'),names:'洁面个清理'},
-        {src:require('../assets/xiangqingyetop/feblei-5.png'),names:'人气法口红'},
-        {src:require('../assets/xiangqingyetop/feblei-1.png'),names:'名牌法包包'},
-        {src:require('../assets/xiangqingyetop/feblei-3.png'),names:'洁面清理'},
-        {src:require('../assets/xiangqingyetop/feblei-5.png'),names:'人气口红'},
-        {src:require('../assets/xiangqingyetop/feblei-1.png'),names:'名牌包包'},
-        {src:require('../assets/xiangqingyetop/feblei-3.png'),names:'洁面个清理'},
-        {src:require('../assets/xiangqingyetop/feblei-5.png'),names:'人气法口红'},
-        {src:require('../assets/xiangqingyetop/feblei-1.png'),names:'名牌法包包'}
+        {src:'/static/xiangqingyetop/feblei-3.png',names:'洁面清理'},
+        {src:'/static/xiangqingyetop/feblei-5.png',names:'人气口红'},
+        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌包包'},
+        {src:'/static/xiangqingyetop/feblei-3.png',names:'洁面个清理'},
+        {src:'/static/xiangqingyetop/feblei-5.png',names:'人气法口红'},
+        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌法包包'},
+        {src:'/static/xiangqingyetop/feblei-3.png',names:'洁面清理'},
+        {src:'/static/xiangqingyetop/feblei-5.png',names:'人气口红'},
+        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌包包'},
+        {src:'/static/xiangqingyetop/feblei-3.png',names:'洁面个清理'},
+        {src:'/static/xiangqingyetop/feblei-5.png',names:'人气法口红'},
+        {src:'/static/xiangqingyetop/feblei-1.png',names:'名牌法包包'}
        
       ]
     }

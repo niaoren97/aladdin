@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home";
-import OneClassifyTow from "./components/OneClassifyTow";
-import Mianbuhuli from './components/Mianbuhuli';
+import OneClassifyTow from "./views/classify/OneClassifyTow";
+import Mianbuhuli from './views/classify/Mianbuhuli';
 import Dizhuangcaizhuang from './components/Dizhuangcaizhuang';
 import Xiuxian from './components/Xiuxian';
 import Shentihuli from './components/Shentihuli';
@@ -12,10 +12,10 @@ import Gerenhl from './components/Gerenhl';
 import Baoyangys from './components/Baoyangys';
 import Shishangcp from './components/Shishangcp';
 import Muyingyp from './components/Muyingyp';
-import Tab1 from './components/Tab1';
-import TJCKGD from './components/TJCKGD';
+import Tab1 from './views/classify/Tab1';
+import TJCKGD from './views/classify/TJCKGD';
 import Aabb from './components/Aabb'
-import FenLeisx from './components/FenLeisx'
+import FenLeisx from './views/classify/FenLeisx'
 
 
 
