@@ -3,7 +3,7 @@ const os = require('os')
 
 const faces = os.networkInterfaces()
 const t = faces.en1 || faces['以太网']
-let ip = 'localhost' 
+let ip = 'localhost'
 if (t) ip = t.find((face) => face.family === 'IPv4').address
 module.exports = {
   devServer: {
@@ -15,6 +15,14 @@ module.exports = {
     },
   },
   configureWebpack: {
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.(png|jpe?g)$/,
+    //       use: 'url-loader',
+    //     },
+    //   ],
+    // },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),

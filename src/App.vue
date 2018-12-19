@@ -1,17 +1,13 @@
 <template lang="pug">
 #app
-  navigator
-    router-view
-  
+  router-view
 </template>
 <script>
 import Navigator from '@/components/Navigator.vue'
-import NavigationStack from '@/components/NavigationStack.vue'
 
 export default {
   components: {
     Navigator,
-    NavigationStack,
   },
 }
 </script>

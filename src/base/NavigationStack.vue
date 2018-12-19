@@ -1,10 +1,6 @@
 <template lang="pug">
 .page
-  .header
-    .back(@click='back()') back
-  .content
-    slot
-    button(@click='forward') forward
+  slot
 </template>
 
 <script lang="ts">
@@ -12,13 +8,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   // props: ['back']
-  methods: {
-    back() {
-      this.$navigator.pop();
-    },
-    forward() {
-      this.$navigator.push('', { name: 'skdfj'})
-    }
+  components: {
   }
 })
 </script>
@@ -26,7 +16,7 @@ export default Vue.extend({
 <style lang="stylus" scoped>
 .page
   height 100vh
-  padding-top 64px
+  // padding-top 64px
   position absolute
   top 0
   left 0

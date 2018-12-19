@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --host 0.0.0.0",
+    "serve": "vue-cli-service serve ",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "doc": "cd docs && mkdocs gh-deploy -r gitee"
@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
+    "moment": "^2.23.0",
     "pug": "^2.0.3",
     "register-service-worker": "^1.5.2",
     "swiper": "^4.4.5",
@@ -28,9 +29,12 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
+    "faker": "^4.1.0",
+    "file-loader": "^2.0.0",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "url-loader": "^1.1.2",
     "vue-template-compiler": "^2.5.17"
   }
 }

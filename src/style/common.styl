@@ -1,0 +1,64 @@
+// reset
+@import './vars.styl'
+html, body
+  font-family:  "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+*, *:before, *:after
+  user-select: none
+  box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+body
+  font-size 14px
+a
+  text-decoration: none
+  color inherit
+.page
+  background-color #f2f2f2
+
+.single-page
+  min-height 100vh
+  background-color #F2F2F2
+  padding-top 1rem
+  position relative
+  z-index $stack-level
+.d-flex
+  display flex
+  justify-content center
+  align-items center
+.justify-content-around
+  justify-content: space-around
+.justify-content-between
+  justify-content: space-between
+
+.text-center
+  text-align center
+
+.p0
+  padding 0
+.p1
+  padding 0.5rem
+
+.p2
+  padding 1rem
+.p3
+  padding 1.5rem
+.p4
+  padding 2rem
+
+// buttons
+button
+  height 0.36rem
+  line-height 0.36rem
+  text-align center
+  padding 0 0.36rem
+  border-radius 0.18rem
+  &.primary
+    background-color $primary
+    color #fff
+  &.outline
+    background-color transparent
+    border solid 1px black
+    &.black
+      border-color black
+    &.primary
+      border-color $primary
