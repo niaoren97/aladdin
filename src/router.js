@@ -14,7 +14,8 @@ import Shishangcp from './components/Shishangcp';
 import Muyingyp from './components/Muyingyp';
 import Tab1 from './components/Tab1';
 import TJCKGD from './components/TJCKGD';
-
+import Aabb from './components/Aabb'
+import FenLeisx from './components/FenLeisx'
 
 
 
@@ -97,8 +98,19 @@ export default new Router({
     {
       path:'/tjckgd',
       name:'TJCKGD',
-      component:TJCKGD
+      component:TJCKGD,
+      children:[
+        {
+          path:'fenleisx',
+          name:'FenLeisx',
+          component:FenLeisx
+        }
+      ]
+    },
+    {
+      path:'/aabb',
+      name:'Aabb',
+      component:Aabb
     }
-    
   ]
 });

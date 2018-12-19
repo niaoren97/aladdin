@@ -10,20 +10,26 @@
     </div>
     <div class="xccontent">
       <div class="xcconheader">
-        <div >销量</div>
+        <div>销量</div>
         <div >最新</div>
         <div  class="xprice">
-          <div class="xleft">价格</div>
+          <div @click="aabb(dataimg)" class="xleft">价格</div>
           <div class="xright">
             <img src="../assets/jiantou/ssjg-5.png" alt>
             <img src="../assets/jiantou/ssjg-4.png" alt>
           </div>
         </div>
-        <div @click="xsx">筛选</div>
+        <div>
+          <router-link to="/tjckgd/fenleisx">筛选</router-link>
+          <div class="'xsgd'">
+            
+          </div>
+          
+        </div>
       </div>
       <div class="xcconcontent">
         <ul>
-          <li class="xconcon" :key="item.xtitle" v-for="item in dataimg">
+          <li class="xconcon" :key="index" v-for="(item,index) in dataimg">
             <div class="xconimg">
               <img :src="item.src" alt>
             </div>
@@ -36,7 +42,7 @@
                   <img src="../assets/jiantou/ssjg-8.png" alt>
                   <p>海外直邮</p>
                 </div>
-                <div :class="xconfr" :style="'color:#e53e42'">￥{{item.xprice}}</div>
+                <div :class="'xconfr'" :style="'color:#e53e42'">￥{{item.xprice}}</div>
               </div>
             </div>
           </li>
@@ -49,9 +55,9 @@
       </div>
       <div class="xcffooter">
         <router-view></router-view>
-        <router-link to>加载更多</router-link>
+        <router-link to="">加载更多</router-link>
       </div>
-    </div>
+    </div><router-view></router-view>
   </div>
 </template>
 <script>
@@ -59,31 +65,53 @@ export default {
   name:'TJCKGD',
   data(){
     return{
-      sort: 'price',
+         num:0,
         dataimg:[
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'166.06'
+            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'1焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'166.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'167.06'
+            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'2焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'167.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'168.06'
+            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'3焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',xprice:'168.06'
           },
           {
-            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',
+            src:require('../assets/jiantou/ssjg-6.png'),xtitle:'4焕彩翠璨花蕊唇彩4.8g',xtxt:'焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g焕彩翠璨花蕊唇彩4.8g',
             xprice:'169.06'
           }
         ]
     }
   },
   computed:{
-  
+    mydata() {
+      
+      
+      const data = Array.from(this.dataimg);
+      
+        return  data.sort((a,b)=> a.xprice - b.xprice);
+      
+    }
+    
      
        
       },
       methods: {
       
+      aabb(dataimg){
+         var temp;
+         for(var i = 0;i < this.dataimg.length;i++){
+           for(var j = i+1;j < this.dataimg.length;j++){
+             if (this.dataimg[j].xprice > this.dataimg[i].xprice) {
+               temp = this.dataimg[j];
+               this.dataimg[i] = temp;
+               this.dataimg[j] = this.dataimg[i]
+             }
+           }
+         }
+         return this.dataimg;
+      },
+     
       }
 
   }
@@ -93,6 +121,7 @@ export default {
 .xcwrap {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .xcheader {
   width: 100%;
@@ -215,5 +244,6 @@ export default {
   line-height: 0.73rem;
   background: #f2f2f2;
 }
+
 </style>
 

@@ -33,15 +33,15 @@ export default {
             dataSide:[
                 {id:'tab1',txt:'为您推荐'},
                 {id:'mianbuhuli',txt:'面部护理'},
-                {id:'dizhjuangcaizhaung',txt:'底妆彩妆'},
-                {id:'xiuxian',txt:'休闲零食'},
-                {id:'shentihuli',txt:'身体护理'},
-                {id:'meirong',txt:'美容美发'},
-                {id:'shenghuoyp',txt:'生活用品'},
-                {id:'gerenhl',txt:'个人护理'},
-                {id:'baoyangys',txt:'保健养生'},
-                {id:'shishangcp',txt:'时尚潮品'},
-                {id:'muyingyp',txt:'母婴用品'}
+                {id:'tab1',txt:'底妆彩妆'},
+                {id:'mianbuhuli',txt:'休闲零食'},
+                {id:'tab1',txt:'身体护理'},
+                {id:'mianbuhuli',txt:'美容美发'},
+                {id:'tab1',txt:'生活用品'},
+                {id:'mianbuhuli',txt:'个人护理'},
+                {id:'tab1',txt:'保健养生'},
+                {id:'mianbuhuli',txt:'时尚潮品'},
+                {id:'tab1',txt:'母婴用品'}
             ],
            cur:0
             
