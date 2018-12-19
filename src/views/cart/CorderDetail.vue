@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import myheader from './cart/header.vue'
-import chaddr from './cart/chaddr.vue';
-import detialgoods from './cart/detialgoods.vue';
-import moneys from './cart/moneys.vue'
+import myheader from '@/components/cart/Header.vue'
+import chaddr from '@/components/cart/Chaddr.vue';
+import detialgoods from '@/components/cart/Detialgoods.vue';
+import moneys from '@/components/cart/Moneys.vue'
   export default {
     name :'orderdetail',
     data () {

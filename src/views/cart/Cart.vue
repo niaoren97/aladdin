@@ -5,10 +5,9 @@
     </div>
     <div class="content">
       <div>
-       <div class="post"><img src="../assets/cart-img/empty.png" alt=""></div>
+       <div class="post"><img src="/static/cart-img/empty.png" alt=""></div>
        <p>您的购物车还是空空的快去<a href="" class="stroll">逛逛</a>吧！</p>
-      </div>
-      
+      </div>    
     </div>
   </div>
 </template>

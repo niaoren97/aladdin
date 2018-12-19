@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import myheader from "./duan/header.vue";
-import post from "./duan/post.vue";
-import goods from "./duan/goods.vue";
+import myheader from "@/components/duan/Header.vue";
+import post from "@/components/duan/Post.vue";
+import goods from "@/components/duan/Goods.vue";
 
 export default {
   name: "one",

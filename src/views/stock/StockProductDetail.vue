@@ -31,19 +31,19 @@
 <script>
 // import Vue from "vue";
 
-import myheader from "./duan/header.vue";
-import des from './duan/des.vue';
-import jifengou from "./duan/jifengou.vue";
-import tui from "./duan/tui.vue";
-import lafen from "./duan/lafen.vue";
-import pinpai from "./duan/pinpai.vue";
-import productdetail from "./duan/productdetail.vue";
-import myuse from "./duan/use.vue";
-import productimg from "./duan/productimg.vue";
-import lafenbuy from "./duan/lafenbuy.vue";
-import promise from "./duan/promise.vue";
-import tips from "./duan/tips.vue";
-import bottom from "./duan/bottom.vue";
+import myheader from "@/components/duan/Header.vue";
+import des from '@/components/duan/Des.vue';
+import jifengou from "@/components/duan/Jifengou.vue";
+import tui from "@/components/duan/Tui.vue";
+import lafen from "@/components/duan/Lafen.vue";
+import pinpai from "@/components/duan/Pinpai.vue";
+import productdetail from "@/components/duan/Productdetail.vue";
+import myuse from "@/components/duan/Use.vue";
+import productimg from "@/components/duan/Productimg.vue";
+import lafenbuy from "@/components/duan/Lafenbuy.vue";
+import promise from "@/components/duan/Promise.vue";
+import tips from "@/components/duan/Tips.vue";
+import bottom from "@/components/duan/Bottom.vue";
 
 export default {
   name: "datails",

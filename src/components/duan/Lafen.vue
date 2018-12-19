@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import comment from "./comment.vue";
+import comment from "@/components/duan/Comment.vue";
 export default {
   data() {
     return {};

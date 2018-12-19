@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div Serveriv class="wrap">
     <myheader :title="title"></myheader>
     <post></post>
     <from></from>
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import myheader from "./cart/header.vue";
-import post from "./cart/post.vue";
-import from from "./cart/from.vue";
-import hgoods from './cart/hgoods.vue';
+import myheader from "@/components/cart/Header.vue";
+import post from "@/components/cart/Post.vue";
+import from from "@/components/cart/From.vue";
+import hgoods from '@/components/cart/Hgoods.vue';
 export default {
   name: "orderdetail",
   data() {

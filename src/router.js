@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from './views/HomePage.vue'
-import Cart from './components/Cart.vue'
-import ConfirmOrder from './components/ConfirmOrder.vue'
-import CorderDetail from './components/CorderDetail.vue'
-import CartHave from './components/CartHave.vue'
-import One from './components/Duan/One.vue'
-import Detail from './components/Duan/Detail.vue'
+import Cart from '@/views/cart/Cart.vue'
+import ConfirmOrder from '@/views/cart/ConfirmOrder.vue'
+import CorderDetail from '@/views/cart/CorderDetail.vue'
+import CartHave from '@/views/cart/CartHave.vue'
+import StockHome from '@/views/stock/StockHome.vue'
+import StockProductDetail from '@/views/stock/StockProductDetail.vue'
 
 
 Vue.use(Router)
@@ -43,12 +43,12 @@ export default new Router({
     {
       path:'/duan',
       name:'duan',
-      component:One
+      component:StockHome
     },
     {
       path:'/detail',
       name:'detail',
-      component:Detail
+      component:StockProductDetail
     }
   ],
 })

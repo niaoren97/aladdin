@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="wrap tui">
+    <div class="wrap tui" @click="go()">
       <div class="t">
         <img src="/static/duan/no.png" alt>不支持7天无忧退货
       </div>
@@ -33,7 +33,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  padding: 0.1rem 0;
+  padding: 0.2rem 0;
   margin-left: 0.2rem;
   margin-right: 0.3rem;
 }
