@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Vue from 'vue'
 import Router from 'vue-router'
 import RootPage from './views/RootPage.vue'
@@ -14,37 +13,21 @@ import CorderDetail from '@/views/cart/CorderDetail.vue'
 import CartHave from '@/views/cart/CartHave.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 import StockProductDetail from '@/views/stock/StockProductDetail.vue'
-=======
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home";
-import OneClassifyTow from "./views/classify/OneClassifyTow";
-import Mianbuhuli from './views/classify/Mianbuhuli';
-import Dizhuangcaizhuang from './components/Dizhuangcaizhuang';
-import Xiuxian from './components/Xiuxian';
-import Shentihuli from './components/Shentihuli';
-import Meirong from './components/Meirong';
-import Shenghuoyp from './components/Shenghuoyp'
-import Gerenhl from './components/Gerenhl';
-import Baoyangys from './components/Baoyangys';
-import Shishangcp from './components/Shishangcp';
-import Muyingyp from './components/Muyingyp';
-import Tab1 from './views/classify/Tab1';
-import TJCKGD from './views/classify/TJCKGD';
+
+import OneClassifyTow from './views/classify/OneClassifyTow'
+import Mianbuhuli from './views/classify/Mianbuhuli'
+import Tab1 from './views/classify/Tab1'
+import TJCKGD from './views/classify/TJCKGD'
 import Aabb from './components/Aabb'
 import FenLeisx from './views/classify/FenLeisx'
->>>>>>> ec93ef8da9bf868cdba4d9fd017678a095c9fd36
 
-
-
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-<<<<<<< HEAD
       path: '/',
       component: RootPage,
       children: [
@@ -84,93 +67,41 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: StockProductDetail,
-=======
-      path: "/",
-      name: "Home",
-      component: Home
     },
     {
-      path: "/oneclassifytow",
-      redirect:'/tab1',
-      name: "OneClassifyTow",
-      component:OneClassifyTow,
-      children:[
+      path: '/oneclassifytow',
+      redirect: '/tab1',
+      name: 'OneClassifyTow',
+      component: OneClassifyTow,
+      children: [
         {
-          path:'/tab1',
-          name:'Tab1',
-          component:Tab1
+          path: '/tab1',
+          name: 'Tab1',
+          component: Tab1,
         },
         {
-          path: "/mianbuhuli",
-          name: "Mianbuhuli",
-          component: Mianbuhuli
+          path: '/mianbuhuli',
+          name: 'Mianbuhuli',
+          component: Mianbuhuli,
         },
-        {
-          path: "/dizhjuangcaizhaung",
-          name: "Dizhuangcaizhuang",
-          component: Dizhuangcaizhuang
-        },
-        {
-          path: "/xiuxian",
-          name: "Xiuxian",
-          component: Xiuxian
-        },
-        {
-          path: "/shentihuli",
-          name: "Shentihuli",
-          component: Shentihuli
-        },
-        {
-          path: "/meirong",
-          name: "Meirong",
-          component: Meirong
-        },
-        {
-          path: "/shenghuoyp",
-          name: "Shenghuoyp",
-          component: Shenghuoyp
-        },
-        {
-          path: "/gerenhl",
-          name: "Gerenhl",
-          component: Gerenhl
-        },
-        {
-          path: "/baoyangys",
-          name: "Baoyangys",
-          component: Baoyangys
-        },
-        {
-          path: "/shishangcp",
-          name: "Shishangcp",
-          component: Shishangcp
-        },
-        {
-          path: "/muyingyp",
-          name: "Muyingyp",
-          component: Muyingyp
-        },
-        
-
-      ]
+      ],
     },
     {
-      path:'/tjckgd',
-      name:'TJCKGD',
-      component:TJCKGD,
-      children:[
+      path: '/tjckgd',
+      name: 'TJCKGD',
+      component: TJCKGD,
+      children: [
         {
-          path:'fenleisx',
-          name:'FenLeisx',
-          component:FenLeisx
-        }
-      ]
->>>>>>> ec93ef8da9bf868cdba4d9fd017678a095c9fd36
+          path: 'fenleisx',
+          name: 'FenLeisx',
+          component: FenLeisx,
+        },
+      ],
     },
     {
-      path:'/aabb',
-      name:'Aabb',
-      component:Aabb
-    }
-  ]
-});
+      path: '/aabb',
+      name: 'Aabb',
+      component: Aabb,
+    },
+  ],
+})
