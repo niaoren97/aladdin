@@ -46,7 +46,7 @@ function createProduct() {
     images: [fakeImage(120, 120)],
     subtitle: faker.lorem.sentence(),
     price: _.random(20, 200, true).toFixed(2),
-    country: faker.random.arrayElement(['japan', 'america', 'english']),
+    country: arrayElement(['japan', 'america', 'english']),
   }
 }
 function createIdentity() {

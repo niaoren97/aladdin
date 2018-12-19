@@ -24,14 +24,35 @@ export default new Router({
         { path: 'user', component: UserCenter },
       ],
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ './views/About.vue'),
-    // },
+    {
+      path:'/cart',
+      name:'cart',
+      component:Cart
+    },
+    {
+      path:'/confirmorder',
+      name:'confirmorder',
+      component:ConfirmOrder
+    },
+    {
+      path:'/orderdetail',
+      name:'orderdetail',
+      component:CorderDetail
+    },
+    {
+      path:'/carthave',
+      name:'carthave',
+      component:CartHave
+    },
+    {
+      path:'/duan',
+      name:'duan',
+      component:StockHome
+    },
+    {
+      path:'/detail',
+      name:'detail',
+      component:StockProductDetail
+    }
   ],
 })
