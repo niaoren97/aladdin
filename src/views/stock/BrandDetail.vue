@@ -3,6 +3,9 @@
     <div class="post">
       <img src="/static/duan/brand.png" alt>
     </div>
+    <div class="pinpai">
+      
+    </div>
   </div>
 </template>
 
@@ -20,12 +23,10 @@ export default {
 .post {
   border: 1px solid;
   height: 3rem;
-  vertical-align bottom
-  font-size 0
 }
 .post img {
   width 100%
-  vertical-align bottom
+  height: 3rem;
 }
 </style>
 
