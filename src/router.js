@@ -13,6 +13,7 @@ import CorderDetail from '@/views/cart/CorderDetail.vue'
 import CartHave from '@/views/cart/CartHave.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 import StockProductDetail from '@/views/stock/StockProductDetail.vue'
+import BrandDetail from '@/views/stock/BrandDetail.vue'
 
 import OneClassifyTow from './views/classify/OneClassifyTow'
 import Mianbuhuli from './views/classify/Mianbuhuli'
@@ -102,6 +103,11 @@ export default new Router({
       path: '/aabb',
       name: 'Aabb',
       component: Aabb,
+    },
+    {
+      path: '/brand',
+      name: 'brand',
+      component: BrandDetail,
     },
   ],
 })
