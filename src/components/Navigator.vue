@@ -17,7 +17,7 @@
 
 <script>
 import Vue from 'vue'
-import NavigationStack from './NavigationStack.vue'
+import NavigationStack from '@/base/NavigationStack.vue'
 import ProductDetail from '@/views/ProductDetail.vue'
 import MessagePage from '@/views/MessagePage.vue'
 import MessageDetail from '@/views/MessageDetail.vue'
@@ -35,6 +35,26 @@ import InvitationUpdate from '@/views/user/info/InvitationUpdate'
 import NicknameUpdate from '@/views/user/info/NicknameUpdate'
 import PhoneUpdate from '@/views/user/info/PhoneUpdate'
 import QRCodeUpdate from '@/views/user/info/QRCodeUpdate'
+
+// service
+import AfterSales from '@/views/user/service/AfterSales'
+import ExpressService from '@/views/user/service/ExpressService'
+import Feedback from '@/views/user/service/Feedback'
+import HumanService from '@/views/user/service/HumanService'
+import OrderService from '@/views/user/service/OrderService'
+import OtherAdvisory from '@/views/user/service/OtherAdvisory'
+
+// lamp
+import MyLamp from '@/views/user/lamp/MyLamp'
+import LampDetail from '@/views/user/lamp/LampDetail'
+import LampExchange from '@/views/user/lamp/LampExchange'
+
+// footprint
+import Footprint from '@/views/user/footprint/Footprint'
+
+// identity
+import MyIdentity from '@/views/user/identity/MyIdentity'
+import AddIdentity from '@/views/user/identity/AddIdentity'
 // The whole app should only has one navigator instance
 
 const Navigator = Vue.extend({
@@ -66,6 +86,22 @@ const Navigator = Vue.extend({
     PhoneUpdate,
     QRCodeUpdate,
 
+    AfterSales,
+    ExpressService,
+    Feedback,
+    HumanService,
+    OrderService,
+    OtherAdvisory,
+
+    // lamp
+    MyLamp,
+    LampDetail,
+    LampExchange,
+
+    Footprint,
+
+    MyIdentity,
+    AddIdentity,
   },
   created() {
     Navigator.instance = this
@@ -97,7 +133,7 @@ const Navigator = Vue.extend({
     // present a modal navigation stack
     presentModal(comp, payload) {
       // this.presentingModal = true
-      this.modals.push({ comp, payload, opts: {$id: this.id++} })
+      this.modals.push({ comp, payload, opts: { $id: this.id++ } })
     },
     dismissModal() {
       // this.presentingModal = false
@@ -113,6 +149,7 @@ export default Navigator
 
 <style lang="stylus" scoped>
 @import '../style/vars.styl'
+
 .page
   width 100%
   height 100vh

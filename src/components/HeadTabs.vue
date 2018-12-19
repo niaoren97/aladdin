@@ -6,7 +6,6 @@ div.head-tabs
 </template>
 <script>
 import HeadTabBar from './HeadTabBar.vue'
-// import HeadTabBarItem from './HeadTabBarItem.vue'
 
 export default {
   components: {

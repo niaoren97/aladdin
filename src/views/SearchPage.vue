@@ -14,7 +14,6 @@
     button.clear(@click="clearHistory") 清除历史
 </template>
 <script>
-import NavigationBar from '@/components/NavigationBar.vue'
 import faker from 'faker'
 import _ from 'lodash'
 export default {
@@ -25,9 +24,6 @@ export default {
       history: [],
       keyword: '',
     }
-  },
-  components: {
-    NavigationBar,
   },
   methods: {
     clearHistory() {

@@ -28,7 +28,6 @@ div
   booth
 </template>
 <script>
-import ProductDetail from '@/views/ProductDetail.vue'
 import BoothHeader from '@/components/BoothHeader.vue'
 import Booth from '@/components/Booth.vue'
 import Exhibition from '@/components/layouts/Exhibition.vue'
@@ -50,7 +49,6 @@ export default {
     }
   },
   components: {
-    ProductDetail,
     Booth,
     BoothHeader,
     // swiper,

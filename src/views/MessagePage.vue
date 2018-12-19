@@ -12,7 +12,6 @@
 
 </template>
 <script>
-import NavigationBar from '@/components/NavigationBar.vue'
 import faker from 'faker'
 import _ from 'lodash'
 function createMessage() {
@@ -30,9 +29,6 @@ export default {
     return {
       messages: _.range(0, 3).map(() => createMessage()),
     }
-  },
-  components: {
-    NavigationBar,
   },
   methods: {
     messageDetail() {

@@ -32,7 +32,6 @@ import Navigator from '@/components/Navigator.vue'
 import Tabs from '@/components/Tabs.vue'
 import TabBar from '@/components/TabBar.vue'
 import TabBarItem from '@/components/TabBarItem.vue'
-import NavigationStack from '@/components/NavigationStack.vue'
 
 // TODO: the active tab should be decided by the tab state in store
 
@@ -54,7 +53,6 @@ export default {
   },
   components: {
     Navigator,
-    NavigationStack,
     Tabs,
     TabBar,
     TabBarItem,

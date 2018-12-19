@@ -6,12 +6,12 @@ export default {
   install: function() {
     const requireComponent = require.context(
       // The relative path of the components folder
-      '../components',
+      '../base',
       // Whether or not to look in subfolders
       false,
       // The regular expression used to match base component filenames
       // /Base[A-Z]\w+\.(vue|js)$/
-      /(NavigationBar|HeadBar|TitleBar|List|ListItem|NavigationBarItem|SectionBlock)\.vue$/
+      /\.(vue|js)$/
     )
 
     requireComponent.keys().forEach((fileName) => {

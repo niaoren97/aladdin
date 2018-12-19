@@ -42,26 +42,26 @@
     section-block
       list
         list-item
-          .info
+          .info(@click="goto('MyLamp')")
             span {{user.lampPoints}}
             span 我的神灯值
-          .info
-            span {{user.points}}
-            span 我的积分
-          .info
+          .info(@click="goto('Footprint')")
+            span {{user.footprintCount}}
+            span 我的足迹
+          .info(@click="goto('MyCoupon')")
             span {{user.couponCount}}
             span 我的优惠券
-          .info
+          .info(@click="goto('MyReview')")
             span {{user.reviewCount}}
             span 我的心得
         list-item
-          .info
+          .info(@click="goto('IDVerify')")
             img(src="/static/user/id-verify.png")
             span 实名认证
-          .info
+          .info(@click="goto('MyAddress')")
             img(src="/static/user/address.png")
             span 收货地址
-          .info
+          .info(@click="goto")
             img(src="/static/user/gongzhonghao.png")
             span 关注公众号
           .info
@@ -77,6 +77,7 @@ export default {
       nickname: 'dd',
       lampPoints: 20,
       points: 10,
+      footprintCount: 2,
       reviewCount: 2,
       couponCount: 3,
     }}
@@ -88,6 +89,9 @@ export default {
     goCash() {
       // TODO:
       this.$navigator.push('')
+    },
+    goto(cid) {
+      this.$navigator.push(cid)
     }
   },
 }

@@ -4,11 +4,7 @@ navigation-bar-item(@click="share")
   span share
 </template>
 <script>
-import NavigationBarItem from '@/components/NavigationBarItem'
 export default {
-  components: {
-    NavigationBarItem,
-  },
   methods: {
     share() {
       // TODO: should pass the link in to payload

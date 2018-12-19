@@ -8,16 +8,10 @@ div
 </template>
 <script>
 // import * from 'module'
-import NavigationBar from '@/components/NavigationBar'
-import NavigationStack from '@/components/NavigationStack.vue'
 
 export default {
   name: 'ProductDetail',
   props: ['id'],
-  components: {
-    NavigationBar,
-    NavigationStack,
-  },
   data() {
     return {
       title: 'navigation title',

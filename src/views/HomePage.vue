@@ -24,7 +24,6 @@ div.home
 
 <script>
 // @ is an alias to /src
-import HeadBar from '@/components/HeadBar.vue'
 import HeadTabs from '@/components/HeadTabs.vue'
 import HeadTabBarItem from '@/components/HeadTabBarItem.vue'
 import HomeRecommend from '@/structure/HomeRecommend.vue'
@@ -38,7 +37,6 @@ export default {
     return { tab: 0, componentId: 'HomeRecommend', keyword: '' }
   },
   components: {
-    HeadBar,
     HeadTabs,
     HeadTabBarItem,
     HomeRecommend,
