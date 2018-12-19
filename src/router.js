@@ -13,6 +13,7 @@ import CorderDetail from '@/views/cart/CorderDetail.vue'
 import CartHave from '@/views/cart/CartHave.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 import StockProductDetail from '@/views/stock/StockProductDetail.vue'
+import BrandDetail from '@/views/stock/BrandDetail.vue'
 
 Vue.use(Router)
 
@@ -60,6 +61,11 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: StockProductDetail,
+    },
+    {
+      path: '/brand',
+      name: 'brand',
+      component: BrandDetail,
     },
   ],
 })
