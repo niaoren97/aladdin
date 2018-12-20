@@ -1,29 +1,14 @@
 # aladdin
 
-## Project setup
-```
-yarn install
-```
+## 任务进度
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+李晓刚:
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+- src/views/stock
+- src/views/cart
+- src/components
 
-### Run your tests
-```
-yarn run test
-```
+杜猛:
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- src/views/user
+- src/views/setting

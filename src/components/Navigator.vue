@@ -26,6 +26,9 @@ import SecretDetail from '@/views/SecretDetail.vue'
 import SearchPage from '@/views/SearchPage.vue'
 import SearchResultPage from '@/views/SearchResultPage.vue'
 
+// category
+import Classify from '@/views/classify/TJCKGD'
+import CategorySearch from '@/views/category/CategorySearch'
 // user-center
 import UserCenter from '@/views/user/UserCenter'
 import ClientService from '@/views/user/UserCenter'
@@ -76,6 +79,9 @@ const Navigator = Vue.extend({
     SecretDetail,
     SearchPage,
     SearchResultPage,
+
+    Classify,
+    CategorySearch,
 
     UserCenter,
     ClientService,
