@@ -9,6 +9,7 @@ import navigator from './plugins/navigator'
 import registrar from './plugins/base_registrator' 
 import '@/assets/rem.js'
 import '@/style/style.styl'
+import '@/style/common.styl'
 
 Vue.config.productionTip = false
 
