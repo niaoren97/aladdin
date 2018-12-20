@@ -27,7 +27,6 @@ import SearchPage from '@/views/SearchPage.vue'
 import SearchResultPage from '@/views/SearchResultPage.vue'
 
 // category
-import Classify from '@/views/classify/TJCKGD'
 import CategorySearch from '@/views/category/CategorySearch'
 // user-center
 import UserCenter from '@/views/user/UserCenter'
@@ -80,7 +79,6 @@ const Navigator = Vue.extend({
     SearchPage,
     SearchResultPage,
 
-    Classify,
     CategorySearch,
 
     UserCenter,
@@ -160,6 +158,7 @@ export default Navigator
   width 100%
   height 100vh
   position fixed
+  overflow scroll
   background-color #f6f6f6
   z-index $stack-level
 

@@ -15,7 +15,6 @@ import StockHome from '@/views/stock/StockHome.vue'
 import StockProductDetail from '@/views/stock/StockProductDetail.vue'
 import BrandDetail from '@/views/stock/BrandDetail.vue'
 
-
 Vue.use(Router)
 
 export default new Router({
@@ -32,41 +31,6 @@ export default new Router({
         { path: 'cart', component: CartPage },
         { path: 'user', component: UserCenter },
       ],
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: Cart,
-    },
-    {
-      path: '/confirmorder',
-      name: 'confirmorder',
-      component: ConfirmOrder,
-    },
-    {
-      path: '/orderdetail',
-      name: 'orderdetail',
-      component: CorderDetail,
-    },
-    {
-      path: '/carthave',
-      name: 'carthave',
-      component: CartHave,
-    },
-    {
-      path: '/duan',
-      name: 'duan',
-      component: StockHome,
-    },
-    {
-      path: '/detail',
-      name: 'detail',
-      component: StockProductDetail,
-    },
-    {
-      path: '/brand',
-      name: 'brand',
-      component: BrandDetail,
     },
   ],
 })

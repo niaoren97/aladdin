@@ -68,6 +68,8 @@ export default {
   padding-top 1rem
 .sidebar
   width 1.8rem
+  flex-shrink 0
+  height calc(100vh - 2rem)
   border-right solid 1px lightgray
 .category
   flex 1

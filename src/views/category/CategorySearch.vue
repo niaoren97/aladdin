@@ -3,33 +3,42 @@
   navigation-bar(:title="category")
   .content
     .filter-panel(:style="{display: showPanel ? 'block': 'none'}")
-      .mask(@click.self="showPanel = !showPanel")
+      .mask(@click.self="showPanel = false; showMorePanel = false;")
       .panel
-        .section
-          .section-header
-            img(src='/static/category/ship.png')
-            span 发货地
-          .items
-            span.item(:class="{active: selectedCountries.includes(count)}",v-for="count in countries", :key="count.id",
-              @click="selectCountry(count.id)") {{count.title}}
-        .section
-          .section-header
-            img(src='/static/category/makeups.png')
-            span 商品类型
-          .items
-            span.item(:class="{active: selectedGroups.includes(g)}",v-for="g in groups", :key="g.id",
-              @click="selectGroup(g)") {{g.title}}
-        .section
-          .section-header
-            img(src="/static/category/list.png")
-            span 分类
-          .items
-            span.item(:class="{active: selectedCategories.includes(c)}", v-for="c in hotCategories", :key="c.id",
-              @click="selectCategory(c.id)") {{c.title}}
-            span.item(@click="showMoreCategory") 更多分类
+        .panel-content
+          .section
+            .section-header
+              img(src='/static/category/ship.png')
+              span 发货地
+            .items
+              span.item(:class="{active: selectedCountries.includes(count)}",v-for="count in countries", :key="count.id",
+                @click="select('countries',count.id)") {{count.title}}
+          .section
+            .section-header
+              img(src='/static/category/makeups.png')
+              span 商品类型
+            .items
+              span.item(:class="{active: selectedGroups.includes(g)}",v-for="g in groups", :key="g.id",
+                @click="select('groups', g.id)") {{g.title}}
+          .section
+            .section-header
+              img(src="/static/category/list.png")
+              span 分类
+            .items
+              span.item(:class="{active: selectedCategories.includes(c)}", v-for="c in hotCategories", :key="c.id",
+                @click="select('categories',c.id)") {{c.title}}
+              span.item(@click="showMoreCategory") 更多分类
         .actions
           span(@click="reset") 重置
-          span(@click="confirm") 确定
+          span.confirm(@click="confirm") 确定
+      .panel.more-panel(v-if="showMorePanel")
+        .navs
+          img(src="/static/icons/back.png", @click="showMorePanel = false")
+          span.bold 分类
+          span(@click="confirmMore") 确定
+        .list-item(:class="{active: selectedCategories.includes(c)}",v-for="c in categories",:key="c.id", @click="select('categories', c.id)") {{c.title}}
+          img(src="/static/icons/checked.png", v-if="selectedCategories.includes(c)")
+
 
 
     .header
@@ -37,12 +46,11 @@
       span(:class="{active: tabActive('date')}",@click="searchBy('date')") 最新
       span(:class="{active: tabActive('priceUp') || tabActive('priceDown')}",@click="searchBy('price')") 价格
       span(@click="togglePanel(true)") 筛选
-    .filters(v-if="combinedFilters.length > 0")
-      .filter(@click="removeFilter",v-for="(list, c) in combinedFilters", :key="f",
-        )
-        .filter-item(v-for="f in list", :key="f",
-          @click="removeFilter(c, f)") {{f}}
-      .clear-filter(@click="clearFilters") 清空
+    .filters(v-if="filterLength > 0")
+      template(@click="removeFilter",v-for="(list, c) in combinedFilters", )
+        .filter-item(v-for="f in list", :key="f.id",
+          @click="removeFilter(c, f)") {{f.title}}
+      .filter-item.clear-filter(@click="clearFilters") 清空
     .products
       product-preview(v-for="p in searchResults", :key="p.id", :product="p")
 
@@ -50,17 +58,24 @@
 <script>
 import _ from 'lodash'
 import faker from 'faker'
-import {createProduct} from '@/utils'
+import { createProduct } from '@/utils'
 import ProductPreview from '@/components/ProductPreview'
 
 export default {
   name: 'CategorySearch',
+  components: {
+    ProductPreview,
+  },
   props: ['category'],
   data() {
     return {
       showPanel: false,
-      countries: ['日本', '美国', '中国', '澳大利亚', '英国'].map((v,i) => ({id: i, title: v})),
-      groups: [{id: 1, title: '促销商品'},{id: 2, title:  '首发商品'}],
+      showMorePanel: false,
+      countries: ['日本', '美国', '中国', '澳大利亚', '英国'].map((v, i) => ({
+        id: faker.random.uuid(),
+        title: v,
+      })),
+      groups: [{ id: 1, title: '促销商品' }, { id: 2, title: '首发商品' }],
       categories: _.range(0, 30).map(() => ({
         id: faker.random.uuid(),
         title: faker.lorem.word(),
@@ -70,21 +85,30 @@ export default {
       selectedCountries: [],
       sortBy: 'sales',
       filters: { countries: [], categories: [], groups: [] },
-      searchResults: _.range(0,4).map(() => createProduct())
+      searchResults: _.range(0, 4).map(() => createProduct()),
     }
   },
   computed: {
-
     hotCategories() {
       // return the most host 20 categories from all categories
       // FIXME:
       return this.categories.slice(0, 20)
     },
     combinedFilters() {
-      return {countries: this.filters.countries,
-      groups: this.filters.groups,
-      categories: this.filters.categories.map(c=>c.title)}
-    }
+      return {
+        countries: this.filters.countries,
+        groups: this.filters.groups,
+        categories: this.filters.categories,
+      }
+    },
+    filterLength() {
+      const { filters } = this
+      return (
+        filters.countries.length +
+        filters.groups.length +
+        filters.categories.length
+      )
+    },
   },
   methods: {
     reset() {
@@ -96,14 +120,14 @@ export default {
       this.filters.countries = this.selectedCountries
       this.filters.groups = this.selectedGroups
       this.filters.categories = this.selectedCategories
+      this.showPanel = false
+    },
+    confirmMore() {
+      this.showMorePanel = false
     },
     removeFilter(c, f) {
-      if(c === 'categories') {
-        const 
-      }else {
-        const ind = this.filters[c].indexOf(f)
-        this.filters[c].splice(ind , 1)
-      }
+      const ind = this.filters[c].indexOf(f)
+      this.filters[c].splice(ind, 1)
     },
     clearFilters() {
       this.filters.countries = []
@@ -129,46 +153,19 @@ export default {
         this.showPanel = !this.showPanel
       }
     },
-    showMoreCategory() {},
+    showMoreCategory() {
+      this.showMorePanel = true
+    },
     addFilter() {},
     showFilter() {},
-    select(c, item) {
+    select(c, id) {
       const key = `selected${_.capitalize(c)}`
-      const cs = this.selectedCountries
-      console.log(c, cs)
-      const ind = cs.indexOf(c)
+      const cs = this[key]
+      const ind = cs.findIndex((item) => item.id === id)
       if (ind > -1) {
         cs.splice(ind, 1)
       } else {
-        cs.push(c)
-      }
-    },
-    selectCountry(c) {
-      const cs = this.selectedCountries
-      console.log(c, cs)
-      const ind = cs.indexOf(c)
-      if (ind > -1) {
-        cs.splice(ind, 1)
-      } else {
-        cs.push(c)
-      }
-    },
-    selectGroup(g) {
-      const cs = this.selectedGroups
-      const ind = cs.indexOf(g)
-      if (ind > -1) {
-        cs.splice(ind, 1)
-      } else {
-        cs.push(g)
-      }
-    },
-    selectCategory(cid) {
-      const cs = this.selectedCategories
-      const ind = cs.findIndex((cat) => cat.id === cid)
-      if (ind > -1) {
-        cs.splice(ind, 1)
-      } else {
-        cs.push(this.categories.find((c) => c.id === cid))
+        cs.push(this[c].find((x) => x.id === id))
       }
     },
   },
@@ -181,10 +178,34 @@ export default {
   align-items center
   height 0.8rem
   background #F2F2F2
+  position sticky
+  top 1rem
 
   span.active
     color red
-
+.filters
+  padding 0.2rem
+  background-color #fff
+  line-height 0.8rem
+.filter-item
+  display inline-block
+  height 0.6rem
+  line-height 0.6rem
+  border-radius 0.1rem
+  margin-right 0.2rem
+  padding 0 0.2rem
+  background-color #999999
+  color #fff
+  &::after
+    content 'X'
+    padding-left 0.1rem
+.clear-filter
+  border solid 1px gray
+  background-color #fff
+  color #000
+  &::after
+    content ''
+    padding-left 0
 .filter-panel
   position fixed
   top 0
@@ -205,8 +226,38 @@ export default {
     padding 1.5vw
     margin-left 19vw
     height 100vh
+    overflow scroll
     background #fff
 
+    .panel-content
+      height calc(100vh - 1rem)
+      overflow scroll
+.more-panel
+  position absolute
+  width 100%
+  height 100%
+  .navs
+    display flex
+    justify-content space-between
+    align-items center
+    padding 0.2rem
+    background-color #f2f2f2
+    margin -0.2rem
+    span.bold
+      font-size 0.4rem
+
+  .list-item
+    padding 0.2rem
+    border-bottom solid 1px lightgray
+    display flex
+    justify-content space-between
+    align-items center
+    &.active
+      color #E53E43
+    &:last-child
+      border-bottom none
+    img
+      width 0.25rem
 .section
   padding 3vw 0
   border-bottom solid 1px lightgray
@@ -246,8 +297,41 @@ export default {
       position absolute
       top 0
       left 0
-      height 0.4rem
-      width 0.5rem
-      background-color #E53E42
+      width 0
+      height 0
+      border solid 3vw  #E53E42
+      border-right-width 4vw
+      border-left-width 4vw
+      border-right-color transparent
+      border-bottom-color transparent
+    &::after
+      content ''
+      position absolute
+      top 1px
+      left 4px
+      width 3vw
+      height 2vw
+      border-left solid 2px white
+      border-bottom solid 2px white
+      transform rotateZ(-40deg)
+
+.actions
+  display flex
+  position absolute
+  left 0
+  bottom 0
+  width 100%
+  height 1rem
+
+  span
+    width 50%
+    height 1rem
+    display flex
+    align-items center
+    justify-content center
+    background-color #f2f2f2
+
+    &.confirm
+      background #E0403E
       color #fff
 </style>
