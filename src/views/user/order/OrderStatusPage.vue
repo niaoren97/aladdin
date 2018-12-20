@@ -5,12 +5,12 @@
       span(@click="edit") 编辑
   .content
     .tabs
-      .tab 全部订单
-      .tab 待支付
-      .tab 待发货
-      .tab 待收货
-      .tab 交易关闭
-      .tab 交易完成
+      .tab(:class="{active: activeTab==='all'}") 全部订单
+      .tab(:class="{active: activeTab==='all'}") 待支付
+      .tab(:class="{active: activeTab==='all'}") 待发货
+      .tab(:class="{active: activeTab==='all'}") 待收货
+      .tab(:class="{active: activeTab==='all'}") 交易关闭
+      .tab(:class="{active: activeTab==='all'}") 交易完成
     .orders
       order-preview(v-for="order in filteredOrders", :key="order.id"
         :order="order")
@@ -22,11 +22,16 @@ import { createOrder } from '@/utils'
 
 export default {
   name: 'OrderStatusPage',
+  props: ['status'],
   data() {
     return {
       orders: [],
       filter: '',
+      activeTab: ''
     }
+  },
+  created() {
+    this.activeTab = this.status || 
   },
   computed: {
     filteredOrders() {

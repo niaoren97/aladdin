@@ -20,18 +20,18 @@
       list
         list-item
           span 我的订单
-          span 查看所有订单
+          span(@click="goto('OrderStatusPage')") 查看所有订单
         list-item
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toPay'})")
             img(src='/static/user/to-pay.png')
             span 待支付
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toShip'})")
             img(src='/static/user/to-ship.png')
             span 待发货
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toConfirm'})")
             img(src='/static/user/to-confirm.png')
             span 待收货
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'finished'})")
             img(src='/static/user/finished.png')
             span 已完成
     section-block

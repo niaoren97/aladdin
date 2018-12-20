@@ -3,7 +3,7 @@
   navigation-bar(title="消息中心")
   .content
     .message(v-for="msg in messages", :key="msg.id")
-      p {{formatTime(msg.date)}}
+      .date {{formatTime(msg.date)}}
       .box(@click="goDetail(msg.id)")
         .title {{msg.title}}
         .main
@@ -51,9 +51,10 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .message 
-  padding 0.2rem
-  p
+  padding  0.2rem 0.2rem 0
+  .date
     text-align center
+    margin-bottom 0.2rem
   .box
     border solid 1px lightgray
     padding 0.1rem
