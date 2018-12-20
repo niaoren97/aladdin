@@ -15,16 +15,16 @@ import {fakeImage} from '@/utils'
 
 export default {
   name: "ProductPreview",
-  // props: ['product'],
+  props: ['product'],
   data() {
     return {
-      product: {
-        title: faker.lorem.words(3),
-        images: [fakeImage(120,120)],
-        subtitle: faker.lorem.sentence(),
-        price: _.random(20,200, true).toFixed(2),
-        country: faker.random.arrayElement(['japan', 'america', 'english'])
-      }
+      // product: {
+      //   title: faker.lorem.words(3),
+      //   images: [fakeImage(120,120)],
+      //   subtitle: faker.lorem.sentence(),
+      //   price: _.random(20,200, true).toFixed(2),
+      //   country: faker.random.arrayElement(['japan', 'america', 'english'])
+      // }
     }
   }
 }

@@ -159,6 +159,7 @@ export default Navigator
 .page
   width 100%
   height 100vh
+  position fixed
   background-color #f6f6f6
   z-index $stack-level
 

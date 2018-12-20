@@ -15,12 +15,6 @@ import StockHome from '@/views/stock/StockHome.vue'
 import StockProductDetail from '@/views/stock/StockProductDetail.vue'
 import BrandDetail from '@/views/stock/BrandDetail.vue'
 
-import OneClassifyTow from './views/classify/OneClassifyTow'
-import Mianbuhuli from './views/classify/Mianbuhuli'
-import Tab1 from './views/classify/Tab1'
-import TJCKGD from './views/classify/TJCKGD'
-import Aabb from './components/Aabb'
-import FenLeisx from './views/classify/FenLeisx'
 
 Vue.use(Router)
 
@@ -68,41 +62,6 @@ export default new Router({
       path: '/detail',
       name: 'detail',
       component: StockProductDetail,
-    },
-    {
-      path: '/oneclassifytow',
-      redirect: '/tab1',
-      name: 'OneClassifyTow',
-      component: OneClassifyTow,
-      children: [
-        {
-          path: '/tab1',
-          name: 'Tab1',
-          component: Tab1,
-        },
-        {
-          path: '/mianbuhuli',
-          name: 'Mianbuhuli',
-          component: Mianbuhuli,
-        },
-      ],
-    },
-    {
-      path: '/tjckgd',
-      name: 'TJCKGD',
-      component: TJCKGD,
-      children: [
-        {
-          path: 'fenleisx',
-          name: 'FenLeisx',
-          component: FenLeisx,
-        },
-      ],
-    },
-    {
-      path: '/aabb',
-      name: 'Aabb',
-      component: Aabb,
     },
     {
       path: '/brand',
