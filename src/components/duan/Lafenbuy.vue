@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wra">
     <div class="title">阿拉粉在买</div>
     <div class="line"></div>
     <div class="goods">
@@ -41,16 +41,19 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+.wra {
+  background-color #fff
+  padding 0 0.2rem
+}
 .title{
   border-left 0.1rem solid #f00
   font-size 0.3rem
   color #333333
   text-align left 
-  margin 0.1rem 0.2rem 
-  padding-left 0.1rem
+  padding 0.2rem
+  margin 0.05rem 0
 }
 .line {
-  margin-top: 0.15rem;
   border: 0.5px solid #f2f2f2;
 }
 
@@ -59,7 +62,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex: 1;
-  border-bottom: 0.2rem solid #f2f2f2;
+  margin-bottom 0.2rem
 }
 
 .good {

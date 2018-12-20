@@ -31,14 +31,12 @@ export default {
 
 <style lang="stylus" scoped>
 .lafen {
+  background-color #fff
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  padding: 0.1rem 0;
-  margin-left: 0.2rem;
-  margin-right: 0.3rem;
-  padding: 0.15rem 0;
+  padding: 0.15rem 0.2rem;
 }
 
 .left {
@@ -64,6 +62,7 @@ export default {
   border-bottom: 1px solid #f2f2f2;
 }
 .comments {
+  background-color #fff
   display flex
   align-items center
   overflow scroll

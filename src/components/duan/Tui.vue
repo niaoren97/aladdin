@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="wrap tui" @click="go()">
+  <div @click="$emit('go')">
+    <div class="wrap tui" >
       <div class="t">
         <img src="/static/duan/no.png" alt>不支持7天无忧退货
       </div>
@@ -18,10 +18,12 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      
+    };
   },
   methods: {
-    go() {}
+    
   },
   components: {}
 };
@@ -29,16 +31,16 @@ export default {
 
 <style lang="stylus" scoped>
 .tui {
+  background-color #fff
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  padding: 0.2rem 0;
-  margin-left: 0.2rem;
-  margin-right: 0.3rem;
+  padding: 0.2rem 0.2rem;
 }
 
 .tui .t {
+  background-color #fff
   color: #ff0000;
 }
 
@@ -55,12 +57,14 @@ export default {
 }
 
 .tui .jiantou {
+  background-color #fff
   width: 0.2rem;
   margin-left: 0.1rem;
   vertical-align middle
 }
 
 .line {
+  background-color #fff
   border-bottom: 0.2rem solid #f2f2f2;
 }
 </style>

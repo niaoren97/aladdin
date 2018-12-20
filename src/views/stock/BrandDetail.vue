@@ -1,5 +1,6 @@
 <template>
-  <div class="brand">
+  <div class="single-page">
+    <navigation-bar :title="'品牌详情'"></navigation-bar>
     <div class="post">
       <img src="/static/duan/brand.png" alt>
     </div>
@@ -22,9 +23,6 @@
       全部商品
     </div>
     <brandgoods :key="item.id" :product="item" v-for="item in products"></brandgoods>
-    <!-- <brandgoods></brandgoods>
-    <brandgoods></brandgoods>
-    <brandgoods></brandgoods> -->
   </div>
 </template>
 
@@ -35,10 +33,10 @@ export default {
     return {
       products:[
         {id:1, image:'/static/duan/1.png'},
-        {id:1, image:'/static/duan/2.png'},
-        {id:1, image:'/static/duan/3.png'},
-        {id:1, image:'/static/duan/1.png'},
-        {id:1, image:'/static/duan/3.png'}
+        {id:2, image:'/static/duan/2.png'},
+        {id:3, image:'/static/duan/3.png'},
+        {id:4, image:'/static/duan/1.png'},
+        {id:5, image:'/static/duan/3.png'}
       ]
     };
   },
@@ -68,7 +66,7 @@ export default {
 
 .logo {
   position: absolute;
-  top: 2.8rem;
+  top: 3.8rem;
   left 0.2rem
   width: 1rem;
   height: 1rem;

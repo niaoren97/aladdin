@@ -29,7 +29,8 @@ export default {
 
 <style lang="stylus" scoped>
 .des {
-  margin: 0.2rem;
+  background-color #fff
+  padding : 0.2rem;
 }
 
 .top {

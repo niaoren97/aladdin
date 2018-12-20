@@ -23,6 +23,7 @@
 .bottom {
   display flex
   justify-content space-between
+  background-color #fff
 }
 .left {
 height 0.97rem
@@ -30,6 +31,7 @@ line-height 0.97rem
 font-size 0.27rem
 width 50%
 vertical-align middle
+text-align center
 }
 .left img {
 width 0.4rem

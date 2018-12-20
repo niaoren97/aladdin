@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wra">
     <div class="title">服务承诺</div>
     <div class="line"></div>
     <div class="goods">
@@ -42,28 +42,34 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+.wra {
+  background-color #fff
+  padding 0 0.2rem
+}
 .title{
+  background-color #fff
   border-left 0.1rem solid #f00
   font-size 0.3rem
   color #333333
   text-align left 
-  margin 0.1rem 0.2rem 
-  padding-left 0.1rem
+  padding  0.2rem
 }
 .line {
-  margin-top: 0.15rem;
-  border: 0.5px solid #f2f2f2;
+  margin-top: 0.0.5rem;
+  // border: 0.5px solid #f2f2f2;
 }
 
 .goods {
+  background-color #fff
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex: 1;
-  border-bottom: 0.2rem solid #f2f2f2;
+  // border-bottom: 0.2rem solid #f2f2f2;
 }
 
 .good {
+  background-color #fff
   padding: 0.3rem 0;
 }
 
@@ -74,6 +80,7 @@ export default {
 }
 
 .name {
+  background-color #fff
   font-size: 0.18rem;
   margin-bottom: 0.1rem;
 }

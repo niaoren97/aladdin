@@ -57,6 +57,11 @@ import MyIdentity from '@/views/user/identity/MyIdentity'
 import AddIdentity from '@/views/user/identity/AddIdentity'
 // The whole app should only has one navigator instance
 
+// 引入断货王
+import StockHome from '@/views/stock/StockHome'
+import StockProductDetail from '@/views/stock/StockProductDetail'
+import BrandDetail from '@/views/stock/BrandDetail'
+
 const Navigator = Vue.extend({
   data: function() {
     return {
@@ -102,6 +107,10 @@ const Navigator = Vue.extend({
 
     MyIdentity,
     AddIdentity,
+    // 断货王商品详情页面
+    StockProductDetail,
+    StockHome,
+    BrandDetail,
   },
   created() {
     Navigator.instance = this
