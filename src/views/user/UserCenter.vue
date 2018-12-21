@@ -55,17 +55,17 @@
             span {{user.reviewCount}}
             span 我的心得
         list-item
-          .info(@click="goto('IDVerify')")
+          .info(@click="goto('MyIdentity')")
             img(src="/static/user/id-verify.png")
             span 实名认证
           .info(@click="goto('MyAddress')")
             img(src="/static/user/address.png")
             span 收货地址
-          .info(@click="goto")
+          .info(@click="followMe")
             img(src="/static/user/gongzhonghao.png")
             span 关注公众号
           .info
-            img(src="/static/user/service.png")
+            img(@click="goto('ClientService')",src="/static/user/service.png")
             span 客服与反馈
 
 
@@ -92,6 +92,10 @@ export default {
     },
     goto(cid) {
       this.$navigator.push(cid)
+    },
+    followMe() {
+      console.log('follow me');
+      
     }
   },
 }

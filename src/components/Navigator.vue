@@ -26,6 +26,11 @@ import SecretDetail from '@/views/SecretDetail.vue'
 import SearchPage from '@/views/SearchPage.vue'
 import SearchResultPage from '@/views/SearchResultPage.vue'
 
+// home
+import MustBuy from '@/views/home/MustBuy'
+import BrandChoice from '@/views/home/BrandChoice'
+import ExcellentChoice from '@/views/home/ExcellentChoice'
+import TimeSelling from '@/views/home/TimeSelling'
 // category
 import CategorySearch from '@/views/category/CategorySearch'
 // user-center
@@ -57,6 +62,10 @@ import Footprint from '@/views/user/footprint/Footprint'
 // identity
 import MyIdentity from '@/views/user/identity/MyIdentity'
 import AddIdentity from '@/views/user/identity/AddIdentity'
+
+import MyReview from '@/views/user/review/MyReview'
+import MyCoupon from '@/views/user/coupon/MyCoupon'
+
 // The whole app should only has one navigator instance
 
 const Navigator = Vue.extend({
@@ -80,6 +89,11 @@ const Navigator = Vue.extend({
     SearchResultPage,
 
     CategorySearch,
+    //home
+    MustBuy,
+    BrandChoice,
+    ExcellentChoice,
+    TimeSelling,
 
     UserCenter,
     ClientService,
@@ -106,6 +120,9 @@ const Navigator = Vue.extend({
 
     MyIdentity,
     AddIdentity,
+
+    MyReview,
+    MyCoupon,
   },
   created() {
     Navigator.instance = this

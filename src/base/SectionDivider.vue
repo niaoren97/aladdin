@@ -1,6 +1,8 @@
 <template lang="pug">
-.divider
-  span(:style="{color: color}") {{title}}
+.divider(:style="{color: color || 'gray'}") {{title}}
+  .left(:style="{backgroundColor: color || 'gray'}")
+  .right(:style="{backgroundColor: color || 'gray' }")
+
 </template>
 <script>
 export default {
@@ -11,15 +13,15 @@ export default {
 <style lang="stylus" scoped>
 .divider
   text-align center
-  span
-    position relative
-    &::before, &::after
-      content ''
-      position absolute
-      width 20vw
-      height 1px
-    &::before
-      left -80%
-    &::right
-      right -80%
+  position relative
+  .left, .right
+    position absolute
+    width 20vw
+    height 1px
+    top 50%
+  .left
+    left 20vw
+  .right
+    right 20vw
+
 </style>

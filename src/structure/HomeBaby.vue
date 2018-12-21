@@ -5,14 +5,14 @@
       img.slide(src="http://dummyimage.com/640x320")
     swiper-slide 
       img.slide(src="http://dummyimage.com/640x320")
-  section-block
+  section-block(:extraStyle="{paddingTop:'0.2rem' }")
     section-divider(title="奶粉专区")
     product-group(:products="milkpowder")
 
-  section-block
+  section-block(:extraStyle="{paddingTop:'0.2rem' }")
     section-divider(title="纸尿裤专区")
     product-group(:products="diaper")
-  section-block
+  section-block(:extraStyle="{paddingTop:'0.2rem' }")
     section-divider(title="猜你喜欢")
     product-group(:products="guess")
 </template>
