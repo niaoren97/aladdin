@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div>
     <div class="goods">
       <check></check>
       <img :src="src" alt="" class="pic">
@@ -25,12 +25,12 @@ import check from '@/components/cart/Check.vue'
     data () {
       return {
        src: faker.image.avatar(),
-       num:0,
+       num:1,
       }
     },
     methods:{
       jian(){
-        if(this.num==0){
+        if(this.num==1){
           return 
         }
         this.num--

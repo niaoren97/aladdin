@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div >
     <div class="post">
       <div class="share">
         <img src="../../assets/cart-img/fxshl.png" alt="">
@@ -14,6 +14,7 @@
 
 <style lang="stylus" scoped>
 .post {
+  position relative
   height 1.8rem
   overflow hidden
   background-image: url('../../assets/cart-img/poster.png') ;
@@ -25,7 +26,7 @@
 }
 .share {
   position absolute
-  top 1.5rem
+  top .5rem
   right 0.4rem
   // border 1px solid red
   width 2.2rem

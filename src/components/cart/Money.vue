@@ -33,7 +33,7 @@ export default {
 .money div {
   width 100%
   border-bottom   1px solid #f2f2f2
-  padding 0.1rem
+  padding 0.2rem
   display flex
   justify-content space-between
 }
