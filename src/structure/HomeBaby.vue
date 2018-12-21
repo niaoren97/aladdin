@@ -1,10 +1,8 @@
 <template lang="pug">
 .container
   swiper
-    swiper-slide 
-      img.slide(src="http://dummyimage.com/640x320")
-    swiper-slide 
-      img.slide(src="http://dummyimage.com/640x320")
+    swiper-slide(v-for="slide in slides") 
+      img.slide(:src="slide")
   section-block(:extraStyle="{paddingTop:'0.2rem' }")
     section-divider(title="奶粉专区")
     product-group(:products="milkpowder")
@@ -19,7 +17,8 @@
 <script>
 import ProductShow  from '@/components/ProductShow'
 import ProductGroup  from '@/components/ProductGroup'
-import {createProduct} from '@/utils'
+import {createProduct, fakeImage} from '@/utils'
+import _ from 'lodash'
 
 export default {
   name: 'HomeBaby',
@@ -29,6 +28,7 @@ export default {
   },
   data() {
     return {
+      slides: _.range(0,4).map(() => fakeImage(720,300)),
       milkpowder: _.range(0,3).map(() => createProduct()),
       diaper: _.range(0,3).map(() => createProduct()),
       guess: _.range(0,3).map(() => createProduct()),

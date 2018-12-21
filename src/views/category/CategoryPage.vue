@@ -7,7 +7,7 @@
       input.search(@click="goto('SearchPage')",placeholder="输入商品关键词")
     template(slot="right")
       img(src="/static/tabs/message.png", @click="goto('MessagePage')")
-  .content
+  .content.container
     .sidebar
       .category(:class="{active: activeCategory===c.id}", v-for="(c,index) in categories", :key="c.id",
         @click="changeTab(index)") {{c.txt}}
@@ -55,6 +55,8 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.container
+  display flex
 .search
   width 100%
   height 0.5rem

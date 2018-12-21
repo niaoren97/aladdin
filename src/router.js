@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import RootPage from './views/RootPage.vue'
 import HomePage from './views/HomePage.vue'
-import CategoryPage from './views/CategoryPage.vue'
+import CategoryPage from './views/category/CategoryPage.vue'
 import UserCenter from './views/user/UserCenter'
 
 import Cart from '@/views/cart/Cart.vue'
