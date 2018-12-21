@@ -9,7 +9,6 @@
       <money></money>
 
       <!-- 失效商品 -->
-      <div class="shixiao">
         <div class="shi">清除失效商品</div>
       </div>
       <!-- 猜你喜欢 -->
