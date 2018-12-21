@@ -15,7 +15,8 @@ export default {
     change() {
       this.bol = !this.bol;
     }
-  }
+  },
+  props:[]
 }
 </script>
 <style lang="stylus" scoped>

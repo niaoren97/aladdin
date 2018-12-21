@@ -1,5 +1,5 @@
 <template>
-  <div class="single-page">
+  <div>
     <div class="lafen">
       <div class="left">阿拉粉心得</div>
       <div class="right" @click="push">查看更多

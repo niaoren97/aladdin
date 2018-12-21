@@ -1,8 +1,8 @@
 <template>
-  <div class="wrap">
+  <div>
     <div class="goods">
       <check></check>
-      <img :src="src" alt class="pic">
+      <img :src="src" alt="" class="pic">
       <div class="des">
         <p class="tit">会呼吸的丝滑蜜粉</p>
         <p class="guige">规格:蜜粉</p>

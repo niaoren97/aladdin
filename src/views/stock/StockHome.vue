@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <title-bar title="'这些都是断货王...'"></title-bar>
-    <div class="w">
+    <div class="content">
       <post></post>
       <div class="goods">
         <goods class="item" @click="push"></goods>
@@ -45,9 +45,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.page {
-  margin-top 1rem
-}
+
 .goods {
   width 100%
   display: flex;

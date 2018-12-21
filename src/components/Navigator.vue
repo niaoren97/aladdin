@@ -12,7 +12,6 @@
       transition(:key='modal.opts.$id', name='modal', appear)
         navigation-stack
           component(:is='modal.comp', v-bind='modal.payload')
-
 </template>
 
 <script>

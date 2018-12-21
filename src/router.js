@@ -9,7 +9,7 @@ import Cart from '@/views/cart/Cart.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 
 // 测试路由接口
-import pay from '@/views/cart/Pay.vue'
+import have from '@/views/cart/CartHave.vue'
 
 Vue.use(Router)
 
@@ -29,8 +29,8 @@ export default new Router({
       ],
     },
     {
-      path:'/pay',
-      component:pay
+      path:'/h',
+      component:have
     }
 
   ],
