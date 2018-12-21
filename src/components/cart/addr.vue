@@ -29,7 +29,6 @@ export default {
 <style scoped lang='stylus'>
 .top {
   border-top 0.1rem solid #f2f2f2
-  margin: 1rem 0 0.2rem;
 }
 
 .top .rb {
@@ -45,10 +44,6 @@ export default {
   align-items: center;
   padding: 0.2rem;
 }
-// .top {
-//   border-top: 0.1px solid #cccccc;
-//   // border-bottom: 0.1px solid #cccccc;
-// }
 .address img {
   width: 0.5rem;
   margin: 0 0.3rem;

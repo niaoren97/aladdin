@@ -15,6 +15,7 @@
 
 <style lang="stylus" scoped>
 .jifengou {
+  background-color #fff
   border-top 1px solid #cccccc
   border-bottom 1px solid #cccccc
   padding 0.2rem 0

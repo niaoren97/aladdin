@@ -14,9 +14,7 @@
 
 <style lang="stylus" scoped>
 .post {
-  // border 1px solid
   height 1.8rem
-  margin-top: 1rem;
   overflow hidden
   background-image: url('../../assets/cart-img/poster.png') ;
   background-size 100% 3.2rem

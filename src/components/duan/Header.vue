@@ -1,5 +1,5 @@
 <template>
-<div class="wrap">
+<div>
 <div class="header">{{title}}</div>
 </div>
   
@@ -18,6 +18,7 @@
 </script>
 <style lang="stylus" scoped>
 .header {
+  background-color #fff
   color: #fff;
   width: 100%;
   height: 1rem;
@@ -28,6 +29,7 @@
   position fixed
   top 0
   z-index 999
+  text-align center
 }
 </style>
 

@@ -1,12 +1,13 @@
-<template id='cart'>
-  <div class="wrap">
+<template>
+  <div class="page">
     <div class="top">
-      <p>购物车</p>
+      购物车
     </div>
     <div class="content">
-      <div>
+      <div class="con">
        <div class="post"><img src="/static/cart-img/empty.png" alt=""></div>
-       <p>您的购物车还是空空的快去<a href="" class="stroll">逛逛</a>吧！</p>
+       <p>您的购物车还是空空的快去</p>
+       <router-link to="/home" class="stroll">逛逛</router-link>吧！
       </div>    
     </div>
   </div>
@@ -20,34 +21,28 @@ export default {
       msg: "购物车"
     };
   },
+  methods:{
+  },
   props: {},
   components: {
+    }
   }
-};
 </script>
 
 <style scoped lang="stylus">
-.wrap {
-  height :100vh;
-  display :flex;
-  flex-wrap wrap;
-  justify-content :center;
-  align-items ceil; 
-}
 .top {
+  color #fff
   width 100%;
   height 1rem; 
-  font-size 0.4rem;
   line-height 1rem;
+  font-size 0.4rem;
+  text-align center
   background-color #e53e42;
   position fixed
   top 0
 }
-.top p {
-   color #fff;
-   letter-spacing 3px;
-}
 .content {
+  padding 1rem 0
   display :flex;
   justify-content :center;
   align-items center;
@@ -61,7 +56,9 @@ export default {
 .stroll {
   color #e53e42;
 }
-
+.con {
+  text-align center
+}
 </style>
 
 

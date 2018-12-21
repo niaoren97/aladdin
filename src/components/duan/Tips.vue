@@ -1,7 +1,7 @@
 <template>
   <div class="tips">
     <div class="pic">
-      <img src="/static/duan/小贴士.png" alt="">
+      <img src="/static/duan/小贴士.png" alt>
     </div>
     <div class="cont">
       <p>运费相关：英国直邮商品相关运费为50元。</p>
@@ -14,29 +14,32 @@
 
 <script>
 export default {
-  data(){
-    return {}
+  data() {
+    return {};
   },
-  methods:{},
-  components:{}
-}  
+  methods: {},
+  components: {}
+};
 </script>
 
 <style lang="stylus">
 .tips {
-  background-color #f2f2f2
-  padding 0.2rem 0
+  background-color: #f2f2f2;
+  padding: 0.2rem 0;
 }
-.pic img{
-  width 5.5rem
-  height 0.6rem
+.pic {
+  text-align center}
+.pic img {
+  width: 5.5rem;
+  height: 0.6rem;
 }
-.cont p{
-  color #4d4d4d
-font-style 0.22rem
-line-height 0.4rem
-text-align left 
-margin 0.2rem
+
+.cont p {
+  color: #4d4d4d;
+  font-style: 0.22rem;
+  line-height: 0.4rem;
+  text-align: left;
+  margin: 0.2rem;
 }
 </style>
 

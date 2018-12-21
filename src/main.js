@@ -10,6 +10,7 @@ import registrar from './plugins/base_registrator'
 import '@/assets/rem.js'
 import '@/style/style.styl'
 
+
 Vue.config.productionTip = false
 
 Vue.use(navigator)

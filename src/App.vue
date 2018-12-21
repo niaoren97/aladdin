@@ -18,6 +18,7 @@ export default {
   -moz-osx-font-smoothing grayscale
   height 100%
   text-align left
+  height 100%
   color #2c3e50
 
 #nav

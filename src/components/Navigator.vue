@@ -68,6 +68,12 @@ import MyCoupon from '@/views/user/coupon/MyCoupon'
 
 // The whole app should only has one navigator instance
 
+// 引入断货王
+import StockHome from '@/views/stock/StockHome'
+import StockProductDetail from '@/views/stock/StockProductDetail'
+import BrandDetail from '@/views/stock/BrandDetail'
+import Laxinde from '@/views/stock/Laxinde';
+
 const Navigator = Vue.extend({
   data: function() {
     return {
@@ -123,6 +129,11 @@ const Navigator = Vue.extend({
 
     MyReview,
     MyCoupon,
+    // 断货王商品详情页面
+    StockProductDetail,
+    StockHome,
+    BrandDetail,
+    Laxinde,
   },
   created() {
     Navigator.instance = this

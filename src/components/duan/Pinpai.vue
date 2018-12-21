@@ -1,6 +1,6 @@
 <template>
-  <div class="wrap">
-    <div class="top">
+  <div class="wra">
+    <div @click="push()" class="top">
       <img class="logo" :key="item.key" v-for="item in data" :src="item.logo" alt>
       <div class="bannd" :key="item.key" v-for="item in data">
         <span class="title">{{item.bannd}}</span>
@@ -49,11 +49,17 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    push() {
+      this.$navigator.push('BrandDetail')
+    }
+  },
   components: {}
 };
 </script>
 <style lang="stylus" scoped>
+.wra {
+  background-color #fff}
 .top {
   display: flex;
   flex: 1;
@@ -66,6 +72,7 @@ export default {
   width: 0.6rem;
   margin: 0.2rem;
   border: 1px solid #f2f2f2;
+  padding 0.1rem
 }
 
 .bannd {

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wra">
     <img class="post" :key="item.key" v-for="item in data" :src="item.src" alt="">
   </div>
 </template>
@@ -21,6 +21,7 @@
 
 <style lang="stylus" scoped>
   .post {
+    background-color #fff
     width 100%
   }
 </style>
