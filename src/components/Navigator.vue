@@ -61,6 +61,7 @@ import AddIdentity from '@/views/user/identity/AddIdentity'
 import StockHome from '@/views/stock/StockHome'
 import StockProductDetail from '@/views/stock/StockProductDetail'
 import BrandDetail from '@/views/stock/BrandDetail'
+import Laxinde from '@/views/stock/Laxinde';
 
 const Navigator = Vue.extend({
   data: function() {
@@ -111,6 +112,7 @@ const Navigator = Vue.extend({
     StockProductDetail,
     StockHome,
     BrandDetail,
+    Laxinde,
   },
   created() {
     Navigator.instance = this

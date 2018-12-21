@@ -1,18 +1,18 @@
 <template>
   <div class="page">
-    <myheader :title="title"></myheader>
+    <title-bar title="'这些都是断货王...'"></title-bar>
     <div class="w">
       <post></post>
       <div class="goods">
-        <goods @click="push"></goods>
-        <goods @click="push"></goods>
-        <goods @click="push"></goods>
+        <goods class="item" @click="push"></goods>
+        <goods class="item" @click="push"></goods>
+        <goods class="item" @click="push"></goods>
       </div>
       <post></post>
-      <div class="goods">
-        <goods @click="push"></goods>
-        <goods @click="push"></goods>
-        <goods @click="push"></goods>
+      <div class="goods"> 
+        <goods class="item" @click="push"></goods>
+        <goods class="item" @click="push"></goods>
+        <goods class="item" @click="push"></goods>
       </div>
     </div>
   </div>
@@ -45,10 +45,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.w {
-  padding-top : 1rem;
+.page {
+  margin-top 1rem
 }
-
 .goods {
   width 100%
   display: flex;
@@ -58,6 +57,9 @@ export default {
   flex-wrap: wrap;
   padding 0.1rem
   border-bottom: 0.2rem solid #f2f2f2;
+}
+.item {
+  width 33%
 }
 </style>
 

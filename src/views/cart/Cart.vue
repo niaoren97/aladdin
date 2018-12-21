@@ -6,7 +6,8 @@
     <div class="content">
       <div class="con">
        <div class="post"><img src="/static/cart-img/empty.png" alt=""></div>
-       <p>您的购物车还是空空的快去<a @click="push()" class="stroll">逛逛</a>吧！</p>
+       <p>您的购物车还是空空的快去</p>
+       <router-link to="/home" class="stroll">逛逛</router-link>吧！
       </div>    
     </div>
   </div>
@@ -21,9 +22,6 @@ export default {
     };
   },
   methods:{
-    push() {
-      this.$navigator.push('StockHome')
-    }
   },
   props: {},
   components: {

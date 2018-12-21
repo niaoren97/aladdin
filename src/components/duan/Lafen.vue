@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="single-page">
     <div class="lafen">
       <div class="left">阿拉粉心得</div>
-      <div class="right">查看更多
-        <img @click="go()" class="jiantou" src="/static/duan/jiantouyou.png" alt>
+      <div class="right" @click="push">查看更多
+        <img class="jiantou" src="/static/duan/jiantouyou.png" alt>
       </div>
     </div>
     <div class="line"></div>
@@ -18,11 +18,16 @@
 </template>
 <script>
 import comment from "@/components/duan/Comment.vue";
+import Laxinde from '@/views/stock/Laxinde.vue';
 export default {
-  data() {
+  data() { 
     return {};
   },
-  methods: {},
+  methods: {
+    push() {
+      this.$navigator.push('Laxinde')
+    }
+  },
   components: {
     comment: comment
   }

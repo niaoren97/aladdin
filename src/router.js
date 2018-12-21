@@ -27,7 +27,7 @@ export default new Router({
         { path: 'cart', component: Cart },
         { path: 'user', component: UserCenter },
       ],
-    }, 
+    },
     {
       path:'/pay',
       component:pay

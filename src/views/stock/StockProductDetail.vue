@@ -98,8 +98,6 @@ export default {
 
 <style lang="stylus" scoped>
 .content {
-  height: calc(100vh - 1rem);
-  overflow: scroll;
 }
 
 .swiper {
