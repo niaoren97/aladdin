@@ -1,29 +1,8 @@
 # aladdin
 
-## Project setup
-```
-yarn install
-```
+## 12.21 
+ 李晓刚
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+ 1.完成断货王的页面和页面之间的基本的跳转，功能部分还没实现。
+ 2.购物车的静态页面。
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
