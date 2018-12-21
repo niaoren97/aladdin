@@ -1,5 +1,5 @@
 <template lang="pug">
-.page
+.navigator
   slot
   .stacks(ref='stacks')
     template(v-for="stack in stacks")
@@ -25,6 +25,13 @@ import SecretDetail from '@/views/SecretDetail.vue'
 import SearchPage from '@/views/SearchPage.vue'
 import SearchResultPage from '@/views/SearchResultPage.vue'
 
+// home
+import MustBuy from '@/views/home/MustBuy'
+import BrandChoice from '@/views/home/BrandChoice'
+import ExcellentChoice from '@/views/home/ExcellentChoice'
+import TimeSelling from '@/views/home/TimeSelling'
+// category
+import CategorySearch from '@/views/category/CategorySearch'
 // user-center
 import UserCenter from '@/views/user/UserCenter'
 import ClientService from '@/views/user/UserCenter'
@@ -54,6 +61,10 @@ import Footprint from '@/views/user/footprint/Footprint'
 // identity
 import MyIdentity from '@/views/user/identity/MyIdentity'
 import AddIdentity from '@/views/user/identity/AddIdentity'
+
+import MyReview from '@/views/user/review/MyReview'
+import MyCoupon from '@/views/user/coupon/MyCoupon'
+
 // The whole app should only has one navigator instance
 
 // 引入断货王
@@ -82,6 +93,13 @@ const Navigator = Vue.extend({
     SearchPage,
     SearchResultPage,
 
+    CategorySearch,
+    //home
+    MustBuy,
+    BrandChoice,
+    ExcellentChoice,
+    TimeSelling,
+
     UserCenter,
     ClientService,
     UserInfo,
@@ -107,6 +125,9 @@ const Navigator = Vue.extend({
 
     MyIdentity,
     AddIdentity,
+
+    MyReview,
+    MyCoupon,
     // 断货王商品详情页面
     StockProductDetail,
     StockHome,
@@ -160,10 +181,11 @@ export default Navigator
 <style lang="stylus" scoped>
 @import '../style/vars.styl'
 
-.page
-  width 100%
+.navigator
+  width 100vw
   height 100vh
-  background-color #f6f6f6
+  position fixed
+  // overflow scroll
   z-index $stack-level
 
 .modal-mask

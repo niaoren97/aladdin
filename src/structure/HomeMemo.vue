@@ -6,7 +6,8 @@ div.container
     template(slot="right-top")
     template(slot="right-bottom")
   .coming
-    span.title 即将开售
+    //- span.title 即将开售
+    section-divider(title="即将开售")
     coming-area(title="美妆专区")
     coming-area(title="美食专区")
 </template>

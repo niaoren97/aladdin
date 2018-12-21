@@ -6,7 +6,8 @@
       span(@click="editFootprint") 编辑
   //- TODO: shoule group by day, and use `PROPS`
   .content
-    product-preview(v-for="footprint in footprints", :key="footprint.id")
+    product-preview(v-for="footprint in footprints", :key="footprint.id",
+      :product="footprint")
 
 
 </template>

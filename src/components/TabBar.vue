@@ -16,8 +16,8 @@ export default {
   position fixed
   bottom 0
   left 0
-  width 100%
-  height 56px
+  width 100vw
+  height 1rem
   display flex
   align-items center
   justify-content space-around

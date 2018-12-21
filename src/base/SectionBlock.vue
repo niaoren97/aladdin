@@ -1,10 +1,11 @@
 <template lang="pug">
-.section
+.section(:style="extraStyle")
   slot
 </template>
 <script>
 export default {
-  name: 'SectionBlock'
+  name: 'SectionBlock',
+  props: ['extraStyle']
 }
 </script>
 

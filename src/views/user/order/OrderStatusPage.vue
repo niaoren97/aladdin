@@ -5,12 +5,12 @@
       span(@click="edit") 编辑
   .content
     .tabs
-      .tab 全部订单
-      .tab 待支付
-      .tab 待发货
-      .tab 待收货
-      .tab 交易关闭
-      .tab 交易完成
+      .tab(@click="setFilter('all')", :class="{active: filter==='all'}") 全部订单
+      .tab(@click="setFilter('toPay')", :class="{active: filter==='toPay'}") 待支付
+      .tab(@click="setFilter('toShip')", :class="{active: filter==='toShip'}") 待发货
+      .tab(@click="setFilter('toConfirm')", :class="{active: filter==='toConfirm'}") 待收货
+      .tab(@click="setFilter('closed')", :class="{active: filter==='closed'}") 交易关闭
+      .tab(:@click="setFilter('finished')", class="{active: filter==='finished'}") 交易完成
     .orders
       order-preview(v-for="order in filteredOrders", :key="order.id"
         :order="order")
@@ -19,14 +19,20 @@
 <script>
 import OrderPreview from '@/components/OrderPreview'
 import { createOrder } from '@/utils'
+import {range} from 'lodash'
 
 export default {
   name: 'OrderStatusPage',
+  props: ['status'],
   data() {
     return {
-      orders: [],
+      orders: range(0,10).map(() => createOrder()),
       filter: '',
+      activeTab: ''
     }
+  },
+  created() {
+    this.filter = this.status || 'all'
   },
   computed: {
     filteredOrders() {
@@ -45,6 +51,11 @@ export default {
   components: {
     OrderPreview,
   },
+  methods: {
+    setStatus(s) {
+      this.filter = s
+    }
+  }
 }
 </script>
 <style lang="stylus" scoped>

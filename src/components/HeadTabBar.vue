@@ -12,8 +12,8 @@ export default {
 <style lang="stylus" scoped>
 .head-tab-bar
   display flex
-  top 1rem
   position sticky
+  top 0
   background #fff
   z-index 9999
   border-bottom: solid 1px orange

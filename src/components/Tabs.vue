@@ -1,12 +1,10 @@
 <template lang="pug">
-div  
+div.tabs  
   slot(name="bar")
-  .content
+  .tab
     slot
 </template>
 
 <style lang="stylus" scoped>
-.content
-  padding-bottom 100px
 </style>
 

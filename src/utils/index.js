@@ -24,8 +24,9 @@ class Coupon {
   }
 }
 
-function fakeImage(w, h) {
-  return `http://dummyimage.com/${w}x${h}`
+function fakeImage(w, h, color) {
+  color = color || 'fff'
+  return `http://dummyimage.com/${w}x${h}/${color}`
 }
 function createAddress() {
   return {

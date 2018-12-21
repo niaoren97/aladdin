@@ -5,7 +5,13 @@
     img(:src="image")
     span.text-center {{title}}
   span 即将开始
-  span 倒计时: {{hours}}时{{minutes}}分{{seconds}}秒
+  span 倒计时: 
+    span.time {{hours}}
+    span 时
+    span.time {{minutes}}
+    span 分
+    span.time {{seconds}}
+    span 秒
 </template>
 <script>
 import moment from 'moment'
@@ -60,6 +66,8 @@ export default {
   outline solid 1px lightgray
   width 2rem
   height 2.4rem
+  span
+    font-size 0.2rem
   img 
     width 100%
     display block
@@ -69,6 +77,7 @@ export default {
     left 0
     height: 0.8rem
     width: 0.4rem
+    font-size: 0.2rem
     padding: 0px; 
     display flex
     justify-content center
@@ -79,5 +88,6 @@ export default {
     border-left: 0.2rem solid red; 
     border-right: 0.2rem solid red; 
     border-bottom: 0.2rem solid transparent; 
-
+.time
+  color red
 </style>

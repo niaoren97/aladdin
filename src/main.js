@@ -6,7 +6,7 @@ import VueAwesomeSwiper, { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import './registerServiceWorker'
 import navigator from './plugins/navigator'
-import registrar from './plugins/base_registrator' 
+import registrar from './plugins/base_registrator'
 import '@/assets/rem.js'
 import '@/style/style.styl'
 

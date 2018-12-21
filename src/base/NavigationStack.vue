@@ -1,5 +1,5 @@
 <template lang="pug">
-.page
+.stack
   slot
 </template>
 
@@ -14,24 +14,12 @@ export default Vue.extend({
 </script>
 
 <style lang="stylus" scoped>
-.page
+.stack
   height 100vh
-  // padding-top 64px
-  position absolute
-  top 0
-  left 0
-  background-color #fff
-  box-shadow -1px 0 4px rgba(30,30,30, 0.3)
-.header
-  display flex
-  justify-content space-between
-  align-items center
-  padding 0 20px
+  width 100vw
   position fixed
   top 0
-  background-color #fff
   left 0
-  width 100%
-  height 64px
-  box-shadow 0 1px rgba(30, 30, 30, 0.3)
+  background-color #f2f2f2
+  box-shadow -1px 0 4px rgba(30,30,30, 0.3)
 </style>

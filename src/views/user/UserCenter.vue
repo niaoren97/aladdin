@@ -20,18 +20,18 @@
       list
         list-item
           span 我的订单
-          span 查看所有订单
+          span(@click="goto('OrderStatusPage')") 查看所有订单
         list-item
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toPay'})")
             img(src='/static/user/to-pay.png')
             span 待支付
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toShip'})")
             img(src='/static/user/to-ship.png')
             span 待发货
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'toConfirm'})")
             img(src='/static/user/to-confirm.png')
             span 待收货
-          .info
+          .info(@click="goto('OrderStatusPage', {status: 'finished'})")
             img(src='/static/user/finished.png')
             span 已完成
     section-block
@@ -55,17 +55,17 @@
             span {{user.reviewCount}}
             span 我的心得
         list-item
-          .info(@click="goto('IDVerify')")
+          .info(@click="goto('MyIdentity')")
             img(src="/static/user/id-verify.png")
             span 实名认证
           .info(@click="goto('MyAddress')")
             img(src="/static/user/address.png")
             span 收货地址
-          .info(@click="goto")
+          .info(@click="followMe")
             img(src="/static/user/gongzhonghao.png")
             span 关注公众号
           .info
-            img(src="/static/user/service.png")
+            img(@click="goto('ClientService')",src="/static/user/service.png")
             span 客服与反馈
 
 
@@ -92,6 +92,10 @@ export default {
     },
     goto(cid) {
       this.$navigator.push(cid)
+    },
+    followMe() {
+      console.log('follow me');
+      
     }
   },
 }
