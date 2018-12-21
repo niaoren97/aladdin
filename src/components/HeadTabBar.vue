@@ -13,6 +13,7 @@ export default {
 .head-tab-bar
   display flex
   position sticky
+  top 0
   background #fff
   z-index 9999
   border-bottom: solid 1px orange
