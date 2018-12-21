@@ -50,11 +50,13 @@ export default {
 }
 
 .goods {
+  width 100%
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex: 1;
   flex-wrap: wrap;
+  padding 0.1rem
   border-bottom: 0.2rem solid #f2f2f2;
 }
 </style>

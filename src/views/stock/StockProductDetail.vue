@@ -1,36 +1,38 @@
 <template>
   <div class="single-page">
     <navigation-bar title="商品详情"></navigation-bar>
-    <swiper class="swiper" :options="swiperOption">
-      <swiper-slide class="slide" :key="item.key" v-for="item in data">
-        <img :src="item.src" alt>
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
-    <div class="qiang">
-      <div class="bargain">
-        抢购价： ￥
-        <span class="price">192.08</span>
+    <div class="content">
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide class="slide" :key="item.key" v-for="item in data">
+          <img :src="item.src" alt>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+      <div class="qiang">
+        <div class="bargain">
+          抢购价： ￥
+          <span class="price">192.08</span>
+        </div>
+        <div class="time">
+          今天15:00开抢
+          <span class="ti">提醒我</span>
+        </div>
       </div>
-      <div class="time">
-        今天15:00开抢
-        <span class="ti">提醒我</span>
-      </div>
-    </div>
 
-    <des></des>
-    <jifengou></jifengou>
-    <tui @go="go()"></tui>
-    <lafen></lafen>
-    <pinpai></pinpai>
-    <product></product>
-    <myuse></myuse>
-    <productimg></productimg>
-    <lafenbuy></lafenbuy>
-    <promise></promise>
-    <tips></tips>
-    <bottom></bottom>
-    <description v-if="bol"></description>
+      <des></des>
+      <jifengou></jifengou>
+      <tui @go="go()"></tui>
+      <lafen></lafen>
+      <pinpai></pinpai>
+      <product></product>
+      <myuse></myuse>
+      <productimg></productimg>
+      <lafenbuy></lafenbuy>
+      <promise></promise>
+      <tips></tips>
+      <bottom></bottom>
+      <description v-if="bol"></description>
+    </div>
   </div>
 </template>
 
@@ -95,6 +97,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.content {
+  height: calc(100vh - 1rem);
+  overflow: scroll;
+}
+
 .swiper {
   background-color: #fff;
 }

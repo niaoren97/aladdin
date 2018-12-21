@@ -34,8 +34,8 @@ export default {
 <style lang="stylus" scoped>
 .wra {
   background-color: #fff;
-  width: 2.27rem;
-  padding: 0.16rem 0.2rem;
+  width: 2rem;
+  padding: 0.16rem 0.1rem;
   text-align: center;
 }
 
