@@ -9,7 +9,7 @@ import Cart from '@/views/cart/Cart.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 
 // 测试路由接口
-import Laxinde from '@/views/stock/Laxinde.vue'
+import pay from '@/views/cart/Pay.vue'
 
 Vue.use(Router)
 
@@ -29,8 +29,8 @@ export default new Router({
       ],
     }, 
     {
-      path:'/a',
-      component:Laxinde
+      path:'/pay',
+      component:pay
     }
 
   ],

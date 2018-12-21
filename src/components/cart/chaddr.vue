@@ -39,7 +39,6 @@ export default {
 <style scoped lang='stylus'>
 .top {
   border-top 0.1rem solid #f2f2f2
-  margin: 1rem 0 0.2rem;
 }
 
 .top>.rb {
@@ -81,7 +80,7 @@ export default {
 }
 
 .ch-addres {
-  // height: 1.2rem;
+  background-color #fff
   margin: 0.2rem 0;
 }
 

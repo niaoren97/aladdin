@@ -9,32 +9,9 @@
     </div>
 
     <div class="content">
-      <!-- 全部心得 -->
-      <div v-if="active===0" class="allxd">
-        <div class="shang">
-          <div class="pic">
-            <img src="/static/duan/ppy1.jpg" alt>
-            鸟人一个
-          </div>
-          <span class="time">time</span>
-          <div class="comment">该模块主要内容是顾客对购买的商品的评价...该模块主要内容是 顾客对购买的商品的评价...</div>
-        </div>
-        <div class="zhong">
-          <div class="zan" @click="add()" >
-            <img src="/static/duan/zan.png" alt>
-            <span >{{num}}</span>
-          </div>
-          <div class="ping">
-            <img src="/static/duan/ping.png" alt>
-            <span>100</span>
-          </div>
-          <div class="fen">
-            <img src="/static/duan/fx.png" alt>
-            <span>999</span>
-          </div>
-        </div>
-      </div>
-      <!-- 晒图 -->
+      <!-- 全部心得 *********************************************-->
+      <comment v-if="active===0"></comment>
+      <!-- 晒图 ********************************************-->
       <div v-else class="tu">
         <div class="shang">
           <div class="pic">
@@ -70,7 +47,7 @@
         </div>
       </div>
 
-      <!-- 书写评论 -->
+      <!-- 书写评论 ********************************************-->
       <div class="write">
         
       </div>
@@ -80,6 +57,7 @@
 
 <script>
 import faker from "faker";
+import comment from '@/components/duan/Lacomment.vue'
 export default {
   data() {
     return {
@@ -96,7 +74,9 @@ export default {
       this.num++;
     }
   },
-  components: {},
+  components: {
+    comment:comment
+  },
   props: {}
 };
 </script>
@@ -180,7 +160,6 @@ export default {
   border-right: 1px solid #f2f2f2;
   padding: 0 0.86rem;
 }
-
 .tupian {
   background-color: #fff;
   border: 1px solid #f2f2f2;
