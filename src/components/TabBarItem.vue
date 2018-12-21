@@ -1,5 +1,5 @@
 <template lang="pug">
-div(@click="click")
+div.wrapper(@click="click")
   div.bar-item(v-if="label")  
     img(:src="iconShow")
     span(:style="{'color': active ? activeColor : color}") {{label}}
@@ -32,11 +32,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.wrapper
+  width 25vw
+  text-align center
 .bar-item
   display flex
   flex-direction column
   justify-content center
   align-items center
   img
-    width 50%
+    width 0.5rem
+    height 0.5rem
 </style>

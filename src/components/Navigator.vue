@@ -1,5 +1,5 @@
 <template lang="pug">
-.page
+.navigator
   slot
   .stacks(ref='stacks')
     template(v-for="stack in stacks")
@@ -171,12 +171,11 @@ export default Navigator
 <style lang="stylus" scoped>
 @import '../style/vars.styl'
 
-.page
-  width 100%
+.navigator
+  width 100vw
   height 100vh
   position fixed
-  overflow scroll
-  background-color #f6f6f6
+  // overflow scroll
   z-index $stack-level
 
 .modal-mask

@@ -63,9 +63,6 @@ export default {
   border-radius 10px
   outline none
   text-align center
-.content
-  display flex
-  padding-top 1rem
 .sidebar
   width 1.8rem
   flex-shrink 0
