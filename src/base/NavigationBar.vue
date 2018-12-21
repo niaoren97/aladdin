@@ -4,10 +4,7 @@ head-bar
     span(v-if="title") {{title}}
     slot(v-else, name="center")
   template(slot="left")
-    //- img(:src="require('@/assets/tabs')", alt="", @click="back")
-    //- TODO: use a back image
-    img.back(@click="back", src="/static/icons/back.png")
-    //- span(@click="back") back
+    img.back(@click="back", src="/static/icons/back.png", :style="{width: '0.2rem'}")
   template(slot="right")
     slot(name="right")
 </template>

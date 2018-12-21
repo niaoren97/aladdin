@@ -2,11 +2,11 @@
 .single-page
   navigation-bar(title="超值热卖")
     template(slot="right")
-      img(src="/static/icons/cart-white.png", @click="goto('Cart')")
+      img(src="/static/icons/cart-white.png", @click="navigateTo('/cart')")
       img(src="/static/icons/share-white.png", @click="share")
-      img(src="/static/icons/home-white.png", @click="home")
+      img(src="/static/icons/home-white.png", @click="navigateTo('/home')")
   .content
-    .modal(:style="{display: showModal ? 'block':'none'}")
+    .modal(v-if="showModal")
       .mask
       share-popup(@cancel="showModal=false")
 </template>
@@ -14,26 +14,26 @@
 import SharePopup from '@/components/SharePopup'
 
 export default {
-  name: "ExcellentChoice",
+  name: 'ExcellentChoice',
   components: {
     SharePopup,
   },
   data() {
     return {
-      showModal: false
+      showModal: false,
     }
   },
   methods: {
+    navigateTo(url) {
+      this.$router.push(url)
+    },
     goto(cid) {
       this.$navigator.push(cid)
     },
     share() {
-      thsi.showModal = true
+      this.showModal = true
     },
-    home() {
-
-    }
-  }
+  },
 }
 </script>
 <style lang="stylus" scoped>

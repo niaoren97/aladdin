@@ -1,10 +1,10 @@
 <template lang="pug">
 .section
   img(:src="product.images[0]")
-  div
+  div.info
     div {{product.title}}
     div {{product.subtitle}}
-    .info
+    .footer
       span 🇯🇵 海外直邮
       span.price {{product.price}}
 </template>
@@ -42,11 +42,14 @@ export default {
     height 1.6rem
     margin-bottom 0.2rem
 .info
+  padding-left 0.2rem
+.footer
   display flex
   justify-content space-between
+  align-items flex-end
   .price
     color red
-    font-size 0.2rem
+    font-size 0.3rem
     font-weight lighter
 
 </style>

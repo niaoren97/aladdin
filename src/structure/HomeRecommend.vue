@@ -1,18 +1,16 @@
 <template lang="pug">
 div
   swiper
-    swiper-slide
-      img(src="http://dummyimage.com/640x320")
-    swiper-slide
-      img(src="http://dummyimage.com/640x320")
-    swiper-slide
-      img(src="http://dummyimage.com/640x320")
+    swiper-slide(v-for="s in slides", :key="s.id")
+      img.slide(:src="s.feature")
   exhibition
     booth-header(title="新品上市, 促销大庆")
     template(slot="left")
-      img(style="width: 100%",src="http://dummyimage.com/320x320")
+      img(@click="goto('TimeSelling')" ,style="width: 100%",src="http://dummyimage.com/320x320")
     template(slot="right-top")
+      img(@click="goto('BrandChoice')", src="http://dummyimage.com/400x150")
     template(slot="right-bottom")
+      img(@click="goto('ExcellentChoice')", src="http://dummyimage.com/400x150")
 
   div.section(v-for="(g, k) in groups", :key="k")
     booth-header(:title="g.title")
@@ -39,7 +37,8 @@ import Booth from '@/components/Booth.vue'
 import Exhibition from '@/components/layouts/Exhibition.vue'
 import { mapState, mapActions, mapMutations } from 'vuex'
 import ProductGroup from '@/components/ProductGroup'
-import { createProduct } from '@/utils'
+import { createProduct, fakeImage } from '@/utils'
+import faker from 'faker'
 import { range } from 'lodash'
 
 import 'swiper/dist/css/swiper.css'
@@ -48,6 +47,11 @@ export default {
   name: 'HomeRecommend',
   data() {
     return {
+      slides: [{
+        id: faker.random.uuid(),
+        ...createProduct(),
+        feature: fakeImage(750, 312),
+      }],
       groups: {
         today: {
           title: '今日推荐',
@@ -65,6 +69,9 @@ export default {
     navigate() {
       this.$navigator.push('ProductDetail', { id: 3 })
     },
+    goto(cid) {
+      this.$navigator.push(cid)
+    }
   },
   components: {
     Booth,
@@ -78,6 +85,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.slide
+  width 100vw
+  height 41vw
 .section
   background-color #fff
   margin-bottom 0.2rem

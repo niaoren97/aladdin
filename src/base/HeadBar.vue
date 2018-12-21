@@ -21,6 +21,10 @@
   align-items center
   box-shadow 0 0 3px rgba(30,30,30,0.2)
   z-index 10000
+  img
+    width 0.4rem
+    height 0.4rem
+    margin-left 0.2rem
   .left
     flex 1
     padding-left 0.2rem

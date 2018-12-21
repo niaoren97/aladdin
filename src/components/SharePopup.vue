@@ -48,6 +48,9 @@ export default {
   background-color #fff
   padding 20px 0
   text-align center
+  position absolute
+  left 0
+  bottom 0
 .shares
   display flex
   flex-wrap wrap
@@ -55,9 +58,15 @@ export default {
     width 33.3vw
     height 20vw
     display flex
+    flex-direction column
     justify-content center
     align-items center
+    img
+      width 10vw
+      height 10vw
 button
   background-color  #E53E42
   color #fff
+  border none
+  outline none
 </style>

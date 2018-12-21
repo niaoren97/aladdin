@@ -7,6 +7,7 @@ div
 
 <style lang="stylus" scoped>
 .content
+  padding-top 1rem
   padding-bottom 100px
 </style>
 
