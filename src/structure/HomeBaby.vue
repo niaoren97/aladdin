@@ -12,7 +12,7 @@
     product-group(:products="diaper")
   section-block(:extraStyle="{paddingTop:'0.2rem' }")
     section-divider(title="猜你喜欢")
-    product-group(:products="guess")
+    product-group(:products="guess", :cols="2")
 </template>
 <script>
 import ProductShow  from '@/components/ProductShow'
