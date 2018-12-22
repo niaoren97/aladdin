@@ -1,13 +1,13 @@
 <template>
-  <div v-if="bol" class="page">
+  <div class="page">
     <div class="description">
       <div class="top">
         <div class="k"></div>
         <div class="title">服务说明</div>
-        <img @click="back()" class="pic" src="/static/duan/x.png" alt>
+        <img @click="$emit('back')" class="pic" src="/static/duan/x.png" alt>
       </div>
       <div class="des">
-        <div class="logo">
+       <div class="logo">
           <img src="/static/duan/no.png" alt>
         </div>
         <div class="txt">
@@ -38,16 +38,7 @@
 </template>
 <script>
 export default {
-  data (){
-    return {
-      bol:true
-    }
-  },
-  methods:{
-    back(){
-      this.bol=!this.bol
-    }
-  }
+
 }
 </script>
 
@@ -121,5 +112,3 @@ export default {
   font-size: 0.2rem;
 }
 </style>
-
-

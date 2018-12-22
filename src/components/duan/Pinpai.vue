@@ -6,10 +6,10 @@
         <span class="title">{{item.bannd}}</span>
         <span class="tit">法国最大化妆品品牌</span>
         <div class="look">
-          <a href>
+          <span href>
             查看
             <span class="num" :key="item.key" v-for="item in data">{{item.num}}</span>件商品
-          </a>
+          </span>
         </div>
       </div>
     </div>

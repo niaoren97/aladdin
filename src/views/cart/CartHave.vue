@@ -3,7 +3,7 @@
     <title-bar :title="'购物车'"></title-bar>
     <div class="content">
       <post></post>
-      <from @click="toggleAll" :title="'日本直邮'"  :checked=""></from>
+      <!-- <from @click="toggleAll" :title="'日本直邮'"  :checked=""></from> -->
       <hgoods></hgoods><hgoods></hgoods>
       <!-- 金额计算*************************** -->
       <money></money>
