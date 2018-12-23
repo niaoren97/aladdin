@@ -1,29 +1,49 @@
 import axios from 'axios'
 import { remove } from 'lodash'
-
+const dfs = {
+  name: '',
+  nickname: '',
+  token: '',
+  addresses: [], // 地址
+  refunds: [], // 返金
+  orders: [], // 订单
+  money: 0, // 余额
+  lampPoints: 0, // 神灯值
+  redeemPoints: 0, // 兑换积分
+  coupons: [], // 卡券
+  reviews: [], // 心得
+  messages: [],
+  idVerified: false, // 实名认证
+}
 export default {
   namespaced: true,
   state: {
-    name: '',
-    nickname: '',
-    token: '',
+    authing: false,
+    authMessage: {},
     loggedIn: false,
-    addresses: [], // 地址
-    refunds: [], // 返金
-    orders: [], // 订单
-    money: 0, // 余额
-    lampPoints: 0, // 神灯值
-    redeemPoints: 0, // 兑换积分
-    coupons: [], // 卡券
-    experiences: [], // 心得
-
-    idVerified: false, // 实名认证
+    registerSuccess: false,
+    me: {
+      name: '',
+      nickname: '',
+      token: '',
+      addresses: [], // 地址
+      refunds: [], // 返金
+      orders: [], // 订单
+      money: 0, // 余额
+      lampPoints: 0, // 神灯值
+      redeemPoints: 0, // 兑换积分
+      coupons: [], // 卡券
+      reviews: [], // 心得
+      messages: [],
+      idVerified: false, // 实名认证
+    },
   },
   mutations: {
     login(state, payload) {
       Object.keys(payload).forEach((k) => {
-        state[k] = payload[k]
+        state.me[k] = payload[k]
       })
+      state.loggedIn = true
       // const {
       //   token,
       //   name,
@@ -45,16 +65,8 @@ export default {
       // state.points
     },
     logout(state) {
-      state.token = ''
       state.loggedIn = false
-      state.addresses = []
-      state.refunds = []
-      state.orders = []
-      state.money = 0
-      state.lampPoints = 0
-      state.coupons = []
-      state.experiences = []
-      state.isVerified = false
+      Object.keys(state.me).forEach((k) => (state.me[k] = dfs[k]))
     },
     addOrders(state, payload) {
       if ('length' in payload) {
@@ -97,20 +109,45 @@ export default {
       remove(state.coupons, (a) => a.id === id)
     },
 
-    addExperience(state, payload) {
-      state.experiences.push(payload)
+    addReview(state, payload) {
+      state.reviews.push(payload)
     },
-    removeExperience(state, payload) {
+    removeReview(state, payload) {
       const { id } = payload
-      remove(state.experiences, (a) => a.id === id)
+      remove(state.reviews, (a) => a.id === id)
     },
   },
   actions: {
-    login(/* {commit, state} */) {
-      axios.post('/api/account/login', {}).then(() => {})
+    login({ commit, state }, { name, password }) {
+      state.authing = true
+      axios
+        .post('/api/v1/user/login', {
+          name,
+          password,
+        })
+        .then((res) => {
+          state.authing = false
+          if (res.error) {
+            state.authMessage = res.message
+          } else {
+            commit('login', res.data)
+          }
+        })
     },
     logout() {
-      axios.post('/api/account/logout', {}).then(() => {})
+      axios.post('/api/v1/user/logout', {}).then(({ commit }) => {
+        commit('logout')
+      })
+    },
+    register({ state }, { name, password }) {
+      axios.post('/api/v1/user/register', { name, password }).then(() => {
+        state.registerSuccess = true
+      })
+    },
+    getMessages({ state }) {
+      axios
+        .get('/api/v1/user/message', { uid: state.id })
+        .then((res) => (state.messages = res.data))
     },
   },
 }

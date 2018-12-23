@@ -25,9 +25,9 @@
               img(src="/static/category/list.png")
               span 分类
             .items
-              span.item(:class="{active: selectedCategories.includes(c)}", v-for="c in hotCategories", :key="c.id",
-                @click="select('categories',c.id)") {{c.title}}
-              span.item(@click="showMoreCategory") 更多分类
+              span.item(:class="{active: selectedTags.includes(c)}", v-for="c in hotTags", :key="c.id",
+                @click="select('tags',c.id)") {{c.title}}
+              span.item(@click="showMoreTags") 更多分类
         .actions
           span(@click="reset") 重置
           span.confirm(@click="confirm") 确定
@@ -36,8 +36,8 @@
           img(src="/static/icons/back.png", @click="showMorePanel = false")
           span.bold 分类
           span(@click="confirmMore") 确定
-        .list-item(:class="{active: selectedCategories.includes(c)}",v-for="c in categories",:key="c.id", @click="select('categories', c.id)") {{c.title}}
-          img(src="/static/icons/checked.png", v-if="selectedCategories.includes(c)")
+        .list-item(:class="{active: selectedTags.includes(c)}",v-for="c in tags",:key="c.id", @click="select('tags', c.id)") {{c.title}}
+          img(src="/static/icons/checked.png", v-if="selectedTags.includes(c)")
 
 
 
@@ -66,7 +66,7 @@ export default {
   components: {
     ProductPreview,
   },
-  props: ['category'],
+  props: ['category', 'preFilters'],
   data() {
     return {
       showPanel: false,
@@ -76,29 +76,36 @@ export default {
         title: v,
       })),
       groups: [{ id: 1, title: '促销商品' }, { id: 2, title: '首发商品' }],
-      categories: _.range(0, 30).map(() => ({
+      tags: _.range(0, 30).map(() => ({
         id: faker.random.uuid(),
         title: faker.lorem.word(),
       })),
-      selectedCategories: [],
+      selectedTags: [],
       selectedGroups: [],
       selectedCountries: [],
       sortBy: 'sales',
-      filters: { countries: [], categories: [], groups: [] },
+      filters: { countries: [], tags: [], groups: [] },
       searchResults: _.range(0, 4).map(() => createProduct()),
     }
   },
+  created() {
+    // merge props to data
+    this.filters.countries = [...this.preFilters.countries]
+    this.filters.tags = this.preFilters.tags
+    console.log(this.filters);
+    
+  },
   computed: {
-    hotCategories() {
+    hotTags() {
       // return the most host 20 categories from all categories
       // FIXME:
-      return this.categories.slice(0, 20)
+      return this.tags.slice(0, 20)
     },
     combinedFilters() {
       return {
         countries: this.filters.countries,
         groups: this.filters.groups,
-        categories: this.filters.categories,
+        tags: this.filters.tags,
       }
     },
     filterLength() {
@@ -106,20 +113,20 @@ export default {
       return (
         filters.countries.length +
         filters.groups.length +
-        filters.categories.length
+        filters.tags.length
       )
     },
   },
   methods: {
     reset() {
-      this.selectedCategories = []
+      this.selectedTags = []
       this.selectedGroups = []
       this.selectedCountries = []
     },
     confirm() {
       this.filters.countries = this.selectedCountries
       this.filters.groups = this.selectedGroups
-      this.filters.categories = this.selectedCategories
+      this.filters.tags = this.selectedTags
       this.showPanel = false
     },
     confirmMore() {
@@ -132,7 +139,7 @@ export default {
     clearFilters() {
       this.filters.countries = []
       this.filters.groups = []
-      this.filters.categories = []
+      this.filters.tags = []
     },
     tabActive(s) {
       return this.sortBy === s
@@ -153,7 +160,7 @@ export default {
         this.showPanel = !this.showPanel
       }
     },
-    showMoreCategory() {
+    showMoreTags() {
       this.showMorePanel = true
     },
     addFilter() {},
@@ -179,7 +186,7 @@ export default {
   height 0.8rem
   background #F2F2F2
   position sticky
-  top 1rem
+  top 0rem
 
   span.active
     color red

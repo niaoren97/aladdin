@@ -35,15 +35,20 @@ export default {
   box-shadow 0 1px 3px rgba(30,30,30,0.3)
   background-color #fff
   display flex
-  align-items center
+  align-items stretch
   padding 0.2rem
   img 
+    align-self center
     width 1.6rem
     height 1.6rem
     margin-bottom 0.2rem
 .info
+  flex 1
+  display flex
+  flex-direction column
   padding-left 0.2rem
 .footer
+  margin-top auto
   display flex
   justify-content space-between
   align-items flex-end

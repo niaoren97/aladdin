@@ -1,39 +1,73 @@
 <template lang="pug">
-div
+.detail
   img.feature(:src="featuredImage", @click="goDetail")
-  .products
-    .product(v-for="p in products", :key="p.id")
-      img(:src="p.images[0]")
+  .ships
+    .ship(@click="goWith({country: c})",v-for="c in countries", :key="c.id")
+      img(:src="c.icon")
+      span {{c.title}}
+  .tags
+    .tag(@click="goWith({tag: p})",v-for="p in tags", :key="p.id")
+      img(:src="p.image")
       span {{p.title}}
 </template>
 <script>
-import { range } from 'lodash'
-import faker from 'faker'
-const createProduct = () => ({
-  id: faker.random.uuid(),
-  title: faker.random.word(),
-  images: [],
-})
+import { range } from "lodash";
+import faker from "faker";
+import { createProduct, fakeImage } from "@/utils";
+function createTag() {
+  return {
+    id: faker.random.uuid(),
+    title: faker.lorem.word(),
+    image: fakeImage(120, 120)
+  };
+}
+const hans = ["日本", "英国", "美国", "澳洲", "中国"];
 export default {
-  name: 'CategoryDetail',
-  props: ['category'],
+  name: "CategoryDetail",
+  props: ["category"],
   data() {
     return {
-      featuredImage: 'http://dummyimage.com/500x200',
-      products: range(0, 12).map(() => createProduct()),
-    }
+      countries: ["japan", "england", "america", "australia", "china"].map(
+        (c, index) => ({
+          id: index,
+          icon: `/static/country/${c}.png`,
+          title: `${hans[index]}直邮`
+        })
+      ),
+      featuredImage: "http://dummyimage.com/500x200",
+      tags: range(0, 12).map(() => createTag())
+    };
   },
   beforeUpdate() {
     console.log(this.category);
   },
+  computed: {
+
+  },
+  watch: {
+    category() {
+      console.log(this.category);
+      // TODO: update from tags
+
+    }
+  },
   methods: {
     goDetail() {
-      this.$navigator.push('CategorySearch', { category: this.category })
+      this.$navigator.push("CategorySearch", { category: this.category });
     },
-  },
-}
+    goWith(p) {
+      this.$navigator.push("CategorySearch", {
+        category: this.category,
+        preFilters: { countries: p.country ? [p.country] : [], tags: p.tag ?[p.tag] : [] }
+      });
+    }
+  }
+};
 </script>
 <style lang="stylus" scoped>
+.detail
+  background-color #fff
+
 .feature
   display block
   margin auto
@@ -41,17 +75,44 @@ export default {
   height 2rem
   margin-top 20px
 
-.products
+.ships
+  display flex
+  flex-wrap wrap
+  margin 0 0.2rem
+  justify-content space-around
+  align-items center
+  padding 0.5rem 0
+  border-bottom solid 1px lightgray
+
+  .ship
+    width 33.3333%
+    height 1.5rem
+    display flex
+    flex-direction column
+    align-items center
+    justify-content space-around
+    text-align center
+
+    &:last-child
+      margin-right auto
+
+    img
+      width 0.5rem
+      height 0.5rem
+
+.tags
   display flex
   justify-content space-around
   flex-wrap wrap
 
-  .product
-    width 30%
+  .tag
+    width 33.3333%
     display flex
     flex-direction column
     align-items center
+    text-align center
 
     img
-      width 100%
+      width 1.3rem
+      height 1.3rem
 </style>

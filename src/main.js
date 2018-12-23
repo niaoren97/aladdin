@@ -10,12 +10,21 @@ import registrar from './plugins/base_registrator'
 import '@/assets/rem.js'
 import '@/style/style.styl'
 
-
 Vue.config.productionTip = false
 
 Vue.use(navigator)
 Vue.use(registrar)
 Vue.use(VueAwesomeSwiper)
+
+// config router
+const mains = ['/home', '/collection', '/stock', '/cart', '/user']
+router.beforeEach((to, from, next) => {
+  let ind = mains.indexOf(to.path)
+  if (ind > -1) {
+    store.state.app.tab = ind
+  }
+  next()
+})
 
 new Vue({
   router,

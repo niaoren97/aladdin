@@ -1,64 +1,92 @@
-<template>
-  <div class="page">
-    <div class="top">
-      购物车
-    </div>
-    <div class="content">
-      <div class="con">
-       <div class="post"><img src="/static/cart-img/empty.png" alt=""></div>
-       <p>您的购物车还是空空的快去</p>
-       <router-link to="/home" class="stroll">逛逛</router-link>吧！
-      </div>    
-    </div>
-  </div>
+<template lang="pug">
+.page
+  title-bar(title='购物车')
+    template(slot="right")
+      span(v-if="!editing",@click="edit(true)") 编辑
+      span(v-if="editing", @click="edit(false)") 取消
+  .content
+    .block(v-if="cart.items.length===0")
+      img.post(src='/static/cart-img/empty.png', alt='')
+      div 您的购物车还是空空的
+      div 快去
+        router-link.stroll(to='/home') 逛逛
+        | 吧！
+    .cart(v-if="cart.items.length>0")
+      .head(@click="share")
+        cart-bill(v-for="(g, country) in groups", :key="country",
+          :items="g", :group="country", :editing="editing")
 </template>
 
 <script>
+import _ from 'lodash'
+import {mapState} from 'vuex'
+import faker from 'faker'
+import CartBill from '@/components/cart/CartBill'
+
+function createItem() {
+  return {
+    id: faker.random.uuid(),
+    title: faker.lorem.word(),
+    spec: faker.lorem.word(),
+    tariff: _.random(0,0.2, true).toFixed(4)*100 + '%',
+    price: _.random(20,200),
+    count: 1,
+    checked: false,
+  }
+}
 export default {
-  name: "cart",
+  name: "Cart",
   data() {
     return {
-      msg: "购物车"
+      editing: false,
     };
   },
-  methods:{
+  computed: {
+    ...mapState({items: state=>state.cart.items,
+    products: state=>state.product.products}),
+    groups() {
+      // group by country
+      return _.groupBy(items, item => this.products[item.product].country)
+    } 
+  },
+  methods: {
+    edit(b) {
+      this.editing = b
+    },
+    share() {
+      // this.$navigator.presentModal('SharePopup', )
+    }
   },
   props: {},
   components: {
-    }
+    CartBill,
+
   }
+};
 </script>
 
 <style scoped lang="stylus">
-.top {
-  color #fff
-  width 100%;
-  height 1rem; 
-  line-height 1rem;
-  font-size 0.4rem;
+.block
+  display flex
+  justify-content center
+  flex-direction column
+  padding-top 20vw
   text-align center
-  background-color #e53e42;
-  position fixed
-  top 0
-}
-.content {
-  padding 1rem 0
-  display :flex;
-  justify-content :center;
-  align-items center;
-  margin-top 1rem
-}
-.content p {
-  margin-top 0.5rem
-  color #808080;
-  font-size 0.3rem;
-}
-.stroll {
-  color #e53e42;
-}
-.con {
-  text-align center
-}
+
+.post
+  width 3.2rem
+  height 2.6rem
+  background-color #EFC5C5
+  margin auto
+
+.stroll
+  color #e53e42
+
+.cart
+  .head
+    width 100vw
+    height 1.8rem
+    background gray
 </style>
 
 

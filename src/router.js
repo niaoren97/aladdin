@@ -13,7 +13,7 @@ import have from '@/views/cart/CartHave.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -21,7 +21,7 @@ export default new Router({
       path: '/',
       component: RootPage,
       children: [
-        { path: 'home', component: HomePage },
+        { path: 'home', component: HomePage, alias: '' },
         { path: 'category', component: CategoryPage },
         { path: 'stock', component: StockHome },
         { path: 'cart', component: Cart },
@@ -29,9 +29,11 @@ export default new Router({
       ],
     },
     {
-      path:'/h',
-      component:have
-    }
-
+      path: '/h',
+      component: have,
+    },
   ],
 })
+
+
+export default router

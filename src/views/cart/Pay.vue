@@ -1,41 +1,32 @@
-<template>
-  <div class="single-page">
-    <navigation-bar :title="'结算中心'"></navigation-bar>
-    <div class="content">
-      <!-- 修改地址 -->
-      <changeaddr></changeaddr>
-      <!-- 应付金额 -->
-      <div class="money">
-        <div>本单请支付：</div>
-        <div>￥392.12</div>
-      </div>
-      <!-- 使用第三方支付平台 -->
-      <div class="other">
-        <div>使用第三方支付平台：</div>
-        <div class="zhi">
-          <div class="logo">
-            <img src="/static/cart-img/zhi.png" alt>支付宝
-          </div>
-
-          <check></check>
-        </div>
-        <div class="wx">
-          <div class="logo">
-            <img src="/static/cart-img/wx.png" alt>微信
-          </div>
-          <check></check>
-        </div>
-        <div class="close">
-          <span>收起
-            <img src="/static/cart-img/shangjiantou.png" alt>
-          </span>
-        </div>
-        
-      </div>
-      <!-- 确认支付 -->
-        <div class="sure">确认支付</div>
-    </div>
-  </div>
+<template lang="pug">
+.single-page
+  navigation-bar(:title=''结算中心'')
+  .content
+    // 修改地址 
+    changeaddr
+    // 应付金额 
+    .money
+      div 本单请支付：
+      div ￥392.12
+    // 使用第三方支付平台 
+    .other
+      div 使用第三方支付平台：
+      .zhi
+        .logo
+          img(src='/static/cart-img/zhi.png', alt='')
+          | 支付宝
+        check
+      .wx
+        .logo
+          img(src='/static/cart-img/wx.png', alt='')
+          | 微信
+        check
+      .close
+        span
+          | 收起 
+          img(src='/static/cart-img/shangjiantou.png', alt='')
+    // 确认支付 
+    .sure 确认支付
 </template>
 <script>
 import changeaddr from "@/components/cart/Chaddr.vue";

@@ -8,9 +8,10 @@ if (t) ip = t.find((face) => face.family === 'IPv4').address
 module.exports = {
   devServer: {
     proxy: {
-      '^api/': {
+      '/api': {
         // target: 'http://localhost:1337/api',
-        target: `http://${ip}:1337/api`,
+        target: `http://${ip}:1337`,
+        changeOrigin: true,
       },
     },
   },

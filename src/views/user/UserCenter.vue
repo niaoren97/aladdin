@@ -12,8 +12,8 @@
   .content
     .header
       .left
-        img.avatar(src="", alt="")
-        span {{user.nickname}}
+        img.avatar(:src="me.avatar", alt="")
+        span {{me.nickname}}
       .right
         button.cash(@click="goCash") 账户提现
     section-block
@@ -43,16 +43,16 @@
       list
         list-item
           .info(@click="goto('MyLamp')")
-            span {{user.lampPoints}}
+            span {{me.lampPoints}}
             span 我的神灯值
           .info(@click="goto('Footprint')")
-            span {{user.footprintCount}}
+            span {{me.footprintCount}}
             span 我的足迹
           .info(@click="goto('MyCoupon')")
-            span {{user.couponCount}}
+            span {{me.couponCount}}
             span 我的优惠券
           .info(@click="goto('MyReview')")
-            span {{user.reviewCount}}
+            span {{me.reviewCount}}
             span 我的心得
         list-item
           .info(@click="goto('MyIdentity')")
@@ -71,46 +71,84 @@
 
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
-    return {user: {
-      nickname: 'dd',
-      lampPoints: 20,
-      points: 10,
-      footprintCount: 2,
-      reviewCount: 2,
-      couponCount: 3,
-    }}
+    return {
+      // showLogin: false
+    }
   },
   computed: {
-
+    ...mapState({
+      authing: (state) => state.user.authing,
+      loggedIn: (state) => state.user.loggedIn,
+      authMessage: (state) => state.user.authMessage,
+      me: (state) => state.user.me,
+      tab(state) {
+        const tab = state.app.tab
+        // README: 我们需要在用户切换到 用户中心 页面时,检查用户当前是否登录,
+        // 由于此组件一直存在(keep-alive), 所以不能再 created 生命周期里判断,
+        // 利用 state.app 中的 tab 来判断是否切换到当前页.
+        return tab
+      },
+    }),
+  },
+  created() {
+    this.onAppear()
+  },
+  watch: {
+    tab(n, o) {
+      this.onAppear()
+    },
+    loggedIn(n,o) {
+      if(n === true && this.tab === 4) {
+        // this.showLogin = false
+        this.$navigator.pop()
+      }
+    }
   },
   methods: {
     goCash() {
       // TODO:
       this.$navigator.push('')
     },
+    onAppear(){
+      console.log('tab in user center: ', this.tab);
+      
+      if (this.tab === 4 && !this.loggedIn ) {
+        this.$navigator.push('LoginOrRegister', {}, false)
+        // this.showLogin = true
+      }
+
+    },
     goto(cid) {
       this.$navigator.push(cid)
     },
     followMe() {
-      console.log('follow me');
-      
-    }
+      console.log('follow me')
+    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.hidden
+  display none
+
 .header
   height 2.4rem
   display flex
   justify-content space-between
+  background-image cover url('https://picsum.photos/720/240') // picsum.photos/720/240)
+  background-color #fff
+  // .left
+
 .info
   display flex
   flex-direction column
   justify-content center
   align-items center
+
   span:first-child
     color red
 </style>

@@ -32,8 +32,7 @@ import Navigator from '@/components/Navigator.vue'
 import Tabs from '@/components/Tabs.vue'
 import TabBar from '@/components/TabBar.vue'
 import TabBarItem from '@/components/TabBarItem.vue'
-
-// TODO: the active tab should be decided by the tab state in store
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   data() {
@@ -41,15 +40,19 @@ export default {
       color: '#666',
       activeColor: '#E53E42',
       tabs: ['/home', '/category', '/stock', '/cart', '/user'],
-      tab: 0,
     }
   },
-  methods: {
-    switchTab(i) {
-      this.tab = i
-      console.log(this.tab);
-      
+  computed: {
+    tab() {
+      return this.$store.state.app.tab
     },
+  },
+  methods: {
+    ...mapMutations({ switchTab: 'app/switchTab' }),
+    // switchTab(i) {
+    //   this.tab = i
+    //   console.log(this.tab);
+    // },
   },
   components: {
     Navigator,

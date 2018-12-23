@@ -6,12 +6,13 @@
       transition(:key="stack.opts.$id", :name="stack.opts.$animated ? 'slide' : ''", appear)
         navigation-stack
           component(:is='stack.comp', v-bind='stack.payload')
-  .modals(ref='modals')
-    div.modal-mask(v-if="modals.length > 0")
+  .modals(ref='modals', @click.self="dismissModal",v-if="modals.length > 0")
+    div.modal-mask
     template(v-for='modal in modals')
       transition(:key='modal.opts.$id', name='modal', appear)
-        navigation-stack
-          component(:is='modal.comp', v-bind='modal.payload')
+        //- navigation-stack
+        //- .position(:class="{modal.opts}")
+        component(:is='modal.comp', v-bind='modal.payload')
 </template>
 
 <script>
@@ -41,6 +42,9 @@ import InvitationUpdate from '@/views/user/info/InvitationUpdate'
 import NicknameUpdate from '@/views/user/info/NicknameUpdate'
 import PhoneUpdate from '@/views/user/info/PhoneUpdate'
 import QRCodeUpdate from '@/views/user/info/QRCodeUpdate'
+
+// login, register
+import LoginOrRegister from '@/views/user/auth/LoginOrRegister'
 
 // service
 import AfterSales from '@/views/user/service/AfterSales'
@@ -72,6 +76,10 @@ import StockHome from '@/views/stock/StockHome'
 import StockProductDetail from '@/views/stock/StockProductDetail'
 import BrandDetail from '@/views/stock/BrandDetail'
 import Laxinde from '@/views/stock/Laxinde';
+
+
+// modals----------------
+import SharePopup from '@/components/SharePopup'
 
 const Navigator = Vue.extend({
   data: function() {
@@ -109,6 +117,8 @@ const Navigator = Vue.extend({
     PhoneUpdate,
     QRCodeUpdate,
 
+    LoginOrRegister,
+
     AfterSales,
     ExpressService,
     Feedback,
@@ -133,6 +143,10 @@ const Navigator = Vue.extend({
     StockHome,
     BrandDetail,
     Laxinde,
+
+
+    // modals
+    SharePopup,
   },
   created() {
     Navigator.instance = this
@@ -162,7 +176,7 @@ const Navigator = Vue.extend({
       if (this.modals.length === 0) this.stacks.pop()
     },
     // present a modal navigation stack
-    presentModal(comp, payload) {
+    presentModal(comp, payload, opts) {
       // this.presentingModal = true
       this.modals.push({ comp, payload, opts: { $id: this.id++ } })
     },
@@ -187,12 +201,17 @@ export default Navigator
   position fixed
   // overflow scroll
   z-index $stack-level
-
+.modals
+  position fixed
+  width 100vw
+  height 100vh
+  left 0
+  top 0
 .modal-mask
   position absolute
   width 100%
   height 100%
-  background-color rgba(30, 30, 30, 0.4)
+  background-color rgba(30, 30, 30, 0.5)
 
 .slide-enter-active, .slide-leave-active
   transition-duration 0.5s
