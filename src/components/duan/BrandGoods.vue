@@ -3,7 +3,7 @@
     <div class="post">
       <img :src="product.image" alt>
     </div>
-    <div class="content">
+    <div>
       <p class="title">焕彩萃璨花蕊唇彩4.8g</p>
       <p class="des">焕彩萃璨花蕊唇彩4.8g焕彩萃璨花蕊唇彩4.8g焕彩萃璨花蕊唇彩4.8g</p>
       <div class="from">
@@ -32,10 +32,11 @@ export default {
 .goods
   display flex
   justify-content space-between
-  margin 0.2rem 0
-  border-bottom 0.1rem solid #f2f2f2
+  // margin 0.2rem 0
+  // margin-bottom 1px
+  border-bottom 1px solid #f2f2f2
   background-color #fff
-  padding 0.1rem 0
+  padding 0.1rem 0.2rem
 
 .post
   margin 0 0.7rem
