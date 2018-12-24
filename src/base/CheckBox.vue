@@ -1,5 +1,5 @@
 <template lang="pug">
-.box(:class="{checked: checked}")
+.box(:class="{checked: checked}", @click="$emit('click')")
 </template>
 <script>
 export default {

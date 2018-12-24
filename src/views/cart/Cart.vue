@@ -5,13 +5,13 @@
       span(v-if="!editing",@click="edit(true)") 编辑
       span(v-if="editing", @click="edit(false)") 取消
   .content
-    .block(v-if="items.length===0")
+    .block(v-if="Object.keys(items).length===0")
       img.post(src='/static/cart-img/empty.png', alt='')
       div 您的购物车还是空空的
       div 快去
         router-link.stroll(to='/home') 逛逛
         | 吧！
-    .cart(v-if="items.length>0")
+    .cart(v-else)
       .head(@click="share")
       cart-bill(v-for="(g, country) in groups", :key="country",
         :items="g", :group="country", :editing="editing")
@@ -52,7 +52,7 @@ export default {
     }),
     groups() {
       // group by country
-      return _.groupBy(this.items, (item) => this.products[item.product].country)
+      return _.groupBy(Object.values(this.items), (item) => this.products[item.product].country)
     },
   },
   methods: {

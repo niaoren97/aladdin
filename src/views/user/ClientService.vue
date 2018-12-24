@@ -17,7 +17,7 @@
       @click="goto('ExpressService')")
     item(title="售后咨询", subtitle="商品质疑,退换货,投诉与建议",
       @click="goto('OrderService')")
-    item(title="其他咨询", @click="goto('OtherService')")
+    item(title="其他咨询", @click="goto('OtherAdvisory')")
     .call 常见问题
     span TODO
 
