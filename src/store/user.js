@@ -147,10 +147,12 @@ export default {
         state.registerSuccess = true
       })
     },
-    getMessages({ state }) {
+    fetchMessages({ state }) {
       axios
-        .get('/api/v1/user/message', { uid: state.id })
-        .then((res) => (state.messages = res.data))
+        .get('/api/v1/user/message', {
+          headers: { Authorization: `Bearer ${state.me.token}` },
+        })
+        .then((res) => (state.me.messages = res.data))
     },
     updateProfile({ commit, state }, { field, value }) {
       commit('updateProfile', { field, value })

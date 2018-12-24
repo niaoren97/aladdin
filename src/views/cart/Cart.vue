@@ -5,7 +5,7 @@
       span(v-if="!editing",@click="edit(true)") 编辑
       span(v-if="editing", @click="edit(false)") 取消
   .content
-    .block(v-if="cart.items.length===0")
+    .block(v-if="items.length===0")
       img.post(src='/static/cart-img/empty.png', alt='')
       div 您的购物车还是空空的
       div 快去
@@ -13,8 +13,8 @@
         | 吧！
     .cart(v-if="items.length>0")
       .head(@click="share")
-        cart-bill(v-for="(g, country) in groups", :key="country",
-          :items="g", :group="country", :editing="editing")
+      cart-bill(v-for="(g, country) in groups", :key="country",
+        :items="g", :group="country", :editing="editing")
 </template>
 
 <script>
@@ -41,6 +41,10 @@ export default {
       editing: false,
     }
   },
+  created(){
+    console.log(this.$store);
+    
+  },
   computed: {
     ...mapState({
       items: (state) => state.cart.items,
@@ -48,7 +52,7 @@ export default {
     }),
     groups() {
       // group by country
-      return _.groupBy(items, (item) => this.products[item.product].country)
+      return _.groupBy(this.items, (item) => this.products[item.product].country)
     },
   },
   methods: {
@@ -87,7 +91,7 @@ export default {
   .head
     width 100vw
     height 1.8rem
-    background gray
+    background center/ cover url('http://picsum.photos/720/180')
 </style>
 
 

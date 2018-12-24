@@ -40,7 +40,7 @@ function createAddress() {
     postCode: faker.address.zipCode,
   }
 }
-function createProduct() {
+function createProduct(opts) {
   return {
     id: faker.random.uuid(),
     title: faker.lorem.words(3),
@@ -48,6 +48,7 @@ function createProduct() {
     subtitle: faker.lorem.sentence(),
     price: _.random(20, 200, true).toFixed(2),
     country: arrayElement(['japan', 'america', 'english']),
+    ...opts,
   }
 }
 function createIdentity() {

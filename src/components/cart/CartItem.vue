@@ -1,7 +1,7 @@
 <template lang="pug">
 .item
   check-box(:checked="item.checked", @click="toggle({id: product.id})")
-  img(:src="product.images[0]")
+  img.image(:src="product.images[0]")
   .detail
     .info
       span {{product.title}}
@@ -25,7 +25,7 @@ export default {
   computed: {
     ...mapState({products: (state) => state.product.products}),
     product() {
-      return this.products[item.product]
+      return this.products[this.item.product]
     }
   },
   methods: {
@@ -39,8 +39,12 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .item
+  padding 0.2rem
   display flex
+  align-items center
+  border-bottom solid 1px lightgray
   img
+    margin-left 0.2rem
     width 1.2rem
     height 1.2rem
   .detail

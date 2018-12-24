@@ -9,8 +9,8 @@
         .main
           .img-wrapper
             img(src="http://dummyimage.com/140x140", alt="")
-          div {{msg.subtitle}}
-        .footer(v-if="msg.hasMore", @click="goDetail(msg.id)")
+          div {{msg.digest}}
+        .footer(v-if="msg.content", @click="goDetail(msg.id)")
           span 查看更多
           span &gt;
 
@@ -19,6 +19,7 @@
 import faker from 'faker'
 import _ from 'lodash'
 import moment from 'moment'
+import {mapState, mapActions} from 'vuex'
 
 function formatTime(d) {
   return moment(d).format('YYYY年MM月DD日 HH:mm ')
@@ -38,14 +39,23 @@ export default {
   name: 'MessagePage',
   data() {
     return {
-      messages: _.range(0, 3).map(() => createMessage()),
+      // messages: _.range(0, 3).map(() => createMessage()),
     }
   },
+  created() {
+    if(this.messages.length ===0) {
+      this.fetchMessages()
+    }
+  },
+  computed: {
+    ...mapState({messages: s => s.user.me.messages})
+  },
   methods: {
-    goDetail(id) {
-      this.$navigator.push('MessageDetail', {id})
+    goDetail(mid) {
+      this.$navigator.push('MessageDetail', {mid})
     },
     formatTime,
+    ...mapActions({fetchMessages: 'user/fetchMessages'})
   }
 }
 </script>

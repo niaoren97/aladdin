@@ -9,6 +9,7 @@
 <script>
 import faker from 'faker'
 import moment from 'moment'
+import {mapState} from 'vuex'
 
 function formatTime(d) {
   return moment(d).format('YYYY年MM月DD日 HH:mm ')
@@ -26,9 +27,18 @@ function createMessage() {
 
 export default {
   name: 'MessageDetail',
+  props: ['mid'],
   data() {
     return {
-      message: createMessage()
+      // message: createMessage()
+    }
+  },
+  computed:{
+    messages(){
+      return this.$store.state.user.me.messages
+    },
+    message(){
+      return this.messages.find(m => m.id === this.mid)
     }
   },
   methods: {

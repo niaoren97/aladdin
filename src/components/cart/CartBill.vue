@@ -2,7 +2,7 @@
 .container
   .header
     check-box(:checked="allChecked", @click="")
-    span {{group}}
+    span.group {{group}}
   .items
     cart-item(v-for="item in items", :key="item.id",
       :item="item", :editing="editing")
@@ -49,4 +49,15 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+.container
+  margin-bottom 0.2rem
+  background-color #fff
+.header
+  height 0.8rem
+  padding 0.2rem
+  display flex
+  align-items center
+  border-bottom solid 1px lightgray
+  .group
+    margin-left 0.2rem
 </style>
