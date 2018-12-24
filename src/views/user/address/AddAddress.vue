@@ -41,7 +41,17 @@ export default {
       console.log("info", info);
       this.cityInfo = info;
     },
-    submit() {}
+    submit() {},
+    // vuex仓库的使用，对应address.js对地址进行存储
+    addAddress(){
+      this.$store.dispatch('address/addAddress',{
+      name: this.name,
+      phone: this.phone,
+      address: this.address,
+      detail: this.detail,
+      cityInfo: this.cityInfo,
+      })
+    }
   },
   computed: {
     //cityName 为选择的省市区名称

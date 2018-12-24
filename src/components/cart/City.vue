@@ -24,7 +24,7 @@
 /**
  *  省 市 区/县城  三联动选择器
  */
-import provinces from "@/assets/provinces.js";
+import provinces from "../../../public/provinces.js";
 export default {
   name: "app",
   created() {},

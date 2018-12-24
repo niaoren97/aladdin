@@ -1,6 +1,6 @@
 <template lang="pug">
 .single-page
-  navigation-bar(:title='结算中心')
+  navigation-bar(:title="'结算中心'")
   .content
     // 修改地址 
     changeaddr
