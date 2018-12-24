@@ -9,7 +9,7 @@ import Cart from '@/views/cart/Cart.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 
 // 测试路由接口
-import have from '@/views/cart/CartHave.vue'
+import order from '@/views/cart/ConfirmOrder.vue'
 
 Vue.use(Router)
 
@@ -29,11 +29,10 @@ const router = new Router({
       ],
     },
     {
-      path: '/h',
-      component: have,
+      path: '/o',
+      component: order,
     },
   ],
 })
-
 
 export default router

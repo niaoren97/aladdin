@@ -2,8 +2,8 @@
   <div class="top">
     <div class="rb"></div>
     <div class="address">
-      <img src="../../assets/cart-img/add.png" alt>
-      <span>添加收货地址</span>
+      <img @click="push()" src="../../assets/cart-img/add.png" alt>
+      <span >添加收货地址</span>
     </div>
     <div class="rb"></div>
 
@@ -19,10 +19,17 @@
 export default {
   name: "addr",
   data() {
-    return {};
+    return {
+
+    };
   },
-  components: {},
-  props: {}
+  components: {
+  },
+  methods:{
+    push() {
+     this.$navigator.push('AddAddress')
+    }
+  }
 };
 </script>
 

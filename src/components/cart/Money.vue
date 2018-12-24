@@ -24,6 +24,7 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .money {
+  background-color #fff
   display: flex;
   flex-wrap wrap
   justify-content: space-between;

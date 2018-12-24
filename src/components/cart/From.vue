@@ -1,51 +1,40 @@
 <template>
   <div class="wrap">
     <div class="from">
-      <check></check>
+      <check @click="$emit('click')" :checked="checked"></check>
       <img class="feiji" src="../../assets/cart-img/feiji.png" alt>
-      <span :key="item.key" v-for="item in data">{{item.where}}</span>
+      <span>{{title}}</span>
     </div>
   </div>
 </template>
 
 <script>
-import check from '@/components/cart/Check.vue'
+import check from "@/components/cart/Check.vue";
 export default {
-  data() {
-    return {
-      data: [{ where: "日本直邮" }],
-      bol: false
-    };
+  components: {
+    check: check
   },
-  methods: {
-    change() {
-      this.bol = !this.bol;
-    }
-  },
-  components:{
-    check:check
-  }
+  props:['title','checked']
 };
 </script>
 
 <style lang="stylus" scoped>
-.from {
+.from
   display flex
-  justify-content left 
+  justify-content left
   align-items center
   background-color #fff
-  text-align left 
-  padding  0.2rem 0.25rem 
-}
-.from span {
+  text-align left
+  padding 0.2rem 0.25rem
+
+.from span
   vertical-align middle
-}
-img {
-  width: 25px;
-  vertical-align: middle;
-}
-.feiji {
-  margin-left 0.2rem 
+
+img
+  width 25px
+  vertical-align middle
+
+.feiji
+  margin-left 0.2rem
   margin-right 0.1rem
-}
 </style>

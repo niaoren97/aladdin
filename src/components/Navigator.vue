@@ -85,6 +85,9 @@ import Laxinde from '@/views/stock/Laxinde'
 import SharePopup from '@/components/SharePopup'
 import PhotoPicker from '@/components/PhotoPicker'
 
+// 收货地址
+import AddAddress from '@/views/user/address/AddAddress'
+
 const Navigator = Vue.extend({
   data: function() {
     return {
@@ -155,6 +158,10 @@ const Navigator = Vue.extend({
     // modals
     SharePopup,
     PhotoPicker,
+    // 收货地址
+    AddAddress,
+
+
   },
   created() {
     Navigator.instance = this
