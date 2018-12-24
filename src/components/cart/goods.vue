@@ -1,5 +1,5 @@
 <template>
-<div class="wrap">
+<div >
 <div class="goods">
    <div class="from">海外直邮订单</div>
    <div class="center">
@@ -49,6 +49,7 @@ export default {
 
 <style scoped lang="stylus">
 .goods {
+  background-color #fff
   border-top 0.2rem solid #f2f2f2
   border-bottom 0.2rem solid #f2f2f2
 }

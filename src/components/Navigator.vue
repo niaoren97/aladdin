@@ -73,6 +73,9 @@ import StockProductDetail from '@/views/stock/StockProductDetail'
 import BrandDetail from '@/views/stock/BrandDetail'
 import Laxinde from '@/views/stock/Laxinde';
 
+// 收货地址
+import AddAddress from '@/views/user/address/AddAddress'
+
 const Navigator = Vue.extend({
   data: function() {
     return {
@@ -133,6 +136,10 @@ const Navigator = Vue.extend({
     StockHome,
     BrandDetail,
     Laxinde,
+    // 收货地址
+    AddAddress,
+
+
   },
   created() {
     Navigator.instance = this

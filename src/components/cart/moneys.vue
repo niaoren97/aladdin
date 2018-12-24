@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wra">
     <p class="moneys" :key="item.key" v-for="item in data1">
       <span>{{item.tit}}</span>
       <span class="price">{{item.price}}</span>
@@ -53,9 +53,12 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.wra {
+  background-color #fff
+}
 .moneys {
-  border-bottom: 0.1px solid #cccccc;
-  padding: 0.2rem 0.4rem;
+  border-bottom: 1px solid #cccccc;
+  padding: 0.2rem;
   display: flex;
   justify-content: space-between;
 }
@@ -65,6 +68,7 @@ export default {
 }
 
 .tixing {
+  background-color #fff
   padding: 0 5% 0.2rem;
   font-size: 16px;
   margin: 0.2rem auto;
@@ -80,6 +84,7 @@ export default {
 }
 
 .method {
+  background-color #fff
   display: flex;
   justify-content: space-between;
   padding: 0 5% 0.12rem;
@@ -88,6 +93,7 @@ export default {
 }
 
 .total {
+  background-color #fff
   padding: 0.3rem 5%;
   margin: 0.2rem auto;
   display: flex;
@@ -97,10 +103,12 @@ export default {
 }
 
 .pay {
+
   color: #f00;
 }
 
 .agree {
+  background-color #fff
   width: 95%;
   margin: 0 auto;
 }
