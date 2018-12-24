@@ -5,7 +5,7 @@
     .title {{title}}
     .subtitle {{subtitle}}
   .action(@click="$emit('info-click')")
-    span &lt;
+    span &gt;
 </template>
 <script>
 export default {

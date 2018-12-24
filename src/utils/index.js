@@ -47,6 +47,7 @@ function createProduct(opts) {
     images: [fakeImage(120, 120)],
     subtitle: faker.lorem.sentence(),
     price: _.random(20, 200, true).toFixed(2),
+    tariff: _.random(0,0.2, true).toFixed(4),
     country: arrayElement(['japan', 'america', 'english']),
     ...opts,
   }

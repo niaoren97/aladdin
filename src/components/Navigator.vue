@@ -35,7 +35,7 @@ import TimeSelling from '@/views/home/TimeSelling'
 import CategorySearch from '@/views/category/CategorySearch'
 // user-center
 import UserCenter from '@/views/user/UserCenter'
-import ClientService from '@/views/user/UserCenter'
+import ClientService from '@/views/user/ClientService'
 import UserInfo from '@/views/user/info/UserInfo'
 import AvatarUpdate from '@/views/user/info/AvatarUpdate'
 import InvitationUpdate from '@/views/user/info/InvitationUpdate'
