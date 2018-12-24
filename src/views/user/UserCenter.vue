@@ -2,25 +2,22 @@
 .page
   title-bar(title="个人中心")
     template(slot="left")
-      navigation-bar-item
         img(src="../../assets/user/message-circle.png")
     template(slot="right")
-      navigation-bar-item
         img(src="../../assets/tabs/message.png")
-      navigation-bar-item
         img(src="../../assets/user/cog.png")
   .content
     .header
-      .left
-        img.avatar(:src="me.avatar", alt="")
+      .top
+        img.avatar(:src="me.avatar", alt="", @click="goto('UserInfo')")
         span {{me.nickname}}
-      .right
+      .bottom
         button.cash(@click="goCash") 账户提现
     section-block
       list
-        list-item
+        .list-head
           span 我的订单
-          span(@click="goto('OrderStatusPage')") 查看所有订单
+          span(@click="goto('OrderStatusPage')") 查看所有订单 &gt;
         list-item
           .info(@click="goto('OrderStatusPage', {status: 'toPay'})")
             img(src='/static/user/to-pay.png')
@@ -46,13 +43,13 @@
             span {{me.lampPoints}}
             span 我的神灯值
           .info(@click="goto('Footprint')")
-            span {{me.footprintCount}}
+            span {{me.footprintCount || 0}}
             span 我的足迹
           .info(@click="goto('MyCoupon')")
-            span {{me.couponCount}}
+            span {{me.couponCount || 0}}
             span 我的优惠券
           .info(@click="goto('MyReview')")
-            span {{me.reviewCount}}
+            span {{me.reviewCount || 0}}
             span 我的心得
         list-item
           .info(@click="goto('MyIdentity')")
@@ -132,16 +129,39 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.hidden
-  display none
-
 .header
   height 2.4rem
+  // display flex
+  // justify-content space-between
+  background center/cover url('https://picsum.photos/720/240'), // picsum.photos/720/240
+    #fff;
+  background-color #fff
+  .top
+    height 1.6rem
+    display flex
+    padding-left 0.25rem
+    align-items center
+    color #fff
+    .avatar
+      width 1rem
+      height 1rem
+      border-radius 50%
+      margin-right 0.2rem
+  .bottom
+    padding-right 0.5rem
+    display flex
+    justify-content flex-end
+    button.cash
+      height 0.4rem     
+      line-height 0.4rem
+      border-radius 0.2rem
+      background-color rgba(30,30,30,0.6)
+      color #fff
+.list-head
   display flex
   justify-content space-between
-  background-image cover url('https://picsum.photos/720/240') // picsum.photos/720/240)
-  background-color #fff
-  // .left
+  padding 0.2rem
+  border-bottom solid   1px lightgray
 
 .info
   display flex
@@ -151,4 +171,8 @@ export default {
 
   span:first-child
     color red
+  img
+    width 0.5rem
+    height 0.5rem
+    margin-bottom 0.1rem
 </style>

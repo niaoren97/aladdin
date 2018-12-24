@@ -116,6 +116,9 @@ export default {
       const { id } = payload
       remove(state.reviews, (a) => a.id === id)
     },
+    updateProfile(state, { field, value }) {
+      state.me[field] = value
+    },
   },
   actions: {
     login({ commit, state }, { name, password }) {
@@ -148,6 +151,28 @@ export default {
       axios
         .get('/api/v1/user/message', { uid: state.id })
         .then((res) => (state.messages = res.data))
+    },
+    updateProfile({ commit, state }, { field, value }) {
+      commit('updateProfile', { field, value })
+      const oldValue = state.me[field]
+      axios
+        .post('/api/v1/user/update', { field, value, token: state.me.token })
+        .then((res) => {
+          if (res.status !== 200) {
+            // revert back
+            commit('updateProfile', { field, value: oldValue })
+          } else {
+            // TODO: ???
+          }
+        })
+    },
+    fetchOrders({ state, commit }) {
+      axios
+        .post('/api/v1/user/order', { token: state.me.token })
+        .then((res) => {
+          commit('order/addOrders', res.data)
+          state.me.orders = res.data.map((x) => x.id)
+        })
     },
   },
 }

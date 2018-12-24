@@ -6,13 +6,13 @@
       transition(:key="stack.opts.$id", :name="stack.opts.$animated ? 'slide' : ''", appear)
         navigation-stack
           component(:is='stack.comp', v-bind='stack.payload')
-  .modals(ref='modals', @click.self="dismissModal",v-if="modals.length > 0")
-    div.modal-mask
+  .modals(ref='modals', v-if="modals.length > 0")
+    div.modal-mask(@click.self="dismissModal")
     template(v-for='modal in modals')
       transition(:key='modal.opts.$id', name='modal', appear)
         //- navigation-stack
-        //- .position(:class="{modal.opts}")
-        component(:is='modal.comp', v-bind='modal.payload')
+        .position(:class="calcPosition(modal.opts.position)")
+          component(:is='modal.comp', v-bind='modal.payload.props', v-on="modal.payload.events")
 </template>
 
 <script>
@@ -59,6 +59,10 @@ import MyLamp from '@/views/user/lamp/MyLamp'
 import LampDetail from '@/views/user/lamp/LampDetail'
 import LampExchange from '@/views/user/lamp/LampExchange'
 
+// order
+import OrderStatusPage from '@/views/user/order/OrderStatusPage'
+import OrderDetail from '@/views/user/order/OrderDetail'
+
 // footprint
 import Footprint from '@/views/user/footprint/Footprint'
 
@@ -75,11 +79,11 @@ import MyCoupon from '@/views/user/coupon/MyCoupon'
 import StockHome from '@/views/stock/StockHome'
 import StockProductDetail from '@/views/stock/StockProductDetail'
 import BrandDetail from '@/views/stock/BrandDetail'
-import Laxinde from '@/views/stock/Laxinde';
-
+import Laxinde from '@/views/stock/Laxinde'
 
 // modals----------------
 import SharePopup from '@/components/SharePopup'
+import PhotoPicker from '@/components/PhotoPicker'
 
 const Navigator = Vue.extend({
   data: function() {
@@ -136,6 +140,10 @@ const Navigator = Vue.extend({
     MyIdentity,
     AddIdentity,
 
+    // order
+    OrderStatusPage,
+    OrderDetail,
+
     MyReview,
     MyCoupon,
     // 断货王商品详情页面
@@ -144,9 +152,9 @@ const Navigator = Vue.extend({
     BrandDetail,
     Laxinde,
 
-
     // modals
     SharePopup,
+    PhotoPicker,
   },
   created() {
     Navigator.instance = this
@@ -154,6 +162,8 @@ const Navigator = Vue.extend({
   },
   methods: {
     push(comp, payload, animated) {
+      // TODO: the payload should be same structure as modals:
+      // i.e. {props, events}
       if (this.modals.length === 0) {
         // console.log(comp, payload)
         if (animated === undefined) {
@@ -178,14 +188,25 @@ const Navigator = Vue.extend({
     // present a modal navigation stack
     presentModal(comp, payload, opts) {
       // this.presentingModal = true
-      this.modals.push({ comp, payload, opts: { $id: this.id++ } })
+      this.modals.push({ comp, payload, opts: { ...opts, $id: this.id++ } })
+      console.log('present modal: ', comp);
+      
     },
     dismissModal() {
       // this.presentingModal = false
-      if (this.modals.length > 0) this.modals.pop()
+
+      if (this.modals.length > 0) {
+        const last = this.modals.pop()
+        console.log('dissmiss modal: ', last.comp)
+      }
     },
     alert(x) {
       window.alert(x)
+    },
+    calcPosition(p) {
+      if (typeof p === 'string') return p
+      if (p instanceof Array) return p.join(' ')
+      return ''
     },
   },
 })
@@ -201,12 +222,14 @@ export default Navigator
   position fixed
   // overflow scroll
   z-index $stack-level
+
 .modals
   position fixed
   width 100vw
   height 100vh
   left 0
   top 0
+
 .modal-mask
   position absolute
   width 100%
@@ -224,4 +247,19 @@ export default Navigator
 
 .modal-enter, .modal-leave-to
   transform translateY(100%)
+
+.position
+  position absolute
+
+  &.bottom
+    bottom 0
+
+  &.left
+    left 0
+
+  &.top
+    top 0
+
+  &.right
+    right 0
 </style>

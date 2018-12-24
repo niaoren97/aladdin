@@ -11,7 +11,7 @@
       div 快去
         router-link.stroll(to='/home') 逛逛
         | 吧！
-    .cart(v-if="cart.items.length>0")
+    .cart(v-if="items.length>0")
       .head(@click="share")
         cart-bill(v-for="(g, country) in groups", :key="country",
           :items="g", :group="country", :editing="editing")
@@ -19,7 +19,7 @@
 
 <script>
 import _ from 'lodash'
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
 import faker from 'faker'
 import CartBill from '@/components/cart/CartBill'
 
@@ -28,26 +28,28 @@ function createItem() {
     id: faker.random.uuid(),
     title: faker.lorem.word(),
     spec: faker.lorem.word(),
-    tariff: _.random(0,0.2, true).toFixed(4)*100 + '%',
-    price: _.random(20,200),
+    tariff: _.random(0, 0.2, true).toFixed(4) * 100 + '%',
+    price: _.random(20, 200),
     count: 1,
     checked: false,
   }
 }
 export default {
-  name: "Cart",
+  name: 'Cart',
   data() {
     return {
       editing: false,
-    };
+    }
   },
   computed: {
-    ...mapState({items: state=>state.cart.items,
-    products: state=>state.product.products}),
+    ...mapState({
+      items: (state) => state.cart.items,
+      products: (state) => state.product.products,
+    }),
     groups() {
       // group by country
-      return _.groupBy(items, item => this.products[item.product].country)
-    } 
+      return _.groupBy(items, (item) => this.products[item.product].country)
+    },
   },
   methods: {
     edit(b) {
@@ -55,14 +57,13 @@ export default {
     },
     share() {
       // this.$navigator.presentModal('SharePopup', )
-    }
+    },
   },
   props: {},
   components: {
     CartBill,
-
-  }
-};
+  },
+}
 </script>
 
 <style scoped lang="stylus">

@@ -1,12 +1,12 @@
 <template lang="pug">
-ul(:style="extraStyle")
+ul(:style="extraStyle", :class="extraClass")
   slot  
 </template>
 
 <script>
 import ListItem from './ListItem.vue'
 export default {
-  props: ['extraStyle'],
+  props: ['extraStyle', 'extraClass'],
   components: {
     ListItem,
   }

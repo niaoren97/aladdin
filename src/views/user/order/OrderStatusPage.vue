@@ -20,21 +20,28 @@
 import OrderPreview from '@/components/OrderPreview'
 import { createOrder } from '@/utils'
 import {range} from 'lodash'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   name: 'OrderStatusPage',
   props: ['status'],
   data() {
     return {
-      orders: range(0,10).map(() => createOrder()),
+      // orders: range(0,10).map(() => createOrder()),
       filter: '',
       activeTab: ''
     }
   },
   created() {
     this.filter = this.status || 'all'
+    if(this.orders.lenght === 0) {
+      this.fetchOrders()
+    }
   },
   computed: {
+    orders() {
+      return this.$store.state.order.orders
+    },
     filteredOrders() {
       const ss = [
         'toPay',
@@ -54,7 +61,8 @@ export default {
   methods: {
     setStatus(s) {
       this.filter = s
-    }
+    },
+    ...mapActions({fetchOrders: 'user/fetchOrders'})
   }
 }
 </script>
