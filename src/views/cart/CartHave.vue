@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <template lang="pug">
 .single-page
   title-bar(:title="'购物车'")
@@ -36,53 +35,6 @@
       cgoods
       cgoods
       cgoods
-=======
-<template>
-  <div class="single-page">
-    <title-bar :title="'购物车'"></title-bar>
-    <div class="content">
-      <post></post>
-      <!-- <from @click="toggleAll" :title="'日本直邮'"  :checked=""></from> -->
-      <hgoods></hgoods><hgoods></hgoods>
-      <!-- 金额计算*************************** -->
-      <money></money>
-
-      <!-- 失效商品 -->
-      <div v-if="num==1" class="shixiao">
-        <div class="lose">
-          <img src="/static/cart-img/shi.png" alt>失效商品
-        </div>
-        <div class="shigoods">
-          <img :src="src" alt>
-          <div class="des">
-            <div class="tit">会呼吸的丝滑蜜粉</div>
-            <div class="guige">规格：蜜粉</div>
-            <div class="price">￥166.06</div>
-          </div>
-        </div>
-        <div class="clear">
-          <div class="shi" @click="clear()">清除失效商品</div>
-        </div>
-      </div>
-      <!-- 猜你喜欢 -->
-      <div class="guess">
-        <div class="top">
-          <p class="line"></p>
-          <span>猜你喜欢</span>
-          <p class="line"></p>
-        </div>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-        <cgoods></cgoods>
-      </div>
-    </div>
-  </div>
->>>>>>> e988a3e7e106f76206912825c1ceee6e3f9b8707
 </template>
 
 <script>

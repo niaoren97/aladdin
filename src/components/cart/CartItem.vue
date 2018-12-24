@@ -48,6 +48,7 @@ export default {
     width 1.2rem
     height 1.2rem
   .detail
+    flex 1
     .action
       display flex
       justify-content space-between
