@@ -18,8 +18,20 @@ export default {
     },
   },
   actions: {
-    addAddress({ dispatch, commit, rootState }, address) {
-      axios.post('/api/v1/address/create', { address })
+    addAddress({ commit, rootState }, address) {
+      axios
+        .post(
+          '/api/v1/user/address/creat',
+          { address },
+          {
+            headers: {
+              Authorization: `Bearer ${rootState.user.me.token}`,
+            },
+          }
+        )
+        .then((res) => {
+          commit('addAddress', res.data)
+        })
     },
   },
 }
