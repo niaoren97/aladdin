@@ -30,17 +30,19 @@ export default {
   actions: {
     fetchBy({ dispatch }, payload) {
       if (payload.category) {
-        dispatch('product/fetchByCateogry', payload.category, { root: true })
+        dispatch('fetchByCateogry', payload.category)
         return
       }
       if (payload.id) {
-        dispatch('product/fetchById', payload.id, { root: true })
+        dispatch('fetchById', payload.id)
         return
       }
     },
     fetchByCategory({ commit }, cid) {
       // c is id of category
-      axios.get('/api/v1/product/category', { cid }).then((res) => {})
+      axios
+        .get('/api/v1/product/category', { params: { cid } })
+        .then((res) => {})
     },
     fetchById({ commit }, id) {
       axios.get('/api/v1/product', { params: { id } }).then((res) => {
