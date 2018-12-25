@@ -16,23 +16,35 @@
 <script>
 import faker from 'faker'
 import _ from 'lodash'
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: 'SearchPage',
   data() {
     return {
-      hots: _.range(0,10).map(() => faker.lorem.word()),
       history: [],
       keyword: '',
     }
   },
+  created() {
+    this.fetchHot()
+  },
+  computed: {
+    ...mapState({ hots: (s) => s.search.hot }),
+  },
   methods: {
-    clearHistory() {
-
+    ...mapMutations({
+      clearHistory: 'search/clearHistory',
+      addHistory: 'search/addHistory',
+    }),
+    fetchHot() {
+      this.$store.dispatch('search/fetchHots')
     },
     search() {
-      this.$navigator.push('SearchResultPage')
-    }
-  }
+      this.addHistory(this.keyword)
+      this.$navigator.push('SearchResultPage', {keyword: this.keyword})
+    },
+  },
 }
 </script>
 
@@ -40,12 +52,14 @@ export default {
 .page
   min-height 100vh
   background-color #F2F2F2
+
 .hots
   background-color #fff
   padding 0.2rem
   height 2rem
   display flex
   flex-wrap wrap
+
   .hot
     height 0.2rem
     border-radius 0.1rem
@@ -53,14 +67,17 @@ export default {
     padding 0 0.1rem
     line-height 0.2rem
     text-align center
+
 .his
   border-bottom solid 1px lightgray
+  padding 0.1 0.2rem
+
 button.clear
+  display block
   width 60%
   margin auto
   height 0.4rem
-  border-radius 0.2rem 
-  text-align left
+  border-radius 0.2rem
   line-height 0.4rem
   border solid 1px lightgray
 </style>

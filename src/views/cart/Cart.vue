@@ -3,7 +3,7 @@
   title-bar(title='购物车')
     template(slot="right")
       span(v-if="!editing",@click="edit(true)") 编辑
-      span(v-if="editing", @click="edit(false)") 取消
+      span(v-if="editing", @click="edit(false)") 完成
   .content
     .block(v-if="Object.keys(items).length===0")
       img.post(src='/static/cart-img/empty.png', alt='')

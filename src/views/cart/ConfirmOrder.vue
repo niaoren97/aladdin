@@ -26,7 +26,7 @@
     .line.bar(@click="toggleMore")
       span(v-if="showMore") ↑收起
       span(v-else) 
-        span(v-if="totalQuantity <=1") 共{{totalQuantity}}件
+        span(v-if=" groupItems.length <=1") 共{{totalQuantity}}件
         span(v-else) ↓ 展开(共{{totalQuantity}}件)
     .line 
       span 商品金额
@@ -76,8 +76,10 @@ export default {
     OrderItem,
   },
   methods: {
+    ...mapActions({sendOrder: 'order/createOrder'}),
     toggleMore(){
-      this.showMore = !this.showMore
+      if(this.groupItems.length>1)
+        this.showMore = !this.showMore
     },
     push() {
       this.$navigator.push('AddAddress')
@@ -86,6 +88,15 @@ export default {
       return this.products[id]
     },
     editAddress() {},
+    confirmOrder() {
+      // when user confirm, the order is sent to server and generate a 
+      // new `toPay` order.
+      this.sendOrder({cb: this.goSettle});
+
+    },
+    goSettle(orderID) {
+      this.$navigator.push('SettlementCenter', {oid: orderID})
+    }
   },
   computed: {
     ...mapState({

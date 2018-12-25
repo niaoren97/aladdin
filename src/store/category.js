@@ -6,11 +6,11 @@ export default {
   namespaced: true,
   state: {
     categories: {
-      1: {
-        id: 1,
-        title: 'example',
-        tags: [],
-      },
+      // 1: {
+      //   id: 1,
+      //   title: 'example',
+      //   tags: [],
+      // },
     },
   },
   mutations: {
@@ -18,9 +18,9 @@ export default {
       Vue.set(state.categories[cid], 'tags', tags)
       // state.categories[cid].tags = tags
     },
-    addCateogries(state, payload) {
+    addCategories(state, payload) {
       payload.forEach((cat) => {
-        Vue.set(state.categories, cat.id, cat)
+        Vue.set(state.categories, cat.id, { tags: [], ...cat })
       })
     },
   },
@@ -28,7 +28,7 @@ export default {
     fetchCategories({ commit }) {
       axios.get('/api/v1/category/all').then((res) => {
         // state.categories = res.data
-        commit('cateogry/addTags', res.data, {root: true})
+        commit('addCategories', res.data)
       })
     },
     /**
@@ -36,14 +36,17 @@ export default {
      * @param {*} param0
      * @param {*} payload
      */
-    getTags({ state }, cid) {
+    fetchTags({ state, commit }, cid) {
       if (
         state.categories[cid].tags.length === 0 ||
         typeof state.categories[cid].tags[0] === 'string'
       ) {
-        axios
-          .get('/api/v1/category/tags', { cid })
-          .then((res) => (state.categories[cid].tags = res.data))
+        axios.get('/api/v1/category/tags', { params: { cid } }).then((res) => {
+          // the tags should only contain tag id.
+          // (state.categories[cid].tags = res.data)
+          state.categories[cid].tags = res.data.map((t) => t.id)
+          commit('tag/addTags', res.data, { root: true })
+        })
       }
     },
   },

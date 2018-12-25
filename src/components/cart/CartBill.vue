@@ -49,30 +49,35 @@ export default {
     }
   },
   computed: {
+    checkedItems() {
+      return this.items.filter((i) => i.checked)
+    },
     allChecked() {
-      return this.items.find((i) => i.checked === false) ? false : true
+      // return this.items.find((i) => i.checked === false) ? false : true
+      return this.checkedItems.length === this.items.length
     },
     totalPrice() {
-      return this.items.reduce(
-        (sum, i) => sum + i.quantity * this.products[i.product].price,
-        0
-      ).toFixed(2)
+      return this.checkedItems
+        .reduce((sum, i) => sum + i.quantity * this.products[i.product].price, 0)
+        .toFixed(2)
     },
     totalTax() {
-      return this.items.reduce(
-        (sum, i) =>
-          sum +
-          i.quantity *
-            this.products[i.product].price *
-            this.products[i.product].tariff,
-        0
-      ).toFixed(2)
+      return this.checkedItems
+        .reduce(
+          (sum, i) =>
+            sum +
+            i.quantity *
+              this.products[i.product].price *
+              this.products[i.product].tariff,
+          0
+        )
+        .toFixed(2)
     },
     payPrice() {
       return (this.totalPrice - this.totalTax).toFixed(2)
     },
     totalQuantity() {
-      return this.items.reduce((sum, i) => sum + i.quantity, 0)
+      return this.checkedItems.reduce((sum, i) => sum + i.quantity, 0)
     },
     ...mapState({ products: (s) => s.product.products }),
   },
@@ -88,13 +93,14 @@ export default {
       })
     },
     checkout() {
-      this.$navigator.push('ConfirmOrder', {group: this.group })
+      this.$navigator.push('ConfirmOrder', { group: this.group })
     },
   },
 }
 </script>
 <style lang="stylus" scoped>
-$primary = #E53E42 
+$primary = #E53E42
+
 .container
   margin-bottom 0.2rem
   background-color #fff
@@ -108,6 +114,7 @@ $primary = #E53E42
 
   .group
     margin-left 0.2rem
+
 .line
   padding 0.2rem
   padding-left 0.6rem
@@ -115,8 +122,10 @@ $primary = #E53E42
   display flex
   color #333
   justify-content space-between
+
   span:nth-child(2)
     color $primary
+
   .checkout
     height 0.5rem
     margin-left auto
@@ -127,6 +136,7 @@ $primary = #E53E42
     padding 0 0.2rem
     border none
     outline none
+
     &:disabled
       background-color gray
 </style>

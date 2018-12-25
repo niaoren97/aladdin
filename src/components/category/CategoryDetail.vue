@@ -11,58 +11,82 @@
       span {{p.title}}
 </template>
 <script>
-import { range } from "lodash";
-import faker from "faker";
-import { createProduct, fakeImage } from "@/utils";
+import { range } from 'lodash'
+import faker from 'faker'
+import { mapState } from 'vuex'
+import { createProduct, fakeImage } from '@/utils'
 function createTag() {
   return {
     id: faker.random.uuid(),
     title: faker.lorem.word(),
-    image: fakeImage(120, 120)
-  };
+    image: fakeImage(120, 120),
+  }
 }
-const hans = ["日本", "英国", "美国", "澳洲", "中国"];
+const hans = ['日本', '英国', '美国', '澳洲', '中国']
 export default {
-  name: "CategoryDetail",
-  props: ["category"],
+  name: 'CategoryDetail',
+  props: ['category'],
   data() {
     return {
-      countries: ["japan", "england", "america", "australia", "china"].map(
+      countries: ['japan', 'england', 'america', 'australia', 'china'].map(
         (c, index) => ({
           id: index,
           icon: `/static/country/${c}.png`,
-          title: `${hans[index]}直邮`
+          title: `${hans[index]}直邮`,
         })
       ),
-      featuredImage: "http://dummyimage.com/500x200",
-      tags: range(0, 12).map(() => createTag())
-    };
+      featuredImage: 'http://dummyimage.com/500x200',
+      // tags: range(0, 12).map(() => createTag()),
+    }
   },
   beforeUpdate() {
-    console.log(this.category);
+    console.log(this.category)
   },
   computed: {
-
+    ...mapState({
+      allTags: (s) => s.tag.tags,
+      categories: (s) => s.category.categories,
+    }),
+    tags() {
+      if (this.category !== 0) {
+        return this.categories[this.category].tags.reduce((ts, t) => {
+          ts.push(this.allTags[t])
+          return ts
+        }, [])
+      }
+      return []
+    },
   },
   watch: {
     category() {
-      console.log(this.category);
-      // TODO: update from tags
-
-    }
+      console.log(this.category)
+      // category 0 is the 推荐 页面
+      if (
+        this.category !== 0 &&
+        this.categories[this.category].tags.length === 0
+      ) {
+        this.fetchTags(this.category)
+      }
+    },
   },
   methods: {
+    fetchTags(cid) {
+      this.$store.dispatch('category/fetchTags', cid)
+    },
     goDetail() {
-      this.$navigator.push("CategorySearch", { category: this.category });
+      this.$navigator.push('CategorySearch', { category: this.category })
     },
     goWith(p) {
-      this.$navigator.push("CategorySearch", {
+      this.$navigator.push('CategorySearch', {
         category: this.category,
-        preFilters: { countries: p.country ? [p.country] : [], tags: p.tag ?[p.tag] : [] }
-      });
-    }
-  }
-};
+        preFilters: {
+          countries: p.country ? [p.country] : [],
+          tags: p.tag ? [p.tag] : [],
+        },
+      })
+    },
+  },
+}
 </script>
 <style lang="stylus" scoped>
 .detail

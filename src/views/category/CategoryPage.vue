@@ -79,6 +79,7 @@ export default {
 .sidebar
   width 1.8rem
   flex-shrink 0
+  overflow scroll
   height calc(100vh - 2rem)
   border-right solid 1px lightgray
   background-color #fff

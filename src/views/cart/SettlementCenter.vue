@@ -31,6 +31,8 @@
 <script>
 import changeaddr from "@/components/cart/Chaddr.vue";
 import check from "@/components/cart/Check.vue";
+import {mapState} from 'vuex'
+
 export default {
   name: 'SettlementCenter',
   data() {
