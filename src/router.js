@@ -9,8 +9,8 @@ import Cart from '@/views/cart/Cart.vue'
 import StockHome from '@/views/stock/StockHome.vue'
 
 // 测试路由接口
-// import AddAddress from '@/views/cart/Pay.vue'
-import AddAddress from '@/views/user/address/AddAddress.vue'
+import review from '@/views/user/review/MyReview.vue'
+// import AddAddress from '@/views/user/address/AddAddress.vue'
 
 Vue.use(Router)
 
@@ -30,8 +30,8 @@ const router = new Router({
       ],
     },
     {
-      path: '/o',
-      component: AddAddress,
+      path: '/r',
+      component: review,
     },
   ],
 })
