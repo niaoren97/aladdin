@@ -33,6 +33,11 @@ import ExcellentChoice from '@/views/home/ExcellentChoice'
 import TimeSelling from '@/views/home/TimeSelling'
 // category
 import CategorySearch from '@/views/category/CategorySearch'
+
+// cart
+import ConfirmOrder from '@/views/cart/ConfirmOrder'
+import SettlementCenter from '@/views/cart/SettlementCenter'
+
 // user-center
 import UserCenter from '@/views/user/UserCenter'
 import ClientService from '@/views/user/ClientService'
@@ -115,14 +120,11 @@ const Navigator = Vue.extend({
     ExcellentChoice,
     TimeSelling,
 
-    UserCenter,
+// cart
+    ConfirmOrder,
+    SettlementCenter,
+
     ClientService,
-    UserInfo,
-    AvatarUpdate,
-    InvitationUpdate,
-    NicknameUpdate,
-    PhoneUpdate,
-    QRCodeUpdate,
 
     LoginOrRegister,
 
@@ -133,21 +135,30 @@ const Navigator = Vue.extend({
     OrderService,
     OtherAdvisory,
 
-    // lamp
+    // user
+    UserCenter,
+    // user - info
+    UserInfo,
+    AvatarUpdate,
+    InvitationUpdate,
+    NicknameUpdate,
+    PhoneUpdate,
+    QRCodeUpdate,
+    // user - lamp
     MyLamp,
     LampDetail,
     LampExchange,
-
+    // user - footprint
     Footprint,
-
+    // user - identity
     MyIdentity,
     AddIdentity,
-
-    // order
+    // user - order
     OrderStatusPage,
     OrderDetail,
-
+    // user = review
     MyReview,
+    // user =coupon
     MyCoupon,
     // 断货王商品详情页面
     StockProductDetail,
@@ -155,11 +166,10 @@ const Navigator = Vue.extend({
     BrandDetail,
     Laxinde,
 
+
     // modals
     SharePopup,
     PhotoPicker,
-    // 收货地址
-    AddAddress,
 
 
   },
@@ -213,7 +223,7 @@ const Navigator = Vue.extend({
     calcPosition(p) {
       if (typeof p === 'string') return p
       if (p instanceof Array) return p.join(' ')
-      return ''
+      return 'bottom left'
     },
   },
 })

@@ -28,7 +28,7 @@ function fakeImage(w, h, color) {
   color = color || 'fff'
   return `http://dummyimage.com/${w}x${h}/${color}`
 }
-function createAddress() {
+function createAddress(opts) {
   return {
     id: faker.random.uuid(),
     reciever: faker.name.findName(),
@@ -37,7 +37,8 @@ function createAddress() {
     area: faker.address.city(),
     county: faker.lorem.word(),
     detail: faker.address.secondaryAddress(),
-    postCode: faker.address.zipCode,
+    zipCode: faker.address.zipCode(),
+    ...opts,
   }
 }
 function createProduct(opts) {
@@ -46,9 +47,10 @@ function createProduct(opts) {
     title: faker.lorem.words(3),
     images: [fakeImage(120, 120)],
     subtitle: faker.lorem.sentence(),
+    postage: _.random(10,30),
     price: _.random(20, 200, true).toFixed(2),
     tariff: _.random(0,0.2, true).toFixed(4),
-    country: arrayElement(['japan', 'america', 'english']),
+    country: arrayElement(['japan', 'america', 'england']),
     ...opts,
   }
 }

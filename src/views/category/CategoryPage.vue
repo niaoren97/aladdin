@@ -51,7 +51,7 @@ export default {
     ...mapState({categories: state => state.category.categories})
   },
   methods: {
-    ...mapActions({getCategories: 'category/getCategories'}),
+    ...mapActions({getCategories: 'category/fetchCategories'}),
     changeTab(t) {
       this.activeCategory = t
       // get tags 

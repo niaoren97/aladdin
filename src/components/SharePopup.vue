@@ -7,6 +7,8 @@
   button(@click="$emit('cancel')") 取消
 </template>
 <script>
+// TODO: should add event listeners
+// to utilize in a props
 export default {
   name: 'SharePopup',
   props: ['link'],

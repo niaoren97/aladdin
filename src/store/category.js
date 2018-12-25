@@ -1,5 +1,6 @@
 // this repo contains category and tags
 import axios from 'axios'
+import Vue from 'vue'
 
 export default {
   namespaced: true,
@@ -13,14 +14,21 @@ export default {
     },
   },
   mutations: {
-    setTags({ state }, { cid, tags }) {
-      state.categories[cid].tags = tags
+    addTags(state, { cid, tags }) {
+      Vue.set(state.categories[cid], 'tags', tags)
+      // state.categories[cid].tags = tags
+    },
+    addCateogries(state, payload) {
+      payload.forEach((cat) => {
+        Vue.set(state.categories, cat.id, cat)
+      })
     },
   },
   actions: {
-    getCategories(state) {
+    fetchCategories({ commit }) {
       axios.get('/api/v1/category/all').then((res) => {
-        state.categories = res.data
+        // state.categories = res.data
+        commit('cateogry/addTags', res.data, {root: true})
       })
     },
     /**

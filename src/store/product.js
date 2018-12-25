@@ -28,14 +28,23 @@ export default {
     },
   },
   actions: {
-    getCategory({ commit }, payload) {
-      axios.get('/api/v1/product/category')
+    fetchBy({ dispatch }, payload) {
+      if (payload.category) {
+        dispatch('product/fetchByCateogry', payload.category, { root: true })
+        return
+      }
+      if (payload.id) {
+        dispatch('product/fetchById', payload.id, { root: true })
+        return
+      }
     },
-    getProduct({ commit }, payload) {
-      const { id } = payload
+    fetchByCategory({ commit }, cid) {
+      // c is id of category
+      axios.get('/api/v1/product/category', { cid }).then((res) => {})
+    },
+    fetchById({ commit }, id) {
       axios.get('/api/v1/product/byid', { id }).then((res) => {
-        const { data } = res
-        commit('addProduct', data)
+        commit('addProduct', res.data)
       })
     },
   },

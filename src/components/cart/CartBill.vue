@@ -87,7 +87,9 @@ export default {
         checked: !this.allChecked,
       })
     },
-    checkout() {},
+    checkout() {
+      this.$navigator.push('ConfirmOrder', {group: this.group })
+    },
   },
 }
 </script>

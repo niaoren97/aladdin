@@ -172,7 +172,7 @@ export default {
       axios
         .post('/api/v1/user/order', { token: state.me.token })
         .then((res) => {
-          commit('order/addOrders', res.data)
+          commit('order/addOrders', res.data, {root: true})
           state.me.orders = res.data.map((x) => x.id)
         })
     },
