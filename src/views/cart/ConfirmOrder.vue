@@ -76,10 +76,9 @@ export default {
     OrderItem,
   },
   methods: {
-    ...mapActions({sendOrder: 'order/createOrder'}),
-    toggleMore(){
-      if(this.groupItems.length>1)
-        this.showMore = !this.showMore
+    ...mapActions({ sendOrder: 'order/createOrder' }),
+    toggleMore() {
+      if (this.groupItems.length > 1) this.showMore = !this.showMore
     },
     push() {
       this.$navigator.push('AddAddress')
@@ -89,14 +88,13 @@ export default {
     },
     editAddress() {},
     confirmOrder() {
-      // when user confirm, the order is sent to server and generate a 
+      // when user confirm, the order is sent to server and generate a
       // new `toPay` order.
-      this.sendOrder({cb: this.goSettle});
-
+      this.sendOrder({ cb: this.goSettle })
     },
     goSettle(orderID) {
-      this.$navigator.push('SettlementCenter', {oid: orderID})
-    }
+      this.$navigator.push('SettlementCenter', { oid: orderID })
+    },
   },
   computed: {
     ...mapState({
@@ -175,14 +173,19 @@ $primary = #E03C41
   justify-content space-between
   padding 0.2rem
   border-bottom solid 1px lightgray
+
   span:nth-child(2)
     color $primary
+
 .bar
   margin-bottom 0.2rem
+
   span
     margin auto
+
 .block
   margin 0.2rem 0
+
 .top
   border-top 0.1rem solid #f2f2f2
 
@@ -206,8 +209,10 @@ $primary = #E03C41
   width 100%
   height 0.1rem
   background-image url('../../assets/cart-img/starts.png')
+
 .agree
   justify-content center
+
 .confirm
   display block
   border none
@@ -218,6 +223,7 @@ $primary = #E03C41
   background-color $primary
   border-radius 0.25rem
   color #fff
+
   &:disabled
     background-color gray
 </style>

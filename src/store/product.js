@@ -43,7 +43,7 @@ export default {
       axios.get('/api/v1/product/category', { cid }).then((res) => {})
     },
     fetchById({ commit }, id) {
-      axios.get('/api/v1/product/byid', { id }).then((res) => {
+      axios.get('/api/v1/product', { params: { id } }).then((res) => {
         commit('addProduct', res.data)
       })
     },

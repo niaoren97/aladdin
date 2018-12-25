@@ -106,15 +106,19 @@ export default {
     },
     removeCoupon(state, payload) {
       const { id } = payload
-      remove(state.coupons, (a) => a.id === id)
+      remove(state.me.coupons, (a) => a.id === id)
     },
 
     addReview(state, payload) {
-      state.reviews.push(payload)
+      payload.forEach((id) => {
+        if (!state.me.reviews.includes(id)) {
+          state.me.reviews.push(id)
+        }
+      })
     },
     removeReview(state, payload) {
       const { id } = payload
-      remove(state.reviews, (a) => a.id === id)
+      remove(state.me.reviews, (a) => a.id === id)
     },
     updateProfile(state, { field, value }) {
       state.me[field] = value
@@ -172,7 +176,7 @@ export default {
       axios
         .post('/api/v1/user/order', { token: state.me.token })
         .then((res) => {
-          commit('order/addOrders', res.data, {root: true})
+          commit('order/addOrders', res.data, { root: true })
           state.me.orders = res.data.map((x) => x.id)
         })
     },

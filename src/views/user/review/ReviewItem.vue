@@ -1,43 +1,43 @@
 <template lang="pug">
-.single-page
-  navigation-bar(title="我的心得")
-  .content 
-    review-item(v-for="r in myReviews", :key="r.id" :review="r.id")
-        
+.container
+  .mine 
+    div 
+      img(class="pic" :src="me.avatar") 
+      span(class="ni") | {{me.nickname}}     
+    .comment  {{realReview.content}}
+    //- .pictures
+    //-   img(class="picture" :src="src")
+    .product(v-if="product") 
+      img(class="image" :src="product.images[0]")
+      .description
+        p {{product.title}}
+        p {{product.country}} 海外直邮
+        p {{product.price}}
 </template>
 <script>
-import faker from 'faker'
 import { mapState, mapActions } from 'vuex'
-import ReviewItem from './ReviewItem'
 
 export default {
-  name: 'MyReview',
-  components: {
-    ReviewItem,
-  },
-  data() {
-    return {
-      // src: faker.image.avatar()
-    }
-  },
+  name: 'ReviewItem',
+  props: ['review'],
   created() {
-    if (this.myReviews.length === 0) this.fetchReview()
+    if (!this.product) this.fetchProduct({ id: this.realReview.about })
   },
   computed: {
     ...mapState({
       reviews: (s) => s.review.reviews,
-      ids: (s) => s.user.me.reviews,
+      products: (s) => s.product.products,
+      me: (s) => s.user.me,
     }),
-    myReviews() {
-      return this.ids.map((id) => this.reviews[id])
+    product() {
+      return this.products[this.realReview.about]
+    },
+    realReview() {
+      return this.reviews[this.review]
     },
   },
   methods: {
-    ...mapActions({ fetchReview: 'review/fetchReview' }),
-    // fetchReview() {
-    //   this.$store.dispatch('review/fetchReview')
-    // }
-
+    ...mapActions({ fetchProduct: 'product/fetchBy' }),
   },
 }
 </script>
