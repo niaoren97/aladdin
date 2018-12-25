@@ -1,5 +1,6 @@
 import faker from 'faker'
 import _ from 'lodash'
+import http from './http'
 
 const arrayElement = faker.random.arrayElement
 
@@ -47,9 +48,9 @@ function createProduct(opts) {
     title: faker.lorem.words(3),
     images: [fakeImage(120, 120)],
     subtitle: faker.lorem.sentence(),
-    postage: _.random(10,30),
+    postage: _.random(10, 30),
     price: _.random(20, 200, true).toFixed(2),
-    tariff: _.random(0,0.2, true).toFixed(4),
+    tariff: _.random(0, 0.2, true).toFixed(4),
     country: arrayElement(['japan', 'america', 'england']),
     ...opts,
   }
@@ -63,6 +64,7 @@ function createIdentity() {
     back: fakeImage(480, 320),
   }
 }
+
 export {
   Address,
   Coupon,
@@ -70,4 +72,5 @@ export {
   createAddress,
   createIdentity,
   createProduct,
+  http,
 }

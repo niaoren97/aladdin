@@ -91,6 +91,7 @@ import SharePopup from '@/components/SharePopup'
 import PhotoPicker from '@/components/PhotoPicker'
 
 // 收货地址
+import MyAddress from '@/views/user/address/MyAddress'
 import AddAddress from '@/views/user/address/AddAddress'
 
 const Navigator = Vue.extend({
@@ -156,6 +157,9 @@ const Navigator = Vue.extend({
     // user - order
     OrderStatusPage,
     OrderDetail,
+    // user - address
+    MyAddress,
+    AddAddress,
     // user = review
     MyReview,
     // user =coupon
