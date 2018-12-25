@@ -110,28 +110,29 @@ export default {
 };
 </script>
 
-<style scoped>
-.city-select {
-  display: -webkit-flex;
-  display: flex;
-  justify-content: space-around;
-  flex: 1
-}
-.select {
-  height: 48px;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  padding-left: 16px;
-  position: relative;
-}
-.select-icon {
-  display: inline-block;
-  width: 40px;
-  height: 48px;
-  background: #f2f2f2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border: 1px solid #d7d7d7;
-}
+<style lang="stylus" scoped>
+.city-select
+  display -webkit-flex
+  display flex
+  justify-content space-around
+  flex 1
+
+.select
+  height 48px
+  border-radius 2px
+  padding-left 16px
+  position relative
+  -webkit-appearance none
+  outline none
+  border none
+
+.select-icon
+  display inline-block
+  width 40px
+  height 48px
+  background #f2f2f2
+  position absolute
+  top 0
+  right 0
+  border 1px solid #d7d7d7
 </style>
