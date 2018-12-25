@@ -56,7 +56,7 @@
       <lafenbuy></lafenbuy>
       <promise></promise>
       <tips></tips>
-      <bottom></bottom>
+      <bottom class="btm"></bottom>
       <taix @back="toggleTaix()" v-if="taixShow"></taix>
       <service  @back="toggleService()" v-if="serviceShow"></service>
     </div>
@@ -141,10 +141,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.btn 
+  display fixed 
+  bottom 0
 // 顶部轮播图
 .content, .swiper
   background-color #fff
-
+.content
+  margin-bottom 3rem
 .page
   padding-top 1rem
 

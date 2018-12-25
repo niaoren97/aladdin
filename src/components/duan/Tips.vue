@@ -26,6 +26,7 @@ export default {
 .tips {
   background-color: #f2f2f2;
   padding: 0.2rem 0;
+  margin-bottom 1rem
 }
 .pic {
   text-align center}
