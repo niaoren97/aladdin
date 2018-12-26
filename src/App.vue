@@ -3,13 +3,7 @@
   router-view
 </template>
 <script>
-import Navigator from '@/components/Navigator.vue'
-
-export default {
-  components: {
-    Navigator,
-  },
-}
+export default {};
 </script>
 <style lang="stylus">
 #app

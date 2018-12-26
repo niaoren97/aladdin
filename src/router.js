@@ -29,6 +29,7 @@ const router = new Router({
         { path: 'user', component: UserCenter },
       ],
     },
+    // test接口
     {
       path: '/r',
       component: review,

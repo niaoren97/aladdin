@@ -22,8 +22,6 @@ export default {
 <style lang="stylus" scoped>
 .bottom
   width 100%
-  // display flex
-  // justify-content space-between
   background-color #fff
   position fixed
   bottom 0
